@@ -29,17 +29,26 @@
 - Explain the difference between deep learning and machine learning.
 - Describe regression and how it might be used to predict market behavior and trend analysis.
 
-**Big Data and Data Mining**:
+### Big Data and Data Mining
+
+**Summary**:
 - How Big Data is defined by the Vs: **Velocity**, **Volume**, **Variety**, **Veracity**, and **Value**.
 - How Hadoop and other tools, combined with distributed computing power,  are used to handle the demands of Big Data.
 - What skills are required to analyse Big Data.
 - About the process of Data Mining, and how it produces results.
 
 
-**Deep Learning and Machine Learning**:
+### Deep Learning and Machine Learning
 
 **Data Science** is the process and method for extracting knowledge and insights from large volumes of disparate data. It **involves** mathematics, statistical analysis, data visualization machine learning and more. It could use machine learning algorithms and deep learning models. It's a broad term encompasses the entire data processing methodology.
 
 **AI** includes everything that allows computers to learn how to solve problems and make intelligent decision. 
 
 Both AI and Data Science can involve the use of **Big Data**.
+
+
+**Summary**:
+- The differences between some common Data Science terms, including Deep Learning and Machine Learning.
+- Deep Learning is a type of Machine Learning that simulates human decision-making using neural networks.
+- Machine Learning has many applications, from recommender systems that provide relevant choices for customers on commercial websites, to detailed analysis of financial markets.
+- How to use regression to analyze data.
