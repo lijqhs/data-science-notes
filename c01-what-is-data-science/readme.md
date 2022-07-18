@@ -38,3 +38,8 @@
 
 **Deep Learning and Machine Learning**:
 
+**Data Science** is the process and method for extracting knowledge and insights from large volumes of disparate data. It **involves** mathematics, statistical analysis, data visualization machine learning and more. It could use machine learning algorithms and deep learning models. It's a broad term encompasses the entire data processing methodology.
+
+**AI** includes everything that allows computers to learn how to solve problems and make intelligent decision. 
+
+Both AI and Data Science can involve the use of **Big Data**.
