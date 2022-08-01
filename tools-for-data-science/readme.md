@@ -10,6 +10,10 @@
   - [JavaScript](#javascript)
   - [Julia](#julia)
 - [Data Science Tools](#data-science-tools)
+  - [Categories of Data Science Tools](#categories-of-data-science-tools)
+  - [Open Source Tools](#open-source-tools)
+  - [Commercial Tools](#commercial-tools)
+  - [Cloud Based Tools](#cloud-based-tools)
 
 ## Languages of Data Science
 
@@ -112,3 +116,146 @@ The SQL language is subdivided into several language elements, including clauses
 
 ## Data Science Tools
 
+### Categories of Data Science Tools
+
+
+<img src="res/tools.png" width="400"></img>
+
+
+- **Data Management** is the process of persisting and retrieving data. 
+- **Data Integration and Transformation**, often referred to as Extract, Transform, and Load, or “ETL,” is the process of retrieving data from remote data management systems. Transforming data and loading it into a local data management system is also part of Data Integration and Transformation. 
+- **Data Visualization** is part of an initial data exploration process, as well as being part of a final deliverable. 
+- **Model Building** is the process of creating a machine learning or deep learning model using an appropriate algorithm with a lot of data. 
+- **Model deployment** makes such a machine learning or deep learning model available to third-party applications. 
+- **Model monitoring and assessment** ensures continuous performance quality checks on the deployed models. These checks are for accuracy, fairness, and adversarial robustness. 
+- **Code Asset Management** uses versioning and other collaborative features to facilitate teamwork. 
+- **Data Asset Management** brings the same versioning and collaborative components to data. Data asset management also supports replication, backup, and access right management. 
+- **Development Environments**, commonly known as Integrated Development Environments, or "IDEs", are tools that help the data scientist to implement, execute, test, and deploy their work. 
+- **Execution Environments** are tools where data preprocessing, model training, and deployment take place. 
+- **Fully Integrated Visual Tools** covers all the previous tooling components, either partially or completely.
+
+
+### Open Source Tools
+
+- Data Management
+  - Relational databases:
+    - MySQL
+    - PostgreSQL
+  - NoSQL:
+    - MongoDB
+    - Apache CouchDB
+    - Apache Cassandra
+  - File-based:
+    - Hadoop File System
+    - Ceph, a Cloud File System
+    - Elasticsearch
+- Data Integration and Transformation (data refinery and cleansing)
+  - Apache AirFlow, originally created by AirBNB
+  - KubeFlow
+  - Apache Kafka, orginated from LinkedIn
+  - Apache Nifi, with a very nice visual editor
+  - Apache SparkSQL (ANSI SQL, scales up to 1000 nodes)
+  - NodeRED, with visual editor, can run on small devices like a Raspberry Pi
+- Data Visualization
+  - Hue, can create visualization from SQL queries
+  - Kibana, for Elasticsearch
+  - Apache Superset
+- Model Deployment
+  - Apache PredictionIO
+  - Seldon (supports TensorFlow, Apache SparkML, R, scikit-learn, can run on top of Kubernetes and Redhat OpenShift)
+  - MLeap
+  - TensorFlow Service. TensorFlow can serve any of its models using the TensorFlow Service.
+  - TensorFlow Lite, on a Raspberry Pi or a smartphone
+  - TensorFlow.JS, on a web browser
+- Model Monitoring
+  - ModelDB, a machine model metadatabase where information about the models are stored and can be queried
+  - Prometheus
+- Model Performance 
+  - IBM AI Fairness 360 open source toolkit (Model bias against protected groups like gender or race is also important)
+  - IBM Adversarial Robustness 360 (Machine learning models, especially neural-network-based deep learning models, can be subject to adversarial attacks, where an attacker tries to fool the model with manipulated data or by manipulating the model itself)
+  - IBM AI Explainability 360 Toolkit
+- Code Asset Management (version management or version control)
+  - Git
+    - GitHub
+    - GitLab
+    - Bitbucket
+- Data Asset Management (data governance or data lineage, crucial part of enterprise grade data science. Data has to be versioned and annotated with metadata)
+  - Apache Atlas
+  - ODPi Egeria
+  - Kylo, an open source data lake management software platform
+- Development Environments
+  - Jupyter
+    - Jupyter Notebooks
+    - JupyterLab
+  - Apache Zeppelin
+  - RStudio
+  - Spyder
+- Execution Environments
+  - Apache Spark, a batch data processing engine, capable of processing huge amounts of data file by file
+  - Apache Flink, a stream processing data processing engine, focus on processing real-time data streams
+  - Ray, focus on large-scale deep learning model training
+- Fully Integrated and Visual open source tools for data scientists
+  - KNIME
+  - Orange
+
+
+### Commercial Tools
+
+- Data Management
+  - Oracle
+  - Microsoft SQL Server
+  - IBM DB2
+- ETL
+  - Informatica Powercenter
+  - IBM InfoSphere DataStage
+  - SAP
+  - Oracle
+  - SAS
+  - Talend
+  - Watson Studio Desktop 
+    - Data Refinery
+- Data Visualization
+  - Tableau
+  - Microsoft Power BI
+  - IBM Cognos Analytics
+  - Watson Studio Desktop
+- Model Building (integrated with model deployment)
+  - SPSS Modeler, supports PMML (Predictive Model Markup Language)
+  - SAS Enterprise Miner
+- Data Asset Management
+  - Informatica Enterprise Data Governance
+  - IBM InfoSphere Information Governance Catalog
+- Fully Integrated Development Environment
+  - Watson Studio
+  - H2O Driverless AI
+
+### Cloud Based Tools
+
+Cloud products are a newer species, they follow the trend of having multiple tasks integrated in tools.
+
+- fully integrated visual tools
+  - Watson Studio
+  - Watson OpenScale
+  - Microsoft Azure Machine Learning
+  - H2O Driverless AI
+  
+Since operations and maintenance are not done by the cloud provider, as is the case with Watson Studio, Open Scale, and Azure Machine Learning, this delivery model should not be confused with Platform or Software as a Service -- PaaS or SaaS.
+
+- Data Management (SaaS, software-as-a-service, taking operational tasks away from the user)
+  - Amazon Web Services DynamoDB, a NoSQL database
+  - Cloudant, based on Apache CouchDB
+  - IBM offers DB2 as a service as well
+- ETL, ELT (SaaS)
+  - Informatica Cloud Data Integration
+  - IBM Data Refinery
+- Cloud Data Visualization
+  - DataMeer
+  - IBM Data Refinery
+- Model Building
+  - Watson Machine Learning
+  - Google AI Platform Training
+- Model Deployment (usually integrated in the model building process)
+  - SPSS Collaboration and Deployment Services
+  - SPSS Modeler supports exporting models as PMML
+  - Watson Machine Learning can also be used to deploy a model and make it available using a REST interface
+  - Amazon SageMaker Model Monitor
