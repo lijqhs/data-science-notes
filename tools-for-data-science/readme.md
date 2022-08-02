@@ -14,6 +14,21 @@
   - [Open Source Tools](#open-source-tools)
   - [Commercial Tools](#commercial-tools)
   - [Cloud Based Tools](#cloud-based-tools)
+- [Packages, APIs, Data Sets and Models](#packages-apis-data-sets-and-models)
+  - [Packages](#packages)
+  - [APIs](#apis)
+  - [Data Sets](#data-sets)
+    - [Where to find open data](#where-to-find-open-data)
+    - [Community Data License Agreement](#community-data-license-agreement)
+    - [The Data Asset eXchange](#the-data-asset-exchange)
+  - [Models](#models)
+    - [Supervised Learning](#supervised-learning)
+    - [Unsupervised Learning](#unsupervised-learning)
+    - [Reinforcement Learning](#reinforcement-learning)
+    - [Deep Learning Models](#deep-learning-models)
+    - [The Model Asset Exchange](#the-model-asset-exchange)
+- [RStudio IDE](#rstudio-ide)
+- [Git/GitHub](#gitgithub)
 
 ## Languages of Data Science
 
@@ -41,7 +56,7 @@ So if Python is open source and R is free software, what’s the difference?
 
 The SQL language is subdivided into several language elements, including clauses, expressions, predicates, queries, and statements.
 
-<img src="res/sql.png" width="400"></img>
+<img src="res/sql.png" width="500"></img>
 
 
 - Knowing SQL will help you do many different jobs in data science, including business and data analyst, and it's a must in data engineering and data science. 
@@ -119,7 +134,7 @@ The SQL language is subdivided into several language elements, including clauses
 ### Categories of Data Science Tools
 
 
-<img src="res/tools.png" width="400"></img>
+<img src="res/tools.png" width="500"></img>
 
 
 - **Data Management** is the process of persisting and retrieving data. 
@@ -259,3 +274,185 @@ Since operations and maintenance are not done by the cloud provider, as is the c
   - SPSS Modeler supports exporting models as PMML
   - Watson Machine Learning can also be used to deploy a model and make it available using a REST interface
   - Amazon SageMaker Model Monitor
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+
+## Packages, APIs, Data Sets and Models
+
+### Packages
+
+**Python Libraries**
+- Scientifics Computing Libraries
+  - Pandas, data structures & tools, built on top of Numpy
+  - Numpy, arrays & matrices
+- Visualization Libraries
+  - Matplotlib, plots & graphs, most popular
+  - Seaborn, plots: heat maps, time series, violin plots
+- Machine Learning and Deep Learning
+  - Scikit-learn, machine learning: regression, classification, ...
+  - Keras, deep learning: neural networks, ...
+- Deep Learning Libraries
+  - TensorFlow, deep learning: production and deployment
+  - PyTorch, for experimentation, deep learning: regression, classification, ...
+- Cluster-computer framework
+  - Apache Spark, data processing jobs can use Python, R, Scala, SQL
+
+
+**Scala Libraries**
+- Vegas, statistical data visualization, you can work with data files as well as Spark DataFrames
+- BigDL, deep learning
+
+**R Libraries**
+- ggplot2, data visualization
+
+### APIs
+
+The API is simply the interface. There are also multiple volunteer-developed APIs for TensorFlow; for example Julia, MATLAB, R, Scala, and many more. REST APIs are another popular type of API.
+
+They enable you to communicate using the internet, taking advantage of storage, greater data access, artificial intelligence algorithms, and many other resources. The RE stands for “Representational,” the S stands for “State,” the T stand for “Transfer.” In rest APIs, your program is called the “client.” The API communicates with a web service that you call through the internet. A set of rules governs Communication, Input or Request, and Output or Response.
+
+HTTP methods are a way of transmitting data over the internet We tell the REST APIs what to do by sending a request.
+
+The **request** is usually communicated through an HTTP message. The HTTP message usually contains a **JSON file**, which contains instructions for the operation that we would like the service to perform. This operation is transmitted to the web service over the internet. The service performs the operation. Similarly, the web service returns a **response** through an HTTP message, where the information is usually returned using a JSON file.
+
+### Data Sets
+
+#### Where to find open data
+
+- Open data portal list from around the world
+  - http://datacatalogs.org/
+- Governmental, intergovernmental and organization websites
+  - http://data.un.org/ (United Nations)
+  - https://www.data.gov/ (USA)
+  - https://www.europeandataportal.eu/en/ (Europe)
+- Kaggle
+  - https://www.kaggle.com/datasets
+- Google data set search
+  - https://datasetsearch.research.google.com/
+
+#### Community Data License Agreement
+
+- http://cdla.io - A Linux Foundation project
+- CDLA-Sharing: Permission to use and modify data; publication only under same terms
+- CDLA-Permissive: Permission to use and modify data; no obligations
+
+#### The Data Asset eXchange
+
+- Curated collection of data sets:
+  - From IBM Research and 3rd party
+  - Multiple application domains
+- Data Science friendly licenses
+
+### Models
+
+- Data can contain a wealth of information
+- Machine Learning models identify patterns in data
+- A model must be trained on data before it can be used to make predictions
+
+#### Supervised Learning
+
+- Data is labeled and model trained to make correct predictions
+
+Regression
+- Predict real number values
+- e.g. home sales prices, stock markdet prices
+
+Classification
+- Classify things into categories
+- e.g. email spam filters, fraud detection, image classification
+
+#### Unsupervised Learning
+
+- Data is not labeled
+- Model tries to identify patterns without external help
+- Common learning problems: clustering and anomaly detection
+
+#### Reinforcement Learning
+- Conceptually similar to human learning processes
+- e.g. a robot learning to walk; chess, Go and other games of skill
+
+#### Deep Learning Models
+- Build from scratch or download from public model repositories
+- Built using frameworks, such as:
+  - TensorFlow
+  - PyTorch
+  - Keras
+- Popular model repositories
+  - Most frameworks provides a "model zoo"
+  - ONNX model zoo
+
+#### The Model Asset Exchange
+
+
+<img src="res/model-asset-exchange.png" width="600"></img>
+
+
+- Free open-source deep learning microservices
+  - Use pre-trained or custom-trainable state-of-the-art models
+  - Fully tested, deploy in minutes
+  - Approved for personal and commercial use
+- Available for variety of domains:
+  - Object detection ("which objects are in this image")
+  - Image, audio, and text classification ("what is in this...")
+  - Named Entity recognition ("identify entities in text")
+  - Image-to-Text translation ("generate image caption")
+  - Human pose detection
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+
+## RStudio IDE
+
+Popular R Libraries for Data Science
+
+- dplyr. Data Manipulation
+- stringr. String Manipulation
+- ggplot. Data Visualization
+- caret. Machine Learning
+
+
+<img src="res/r_vis.png" width="600"></img>
+
+```R
+library(ggplot2)
+ggplot(mtcars, aes(x=mpg,y=wt))+geom_point()+ggtitle("Miles per gallon vs weight")+labs(y="weight", x="Miles per gallon")
+```
+
+GGally is an extension of ggplot2
+```R
+library(datasets)
+data(iris)
+library(GGally)
+ggpairs(iris, mapping=ggplot2::aes(colour = Species))
+```
+
+<img src="res/iris_ggally.png" width="600"></img>
+
+## Git/GitHub
+
+Basic Git Commands
+
+- init
+- add
+- status
+- commit
+- reset
+- log
+- branch
+- checkout
+- merge
+
+To learn more, visit https://try.github.io/
+
+
