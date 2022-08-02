@@ -29,6 +29,13 @@
     - [The Model Asset Exchange](#the-model-asset-exchange)
 - [RStudio IDE](#rstudio-ide)
 - [Git/GitHub](#gitgithub)
+- [Watson Studio](#watson-studio)
+  - [IBM Watson Knowledge Catalog](#ibm-watson-knowledge-catalog)
+  - [Data Refinery](#data-refinery)
+  - [Modeler flows](#modeler-flows)
+  - [AutoAI](#autoai)
+  - [Model Deployment](#model-deployment)
+  - [Watson Openscale](#watson-openscale)
 
 ## Languages of Data Science
 
@@ -456,3 +463,68 @@ Basic Git Commands
 To learn more, visit https://try.github.io/
 
 
+## Watson Studio
+
+### IBM Watson Knowledge Catalog
+
+- Find data
+- Catalog data
+- Govern data
+- Understand data
+- Power data science
+- Prepare data
+- Connect data
+- Deploy anywhere
+
+the catalog only contains **metadata**. You can have the data in unpremises data repositories in other IBM cloud services like Cloudant or Db2 on Cloud and in non-IBM cloud services like Amazon or Azure.
+
+Included in the metadata is how to access the data asset. In other words, the location and credentials. That means that anyone who is a member of the catalog and has sufficient permissions can get to the data without knowing the credentials or having to create their own connection to the data.
+
+### Data Refinery
+
+Simplifying Data Preparation
+
+- Cleansing, Shaping, and Preparing data take up a lot of Data Scientist's time
+- These tasks come in the way of the more enjoyable parts of Data Science: analyzing data and building ML models
+- Data sets are typically not readily consumable. They need to be refined and cleansed
+- IBM Data Refinery simplifies these tasks with an interactive visual interface that enables self-service data preparation
+- Data Refinery comes with Watson Studio - on Public/Private Cloud and Desktop
+
+
+Which features of Data Refinery help save hours and days of data preparation?
+
+- Flexibility of using Intuitive user interface and coding templates enabled with powerful operations to shape and clean data.
+- Data visualization and profiles to spot the difference and guide data preparation steps.
+- Incremental snapshots of the results allowing the user to gauge success with each iterative change.
+- Saving, editing and fixing the steps provide ability to iteratively fix the steps in the flow.
+
+### Modeler flows
+
+XGBoost is a very popular model, representing gradient-boosted ensemble of decision trees. The algorithm was discovered relatively recently and has been used in many solutions and winning data science competitions. In this case, it created a model with the highest accuracy, which "won" as well. "C&RT" stands for Classification and Regression Tree", a decision tree algorithm that is widely used. This is the same decision tree we saw earlier when we built it separately. "LE" is "linear engine", an IBM implementation of linear regression model that includes automatic interaction detection.
+
+IBM SPSS Modeler and Watson Studio Modeler flows allow you to graphically create a stream or flow that includes data transformation steps and machine learning models. Such sequences of steps are called **data pipelines** or **ML pipelines**. 
+
+### AutoAI
+
+AutoAI provides automatic finding of optimal data preparation steps, model selection, and hyperparameter optimization.
+
+### Model Deployment
+
+- **PMML**. Open standards for model deployment are designed to support model exchange between a wider variety of proprietary and open source models. **Predictive Model Markup Language**, or **PMML**, was the first such standard, based on XML. It was created in the 1990s by the Data Mining Group, a group of companies working together on the open standards for predictive model deployment.
+- **PFA**. In 2013, a demand for a new standard grew, one that did not describe models and their features, but rather the scoring procedure directly, and one that was based on JSON rather than XML. This led to the creation of **Portable Format for Analytics**, or **PFA**. PFA is now used by a number of companies and open source packages. After 2012, deep learning models became widely popular. Yet PMML and PFA did not react quickly enough to their proliferation.
+- **ONNX**. In 2017, Microsoft and Facebook created and open-sourced **Open Neural Network Exchange**, or **ONNX**. Originally created for neural networks, this format was later extended to support “traditional machine learning” as well. There are currently many companies working together to further develop and expand ONNX, and a wide range of products and open source packages are adding support for it.
+
+### Watson Openscale
+
+
+
+<img src="res/openscale.png" width="600"></img>
+
+
+Insurance underwriters can use machine learning and Openscale to more consistently and accurately assess claims risk, ensure fair outcomes for customers, and explain AI recommendations for regulatory and business intelligence purposes. 
+
+Before an AI model is put into production it must prove it can make accurate predictions on test data, a subset of its training data; however, over time, production data can begin to look different than training data, causing the model to start making less accurate predictions. This is called **drift**.
+
+IBM Watson Openscale monitors a model's accuracy on production data and compares it to accuracy on its training data. When a difference in accuracy exceeds a chosen threshold Openscale generates an alert. Watson Openscale reveals which transactions caused drift and identifies the top transaction features responsible. 
+
+The transactions causing drift can be sent for manual labeling and use to retrain the model so that its predictive accuracy does not drop at run time. 
