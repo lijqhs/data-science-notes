@@ -1,26 +1,16 @@
 # Data Science Methodology  <!-- omit in toc -->
 
-## Week 1
-
-Learning Objective: 
-
-- List the six key stages of the Cross-Industry Process for Data Mining Methodology (CRISP-DM), an industry-standard data science methodology.
-- Analyze the first four phases of CRISP-DM.
-- Apply the first four phases of the data science methodology to a case study.
-- Write clearly defined questions that address a business problem.
-- Analyze a case study to determine data requirements.
-- Apply the data science methodology to a case study.
-- Determine data content, data formats, and data sources prior to data collection and data preparation phases.
-- Create a decision tree to classify outcomes in a case study.
-- Identify appropriate data sources to address a business problem.
-
-
+- [What is CRISP-DM?](#what-is-crisp-dm)
+- [From Problem to Approach](#from-problem-to-approach)
+- [From Requirements to Collection](#from-requirements-to-collection)
+- [From Understanding to Preparation](#from-understanding-to-preparation)
+- [From Modeling to Evaluation](#from-modeling-to-evaluation)
+- [From Deployment to Feedback](#from-deployment-to-feedback)
 
 <img src="res/methodology.png" width="700"></img>
 
 
-
-### What is CRISP-DM?
+## What is CRISP-DM?
 
 The CRISP-DM methodology is a process aimed at increasing the use of data mining over a wide variety of business applications and industries. The intent is to take case specific scenarios and general behaviors to make them domain neutral. CRISP-DM is comprised of six steps with an entity that has to implement in order to have a reasonable chance of success. The six steps are shown in the following diagram:
 
@@ -36,7 +26,7 @@ The CRISP-DM methodology is a process aimed at increasing the use of data mining
 1. Deployment In the deployment step, the model is used on new data outside of the scope of the dataset and by new stakeholders. The new interactions at this phase might reveal the new variables and needs for the dataset and model. These new challenges could initiate revision of either business needs and actions, or the model and data, or both.
 
 
-### From Problem to Approach
+## From Problem to Approach
 
 - Business understanding. What is the problem that you are trying to solve?
 - Analytic approach. How can you use data to answer the question?
@@ -62,7 +52,7 @@ If the question requires a yes/no answer
 
 [Jupyter Notebook](res/DS0103EN-Exercise-From-Problem-to-Approach.ipynb)
 
-### From Requirements to Collection
+## From Requirements to Collection
 
 - The significance of defining the data requirements for your model.
 - Why the content, format, and representation of your data matter.   
@@ -74,7 +64,7 @@ If the question requires a yes/no answer
 [Jupyter Notebook](res/DS0103EN-Review-From-Requirements-to-Collection.ipynb)
 
 
-### From Understanding to Preparation
+## From Understanding to Preparation
 
 - Descriptive statistics
   - Univarate statistics
@@ -93,7 +83,7 @@ Summary
 [Jupyter Notebook](res/DS0103EN-Exercise-From-Understanding-to-Preparation.ipynb)
 
 
-### From Modeling to Evaluation
+## From Modeling to Evaluation
 
 [**ROC**](https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc) stands for receiver operating characteristic curve, which was first developed during World War II to detect enemy aircraft on radar. 
 
@@ -111,7 +101,7 @@ The ROC curve is a useful diagnostic tool in determining the optimal classificat
 - The purpose of statistical significance tests.
 - That modeling and evaluation are iterative processes.
 
-### From Deployment to Feedback
+## From Deployment to Feedback
 
 - The importance of stakeholder input.
 - To consider the scale of deployment.
