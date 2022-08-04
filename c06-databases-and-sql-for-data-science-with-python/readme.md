@@ -72,7 +72,7 @@ Available as:
 - VMs or Managed Service
 - Single or Multi-tenant
 
-<img src="res/db-service.png" width="700"></img>
+<img src="res/db-service.png" width="500"></img>
 
 
 SQL Statement types
@@ -307,10 +307,10 @@ select E.EMP_ID,E.F_NAME,E.L_NAME, J.JOB_TITLE from employees E, jobs J where E.
 
 
 
-<img src="res/sql-api.png" width="700"></img>
+<img src="res/sql-api.png" width="500"></img>
 
 
-<img src="res/db-APIs.png" width="700"></img>
+<img src="res/db-APIs.png" width="500"></img>
 
 Concepts of the Python DB API
 
