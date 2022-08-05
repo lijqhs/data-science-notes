@@ -357,3 +357,8 @@ cursor methods:
 
 
 <img src="res/db-api-py.png" width="400"></img>
+
+
+[Jupyter Notebook: Creating tables, inserting and querying Data](res/DB0201EN-Week3-1-2-Querying-v4-py.ipynb)
+
+[Jupyter Notebook: Accessing Databases with SQL magic](res/DB0201EN-Week3-1-3-SQLmagic-v3-py.ipynb)
