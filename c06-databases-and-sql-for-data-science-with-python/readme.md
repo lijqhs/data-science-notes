@@ -1,5 +1,16 @@
 # Databases and SQL for Data Science with Python <!-- omit in toc -->
 
+- [Basic SQL](#basic-sql)
+- [Relational Database](#relational-database)
+- [Refine your results](#refine-your-results)
+- [Functions, Multiple Tables, and Sub-queries](#functions-multiple-tables-and-sub-queries)
+  - [Built-in Database Functions](#built-in-database-functions)
+    - [Aggregate or Column Functions](#aggregate-or-column-functions)
+    - [Scalar and string functions](#scalar-and-string-functions)
+    - [Date and time built-in functions](#date-and-time-built-in-functions)
+  - [Sub-Queries and Nested Selects](#sub-queries-and-nested-selects)
+  - [Multiple Tables](#multiple-tables)
+- [Accessing databases using Python](#accessing-databases-using-python)
 ## Basic SQL
 
 What is SQL?
@@ -225,7 +236,7 @@ select (RESCUEDATE + 3 DAYS) from PETRESCUE;
 select (CURRENT DATE - RESCUEDATE) from PETRESCUE;
 ```
 
-#### Sub-Queries and Nested Selects
+### Sub-Queries and Nested Selects
 
 
 
@@ -261,7 +272,7 @@ Select * from (select EMP_ID, F_NAME, L_NAME, DEP_ID from employees) AS EMP4ALL
 ```
 
 
-#### Multiple Tables
+### Multiple Tables
 
 Accessing Multiple Tables with Sub-Queries
 
