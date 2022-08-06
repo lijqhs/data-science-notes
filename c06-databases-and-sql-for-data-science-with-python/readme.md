@@ -11,6 +11,11 @@
   - [Sub-Queries and Nested Selects](#sub-queries-and-nested-selects)
   - [Multiple Tables](#multiple-tables)
 - [Accessing databases using Python](#accessing-databases-using-python)
+- [Working with real-world datasets and getting table and column details](#working-with-real-world-datasets-and-getting-table-and-column-details)
+- [Views](#views)
+- [Stored Procedures](#stored-procedures)
+- [ACID](#acid)
+- [JOIN statements](#join-statements)
 ## Basic SQL
 
 What is SQL?
@@ -70,7 +75,7 @@ Mapping Entity Diagrams to Tables
 - Attributes get translated into columns
 
 
-<img src="res/cloud-db.png" width="700"></img>
+<img src="res/cloud-db.png" width="500"></img>
 
 Examples of Cloud databases
 - IBM Db2
@@ -362,3 +367,219 @@ cursor methods:
 [Jupyter Notebook: Creating tables, inserting and querying Data](res/DB0201EN-Week3-1-2-Querying-v4-py.ipynb)
 
 [Jupyter Notebook: Accessing Databases with SQL magic](res/DB0201EN-Week3-1-3-SQLmagic-v3-py.ipynb)
+
+[Analyzing a real world data-set with SQL and Python](res/DB0201EN-Week3-1-4-Analyzing-v5-py.ipynb)
+
+## Working with real-world datasets and getting table and column details
+
+```sql
+%sql select TABSCHEMA, TABNAME, CREATE_TIME from SYSCAT.TABLES where TABSCHEMA='YOUR-DB2-USERNAME'
+
+or, you can retrieve list of all tables where the schema name is not one of the system created ones:
+
+%sql select TABSCHEMA, TABNAME, CREATE_TIME from SYSCAT.TABLES \
+      where TABSCHEMA not in ('SYSIBM', 'SYSCAT', 'SYSSTAT', 'SYSIBMADM', 'SYSTOOLS', 'SYSPUBLIC')
+      
+or, just query for a specifc table that you want to verify exists in the database
+%sql select * from SYSCAT.TABLES where TABNAME = 'SCHOOLS'
+```
+
+Working with a real world data-set using SQL and Python
+
+[Chicago Public Schools - Progress Report Cards](res/DB0201EN-Week4-1-1-RealDataPractice-v5.ipynb)
+
+## Views
+
+Syntax of a `CREATE VIEW` statement:
+```sql
+CREATE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
+
+Syntax of a `REPLACE VIEW` statement:
+```sql
+CREATE OR REPLACE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
+
+Syntax of a `DROP VIEW` statement:
+```sql
+DROP VIEW view_name;
+```
+
+## Stored Procedures
+
+```sql
+--#SET TERMINATOR @
+CREATE PROCEDURE RETRIEVE_ALL       -- Name of this stored procedure routine
+
+LANGUAGE SQL                        -- Language used in this routine 
+READS SQL DATA                      -- This routine will only read data from the table
+
+DYNAMIC RESULT SETS 1               -- Maximum possible number of result-sets to be returned to the caller query
+
+BEGIN 
+
+    DECLARE C1 CURSOR               -- CURSOR C1 will handle the result-set by retrieving records row by row from the table
+    WITH RETURN FOR                 -- This routine will return retrieved records as a result-set to the caller query
+    
+    SELECT * FROM PETSALE;          -- Query to retrieve all the records from the table
+    
+    OPEN C1;                        -- Keeping the CURSOR C1 open so that result-set can be returned to the caller query
+
+END
+@                                   -- Routine termination character
+```
+
+```sql
+--#SET TERMINATOR @
+CREATE PROCEDURE UPDATE_SALEPRICE ( 
+    IN Animal_ID INTEGER, IN Animal_Health VARCHAR(5) )     -- ( { IN/OUT type } { parameter-name } { data-type }, ... )
+
+LANGUAGE SQL                                                -- Language used in this routine
+MODIFIES SQL DATA                                           -- This routine will only write/modify data in the table
+
+BEGIN 
+
+    IF Animal_Health = 'BAD' THEN                           -- Start of conditional statement
+        UPDATE PETSALE
+        SET SALEPRICE = SALEPRICE - (SALEPRICE * 0.25)
+        WHERE ID = Animal_ID;
+    
+    ELSEIF Animal_Health = 'WORSE' THEN
+        UPDATE PETSALE
+        SET SALEPRICE = SALEPRICE - (SALEPRICE * 0.5)
+        WHERE ID = Animal_ID;
+        
+    ELSE
+        UPDATE PETSALE
+        SET SALEPRICE = SALEPRICE
+        WHERE ID = Animal_ID;
+
+    END IF;                                                 -- End of conditional statement
+    
+END
+@                                                           -- Routine termination character
+```
+
+## ACID
+
+
+<img src="res/transaction.png" width="400"></img>
+
+<img src="res/transaction-acid.png" width="400"></img>
+
+<img src="res/acid-commands.png" width="400"></img>
+
+<img src="res/acid-commands-calling.png" width="400"></img>
+
+<img src="res/acid-summary.png" width="400"></img>
+
+
+## JOIN statements
+
+- **inner join**, which displays only the rows from two tables that have matching value in a common column, usually the primary key of one table that exists as a foreign key in the second table.
+  ```sql
+  SELECT * FROM table1
+      JOIN table2
+      ON relation;
+  ```
+  <img src="res/inner-join.png" width="400"></img>
+  <img src="res/inner-result.png" width="400"></img>
+- **outer joins**, which return matching rows, and even the rows from one or the other table that don’t match. 
+  - left join
+    ```sql
+    SELECT columns
+    FROM table1
+    LEFT JOIN table2
+    ON relation;
+    ```
+    <img src="res/left-join.png" width="400"></img>
+  - right join
+    ```sql
+    SELECT columns
+    FROM table1
+    RIGHT JOIN table2
+    ON relation;
+    ```
+    <img src="res/right-join.png" width="400"></img>
+  - full join
+    ```sql
+    SELECT columns
+    FROM table1
+    FULL JOIN table2
+    ON relation;
+    ```
+    <img src="res/full-join.png" width="400"></img>
+
+The biggest difference between an INNER JOIN and an OUTER JOIN is that the inner join will keep only the information from both tables that's related to each other (in the resulting table). An Outer Join, on the other hand, will also keep information that is not related to the other table in the resulting table.
+
+There are three types of Outer Join: LEFT JOIN, RIGHT JOIN, and FULL JOIN. The differences between them involve which unrelated data they keep – it can be from the first table, from the second, or from both of them. The cells without data to fill will have a value of NULL.
+
+Examples:
+```sql
+--- Query1A ---
+select E.F_NAME,E.L_NAME, JH.START_DATE 
+	from EMPLOYEES as E 
+	INNER JOIN JOB_HISTORY as JH on E.EMP_ID=JH.EMPL_ID 
+	where E.DEP_ID ='5'
+;	
+--- Query1B ---	
+select E.F_NAME,E.L_NAME, JH.START_DATE, J.JOB_TITLE 
+	from EMPLOYEES as E 
+	INNER JOIN JOB_HISTORY as JH on E.EMP_ID=JH.EMPL_ID 
+	INNER JOIN JOBS as J on E.JOB_ID=J.JOB_IDENT
+	where E.DEP_ID ='5'
+;
+--- Query 2A ---
+select E.EMP_ID,E.L_NAME,E.DEP_ID,D.DEP_NAME
+	from EMPLOYEES AS E 
+	LEFT OUTER JOIN DEPARTMENTS AS D ON E.DEP_ID=D.DEPT_ID_DEP
+;	
+--- Query 2B ---
+select E.EMP_ID,E.L_NAME,E.DEP_ID,D.DEP_NAME
+	from EMPLOYEES AS E 
+	LEFT OUTER JOIN DEPARTMENTS AS D ON E.DEP_ID=D.DEPT_ID_DEP 
+	where YEAR(E.B_DATE) < 1980
+;
+--- alt Query 2B ---
+select E.EMP_ID,E.L_NAME,E.DEP_ID,D.DEP_NAME
+	from EMPLOYEES AS E 
+	INNER JOIN DEPARTMENTS AS D ON E.DEP_ID=D.DEPT_ID_DEP 
+	where YEAR(E.B_DATE) < 1980
+;
+--- Query 2C ---
+select E.EMP_ID,E.L_NAME,E.DEP_ID,D.DEP_NAME
+	from EMPLOYEES AS E 
+	LEFT OUTER JOIN DEPARTMENTS AS D ON E.DEP_ID=D.DEPT_ID_DEP 
+	AND YEAR(E.B_DATE) < 1980
+;
+--- Query 3A ---
+select E.F_NAME,E.L_NAME,D.DEP_NAME
+	from EMPLOYEES AS E 
+	FULL OUTER JOIN DEPARTMENTS AS D ON E.DEP_ID=D.DEPT_ID_DEP
+;
+--- Query 3B ---
+select E.F_NAME,E.L_NAME,D.DEPT_ID_DEP, D.DEP_NAME
+	from EMPLOYEES AS E 
+	FULL OUTER JOIN DEPARTMENTS AS D ON E.DEP_ID=D.DEPT_ID_DEP AND E.SEX = 'M'
+;
+--- alt Query 3B ---
+select E.F_NAME,E.L_NAME,D.DEPT_ID_DEP, D.DEP_NAME
+	from EMPLOYEES AS E 
+	LEFT OUTER JOIN DEPARTMENTS AS D ON E.DEP_ID=D.DEPT_ID_DEP AND E.SEX = 'M'
+;
+```
+
+Summary
+
+- A join combines the rows from two or more tables based on a relationship between certain columns in these tables.
+- To combine data from three or more different tables, you simply add new joins to the SQL statement. 
+- There are two types of table joins: inner join and outer join; and three types of outer joins: left outer join, right outer join, and full outer join. 
+- The most common type of join is the inner join, which matches the results from two tables and returns only the rows that match.
+- You can use an alias as shorthand for a table or column name.
+- You can use a self-join to compare rows within the same table.
