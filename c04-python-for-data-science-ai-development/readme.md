@@ -1,4 +1,4 @@
-#   <!-- omit in toc -->
+# Python for Data Science, AI & Development  <!-- omit in toc -->
 
 ## Working with Data in Python
 
