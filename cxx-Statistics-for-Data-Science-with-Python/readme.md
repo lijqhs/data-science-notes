@@ -40,12 +40,12 @@ This course is one of courses in the [Data Science Fundamentals with Python and 
 df.info()
 ```
 
-<img src="res/population-sample.png" width="500"></img>
+<img src="res/population-sample.png" width="450"></img>
 
 
-<img src="res/mean.png" width="500"></img>
+<img src="res/mean.png" width="450"></img>
 
-<img src="res/median.png" width="500"></img>
+<img src="res/median.png" width="450"></img>
 
 <img src="res/mode.png" width="500"></img>
 
@@ -75,7 +75,7 @@ df.describe()
 - The step-by-step approach for designing presentations of complex or controversial information in ways that drive people to action.
 
 
-<img src="res/chart-suggestion.png" width="800"></img>
+<img src="res/chart-suggestion.png" width="900"></img>
 
 - `seaborn`
 - `matplotlib`
