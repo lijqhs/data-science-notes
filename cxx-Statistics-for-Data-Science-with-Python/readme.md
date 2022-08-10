@@ -1,6 +1,6 @@
 # Statistics for Data Science with Python  <!-- omit in toc -->
 
-This course is one of courses in the [Data Science Fundamentals with Python and SQL Specialization](https://www.coursera.org/specializations/data-science-fundamentals-python-sql), which is useful for the analysis but not included in this Data Science Professional Certificate.
+This course is one of courses in the [Data Science Fundamentals with Python and SQL Specialization](https://www.coursera.org/specializations/data-science-fundamentals-python-sql), which is useful for data analysis but not included in this Data Science Professional Certificate.
 
 - [Introduction and Descriptive Statistics](#introduction-and-descriptive-statistics)
   - [Types of Data](#types-of-data)
@@ -70,6 +70,17 @@ df.describe()
 [Jupyter Notebook: Descriptive Statistics](res/Descriptive_Stats.ipynb)
 
 ## Data Visualization
+
+[The Extreme Presentation Method](https://extremepresentation.com/):
+- The step-by-step approach for designing presentations of complex or controversial information in ways that drive people to action.
+
+
+<img src="res/chart-suggestion.png" width="800"></img>
+
+- `seaborn`
+- `matplotlib`
+
+[Jupyter Notebook: Visualizing Data](res/Visualizing_Data.ipynb)
 
 ## Introduction to Probability Distribution
 
