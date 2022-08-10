@@ -75,7 +75,7 @@ df.describe()
 - The step-by-step approach for designing presentations of complex or controversial information in ways that drive people to action.
 
 
-<img src="res/chart-suggestion.png" width="900"></img>
+<img src="res/chart-suggestion.png" width="1000"></img>
 
 - `seaborn`
 - `matplotlib`
