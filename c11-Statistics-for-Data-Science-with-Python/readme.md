@@ -208,3 +208,5 @@ Linear regression is a linear relationship between the response variable and pre
 
 <img src="res/regression-corr.png" width="400"></img>
 
+
+[Jupyter Notebook: Regression Analysis](res/Regression_Analysis.ipynb)
