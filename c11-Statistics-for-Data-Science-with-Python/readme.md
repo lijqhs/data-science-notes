@@ -15,6 +15,9 @@ This course is one of courses in the [Data Science Fundamentals with Python and 
   - [ANOVA](#anova)
   - [Correlation Test](#correlation-test)
 - [Regression Analysis](#regression-analysis)
+  - [Regression in place of t - test](#regression-in-place-of-t---test)
+  - [Regression in place of ANOVA](#regression-in-place-of-anova)
+  - [Regression in place of Correlation](#regression-in-place-of-correlation)
 
 ## Introduction and Descriptive Statistics
 
@@ -186,3 +189,22 @@ See also:
 
 
 ## Regression Analysis
+
+Linear regression is a linear relationship between the response variable and predictor variables. It can be used to predict the value of a continuous variable, based on the value of another continuous variable. The t-test statistic helps to determine the correlation between the response and the predictor variables. A one-sample t-test will be used in linear regression to test the null hypothesis that the slope or the coefficient is equal to zero. In the case of the multiple regression model, the null hypothesis is that the coefficient of each of the predictor variables is equal to zero.
+
+### Regression in place of t - test
+
+<img src="res/regression-t-test.png" width="400"></img>
+
+<img src="res/regression-t-test1.png" width="400"></img>
+
+### Regression in place of ANOVA
+
+<img src="res/regression-anova1.png" width="400"></img>
+
+<img src="res/regression-anova2.png" width="400"></img>
+
+### Regression in place of Correlation
+
+<img src="res/regression-corr.png" width="400"></img>
+
