@@ -7,21 +7,27 @@ This course is one of courses in the [Data Science Fundamentals with Python and 
   - [Measure of Central Tendency](#measure-of-central-tendency)
   - [Measure of Dispersion](#measure-of-dispersion)
     - [Reliability](#reliability)
+  - [Jupyter Notebook: Descriptive Statistics](#jupyter-notebook-descriptive-statistics)
 - [Data Visualization](#data-visualization)
+  - [Jupyter Notebook: Visualizing Data](#jupyter-notebook-visualizing-data)
 - [Introduction to Probability Distribution](#introduction-to-probability-distribution)
   - [Hypothesis Test](#hypothesis-test)
+  - [Jupyter Notebook: T Test](#jupyter-notebook-t-test)
   - [Z test or T test](#z-test-or-t-test)
   - [Levene's Test](#levenes-test)
   - [ANOVA](#anova)
   - [Correlation Test](#correlation-test)
+  - [Jupyter Notebook: Hypothesis Testing](#jupyter-notebook-hypothesis-testing)
 - [Regression Analysis](#regression-analysis)
   - [Regression in place of t - test](#regression-in-place-of-t---test)
   - [Regression in place of ANOVA](#regression-in-place-of-anova)
   - [Regression in place of Correlation](#regression-in-place-of-correlation)
+  - [Jupyter Notebook: Regression Analysis](#jupyter-notebook-regression-analysis)
 - [Cheat Sheet for Statistical Analysis in Python](#cheat-sheet-for-statistical-analysis-in-python)
   - [Descriptive Statistics](#descriptive-statistics)
   - [Data Visualization](#data-visualization-1)
   - [Hypothesis Testing](#hypothesis-testing)
+  - [Jupyter Notebook: Final Project](#jupyter-notebook-final-project)
 
 ## Introduction and Descriptive Statistics
 
@@ -78,7 +84,7 @@ df.describe()
 - Average statistics are incomplete without standard deviation/variance
 - Risk metrics are all about variance
 
-[Jupyter Notebook: Descriptive Statistics](res/Descriptive_Stats.ipynb)
+### [Jupyter Notebook: Descriptive Statistics](res/Descriptive_Stats.ipynb)
 
 ## Data Visualization
 
@@ -91,7 +97,7 @@ df.describe()
 - `seaborn`
 - `matplotlib`
 
-[Jupyter Notebook: Visualizing Data](res/Visualizing_Data.ipynb)
+### [Jupyter Notebook: Visualizing Data](res/Visualizing_Data.ipynb)
 
 ## Introduction to Probability Distribution
 
@@ -132,7 +138,7 @@ plt.show()
 <img src="res/hypothesis-t-test.png" width="500"></img>
 
 
-[Jupyter Notebook: T Test](res/Introduction_to_probability_distribution.ipynb)
+### [Jupyter Notebook: T Test](res/Introduction_to_probability_distribution.ipynb)
 
 
 ### Z test or T test
@@ -188,7 +194,7 @@ See also:
 - [Pivot table](https://en.wikipedia.org/wiki/Pivot_table)
 
 
-[Jupyter Notebook: Hypothesis Testing](res/Hypothesis_Testing.ipynb)
+### [Jupyter Notebook: Hypothesis Testing](res/Hypothesis_Testing.ipynb)
 
 
 
@@ -213,7 +219,7 @@ Linear regression is a linear relationship between the response variable and pre
 <img src="res/regression-corr.png" width="400"></img>
 
 
-[Jupyter Notebook: Regression Analysis](res/Regression_Analysis.ipynb)
+### [Jupyter Notebook: Regression Analysis](res/Regression_Analysis.ipynb)
 
 ## Cheat Sheet for Statistical Analysis in Python
 
@@ -260,4 +266,4 @@ Here is a quick summary for creating graphs and plots:
 - To run the tests using Regression analysis, you will need the `OLS()` from the `statsmodels` library. When running these tests using regression analysis, you have `fit()` the model, make predictions using `predict()` and print out the model summary using `model.summary()`.
 
 
-[Jupyter Notebook: Final Project](res/Coursera_DataScience_Stat_Project.ipynb)
+### [Jupyter Notebook: Final Project](res/Coursera_DataScience_Stat_Project.ipynb)

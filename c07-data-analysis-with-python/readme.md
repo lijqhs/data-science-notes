@@ -2,12 +2,14 @@
 
 - [Datasets](#datasets)
   - [Exporting to different formats in Python](#exporting-to-different-formats-in-python)
+  - [Jupyter Notebook: Import data](#jupyter-notebook-import-data)
 - [Preprocessing Data in Python](#preprocessing-data-in-python)
   - [How to deal with missing data](#how-to-deal-with-missing-data)
   - [Data Formatting in Python](#data-formatting-in-python)
   - [Data Normalization in Python](#data-normalization-in-python)
   - [Binning](#binning)
   - [Turning categorical variables into quantitative variables in Python](#turning-categorical-variables-into-quantitative-variables-in-python)
+  - [Jupyter Notebook: Preprocessing data](#jupyter-notebook-preprocessing-data)
 
 ## Datasets
 
@@ -49,7 +51,7 @@ Basic insights from the data
 <img src="res/db-api.png" width="500"></img>
 
 
-[Jupyter Notebook: Import data](res/DA0101EN-Review-Introduction.jupyterlite.ipynb)
+### [Jupyter Notebook: Import data](res/DA0101EN-Review-Introduction.jupyterlite.ipynb)
 
 ## Preprocessing Data in Python
 
@@ -123,7 +125,7 @@ df["price-binned"] = pd.cut(df["price"], bins, labels=group_names, include_lowes
 
 <img src="res/onehot2.png" width="450"></img>
 
-[Jupyter Notebook: Preprocessing data](res/DA0101EN-2-Review-Data-Wrangling.ipynb)
+### [Jupyter Notebook: Preprocessing data](res/DA0101EN-2-Review-Data-Wrangling.ipynb)
 
 
 
