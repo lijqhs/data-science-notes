@@ -2,9 +2,13 @@
 
 - [What is CRISP-DM?](#what-is-crisp-dm)
 - [From Problem to Approach](#from-problem-to-approach)
+  - [Jupyter Notebook](#jupyter-notebook)
 - [From Requirements to Collection](#from-requirements-to-collection)
+  - [Jupyter Notebook](#jupyter-notebook-1)
 - [From Understanding to Preparation](#from-understanding-to-preparation)
+  - [Jupyter Notebook](#jupyter-notebook-2)
 - [From Modeling to Evaluation](#from-modeling-to-evaluation)
+  - [Jupyter Notebook](#jupyter-notebook-3)
 - [From Deployment to Feedback](#from-deployment-to-feedback)
 
 <img src="res/methodology.png" width="700"></img>
@@ -50,7 +54,7 @@ If the question is to show relationships
 If the question requires a yes/no answer
 - use a classification model
 
-[Jupyter Notebook](res/DS0103EN-Exercise-From-Problem-to-Approach.ipynb)
+### [Jupyter Notebook](res/DS0103EN-Exercise-From-Problem-to-Approach.ipynb)
 
 ## From Requirements to Collection
 
@@ -61,7 +65,7 @@ If the question requires a yes/no answer
 - To anticipate the needs of future stages in the process.
 
 
-[Jupyter Notebook](res/DS0103EN-Review-From-Requirements-to-Collection.ipynb)
+### [Jupyter Notebook](res/DS0103EN-Review-From-Requirements-to-Collection.ipynb)
 
 
 ## From Understanding to Preparation
@@ -80,7 +84,7 @@ Summary
 - Data understanding is iterative; you learn more about your data the more you study it. 
 
 
-[Jupyter Notebook](res/DS0103EN-Exercise-From-Understanding-to-Preparation.ipynb)
+### [Jupyter Notebook](res/DS0103EN-Exercise-From-Understanding-to-Preparation.ipynb)
 
 
 ## From Modeling to Evaluation
@@ -90,7 +94,7 @@ Summary
 The ROC curve is a useful diagnostic tool in determining the optimal classification model. This curve quantifies how well a binary classification model performs, declassifying the yes and no outcomes when some discrimination criterion is varied. In this case, the criterion is a relative misclassification cost. By plotting the true-positive rate against the false-positive rate for different values of the relative misclassification cost, the ROC curve helped in selecting the optimal model.
 
 
-[Jupyter Notebook](res/DS0103EN-Exercise-From-Modeling-to-Evaluation.ipynb)
+### [Jupyter Notebook](res/DS0103EN-Exercise-From-Modeling-to-Evaluation.ipynb)
 
 [Introduction to Machine Learning Google Crash Course](https://developers.google.com/machine-learning/crash-course/ml-intro)
 
