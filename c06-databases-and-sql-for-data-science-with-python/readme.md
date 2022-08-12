@@ -11,7 +11,11 @@
   - [Sub-Queries and Nested Selects](#sub-queries-and-nested-selects)
   - [Multiple Tables](#multiple-tables)
 - [Accessing databases using Python](#accessing-databases-using-python)
+  - [Jupyter Notebook: Creating tables, inserting and querying Data](#jupyter-notebook-creating-tables-inserting-and-querying-data)
+  - [Jupyter Notebook: Accessing Databases with SQL magic](#jupyter-notebook-accessing-databases-with-sql-magic)
+  - [Jupyter Notebook: Analyzing a real world data-set with SQL and Python](#jupyter-notebook-analyzing-a-real-world-data-set-with-sql-and-python)
 - [Working with real-world datasets and getting table and column details](#working-with-real-world-datasets-and-getting-table-and-column-details)
+  - [Jupyter Notebook: Chicago Public Schools - Progress Report Cards](#jupyter-notebook-chicago-public-schools---progress-report-cards)
 - [Views](#views)
 - [Stored Procedures](#stored-procedures)
 - [ACID](#acid)
@@ -108,6 +112,12 @@ SQL Statement types
     - update
     - delete
 
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
 ## Refine your results
 
 - `distinct` clause
@@ -186,6 +196,12 @@ HAVING count(*) < 4
 ORDER BY AVG_SALARY;
 
 ```
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
 
 ## Functions, Multiple Tables, and Sub-queries
 
@@ -319,6 +335,12 @@ select E.EMP_ID,E.F_NAME,E.L_NAME, J.JOB_TITLE from employees E, jobs J where E.
 ;
 ```
 
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
 ## Accessing databases using Python
 
 
@@ -364,11 +386,18 @@ cursor methods:
 <img src="res/db-api-py.png" width="400"></img>
 
 
-[Jupyter Notebook: Creating tables, inserting and querying Data](res/DB0201EN-Week3-1-2-Querying-v4-py.ipynb)
+### [Jupyter Notebook: Creating tables, inserting and querying Data](res/DB0201EN-Week3-1-2-Querying-v4-py.ipynb)
 
-[Jupyter Notebook: Accessing Databases with SQL magic](res/DB0201EN-Week3-1-3-SQLmagic-v3-py.ipynb)
+### [Jupyter Notebook: Accessing Databases with SQL magic](res/DB0201EN-Week3-1-3-SQLmagic-v3-py.ipynb)
 
-[Analyzing a real world data-set with SQL and Python](res/DB0201EN-Week3-1-4-Analyzing-v5-py.ipynb)
+### [Jupyter Notebook: Analyzing a real world data-set with SQL and Python](res/DB0201EN-Week3-1-4-Analyzing-v5-py.ipynb)
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
 
 ## Working with real-world datasets and getting table and column details
 
@@ -386,7 +415,14 @@ or, just query for a specifc table that you want to verify exists in the databas
 
 Working with a real world data-set using SQL and Python
 
-[Chicago Public Schools - Progress Report Cards](res/DB0201EN-Week4-1-1-RealDataPractice-v5.ipynb)
+### [Jupyter Notebook: Chicago Public Schools - Progress Report Cards](res/DB0201EN-Week4-1-1-RealDataPractice-v5.ipynb)
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
 
 ## Views
 
@@ -410,6 +446,13 @@ Syntax of a `DROP VIEW` statement:
 ```sql
 DROP VIEW view_name;
 ```
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
 
 ## Stored Procedures
 
@@ -474,6 +517,13 @@ CALL UPDATE_SALEPRICE(1, 'BAD');        -- Caller query
 CALL RETRIEVE_ALL;
 ```
 
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+
 ## ACID
 
 
@@ -537,6 +587,13 @@ SELECT * FROM BankAccounts;
 
 SELECT * FROM ShoeShop;
 ```
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
 
 ## JOIN statements
 
@@ -641,3 +698,12 @@ Summary
 - The most common type of join is the inner join, which matches the results from two tables and returns only the rows that match.
 - You can use an alias as shorthand for a table or column name.
 - You can use a self-join to compare rows within the same table.
+
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+

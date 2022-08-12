@@ -86,6 +86,13 @@ df.describe()
 
 ### [Jupyter Notebook: Descriptive Statistics](res/Descriptive_Stats.ipynb)
 
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+
 ## Data Visualization
 
 [The Extreme Presentation Method](https://extremepresentation.com/):
@@ -197,6 +204,13 @@ See also:
 ### [Jupyter Notebook: Hypothesis Testing](res/Hypothesis_Testing.ipynb)
 
 
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+
 
 ## Regression Analysis
 
@@ -220,6 +234,13 @@ Linear regression is a linear relationship between the response variable and pre
 
 
 ### [Jupyter Notebook: Regression Analysis](res/Regression_Analysis.ipynb)
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
 
 ## Cheat Sheet for Statistical Analysis in Python
 
@@ -267,3 +288,10 @@ Here is a quick summary for creating graphs and plots:
 
 
 ### [Jupyter Notebook: Final Project](res/Coursera_DataScience_Stat_Project.ipynb)
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+

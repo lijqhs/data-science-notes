@@ -528,3 +528,10 @@ Before an AI model is put into production it must prove it can make accurate pre
 IBM Watson Openscale monitors a model's accuracy on production data and compares it to accuracy on its training data. When a difference in accuracy exceeds a chosen threshold Openscale generates an alert. Watson Openscale reveals which transactions caused drift and identifies the top transaction features responsible. 
 
 The transactions causing drift can be sent for manual labeling and use to retrain the model so that its predictive accuracy does not drop at run time. 
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>

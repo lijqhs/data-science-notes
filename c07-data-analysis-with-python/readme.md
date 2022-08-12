@@ -11,6 +11,7 @@
   - [Turning categorical variables into quantitative variables in Python](#turning-categorical-variables-into-quantitative-variables-in-python)
   - [Jupyter Notebook: Preprocessing data](#jupyter-notebook-preprocessing-data)
 
+
 ## Datasets
 
 Understanding Datasets
@@ -52,6 +53,13 @@ Basic insights from the data
 
 
 ### [Jupyter Notebook: Import data](res/DA0101EN-Review-Introduction.jupyterlite.ipynb)
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
 
 ## Preprocessing Data in Python
 
@@ -126,6 +134,13 @@ df["price-binned"] = pd.cut(df["price"], bins, labels=group_names, include_lowes
 <img src="res/onehot2.png" width="450"></img>
 
 ### [Jupyter Notebook: Preprocessing data](res/DA0101EN-2-Review-Data-Wrangling.ipynb)
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
 
 
 

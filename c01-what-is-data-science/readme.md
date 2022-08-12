@@ -113,3 +113,11 @@ To be a data scientist writer:
 - Have you addressed the question of practicality and usefulness?
 - Have you identified future developments that might result from your work?
 - Have you structured your paper in a clear and logical fashion?
+
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
