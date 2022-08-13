@@ -10,6 +10,18 @@
   - [Binning](#binning)
   - [Turning categorical variables into quantitative variables in Python](#turning-categorical-variables-into-quantitative-variables-in-python)
   - [Jupyter Notebook: Preprocessing data](#jupyter-notebook-preprocessing-data)
+- [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+  - [Descriptive Statistics - Describe()](#descriptive-statistics---describe)
+  - [Grouping data](#grouping-data)
+    - [`groupby`](#groupby)
+    - [`pivot`](#pivot)
+    - [Heatmap](#heatmap)
+  - [Correlation](#correlation)
+  - [Correlation - Statistics](#correlation---statistics)
+    - [Pearson Correlation](#pearson-correlation)
+    - [Correlation Heatmap](#correlation-heatmap)
+  - [Association between two categorical variables: Chi-Square](#association-between-two-categorical-variables-chi-square)
+  - [Jupyter Notebook: Exploratory Data Analysis (EDA)](#jupyter-notebook-exploratory-data-analysis-eda)
 
 
 ## Datasets
@@ -134,6 +146,118 @@ df["price-binned"] = pd.cut(df["price"], bins, labels=group_names, include_lowes
 <img src="res/onehot2.png" width="450"></img>
 
 ### [Jupyter Notebook: Preprocessing data](res/DA0101EN-2-Review-Data-Wrangling.ipynb)
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+## Exploratory Data Analysis (EDA)
+
+- Question:
+  - "What are the characteristics which have the most impact on the car price?"
+- Preliminary step in data analysis to:
+  - Summarize main characteristics of the data
+  - Gain better understanding of the data set
+  - Uncover relationships between variables
+  - Extract important variables
+
+Learning Objectives:
+- Descriptive Statistics
+- GroupBy
+- Correlation
+- Correlation - Statistics
+
+
+### Descriptive Statistics - Describe()
+
+- Summarize statistics using pandas `describe()` method
+  - `df.describe()`
+- Summarize categorical data is by using the `value_counts()` method
+- Box Plot
+- Scatter Plot
+  - each observation represented as a point
+  - scatter plot show the relationship between two variables
+    - predictor/independent variables on x-axis
+    - target/dependent variables on y-axis
+
+### Grouping data
+
+#### `groupby`
+
+- use `df.groupby()` method:
+  - can be applied on categorical variables
+  - group data into categories
+  - single or multiple variables
+
+<img src="res/groupby.png" width="400"></img>
+
+A table of this form isn't the easiest to read and also not very easy to visualize.
+
+To make it easier to understand, we can transform this table to a pivot table by using the `pivot` method.
+
+#### `pivot`
+
+<img src="res/pivot.png" width="400"></img>
+
+The price data now becomes a rectangular grid, which is easier to visualize. This is similar to what is usually done in Excel **spreadsheets**. Another way to represent the pivot table is using a **heat map** plot.
+
+#### Heatmap
+
+<img src="res/heatmap.png" width="400"></img>
+
+### Correlation
+
+<img src="res/corr-positive.png" width="400"></img>
+
+<img src="res/corr-negative.png" width="400"></img>
+
+<img src="res/corr-weak.png" width="400"></img>
+
+### Correlation - Statistics
+#### Pearson Correlation
+
+<img src="res/pearson.png" width="400"></img>
+
+<img src="res/corr-dependence.png" width="400"></img>
+
+
+The correlation reflects the noisiness and direction of a linear relationship (top row), but not the slope of that relationship (middle), nor many aspects of nonlinear relationships (bottom). N.B.: the figure in the center has a slope of 0 but in that case the correlation coefficient is undefined because the variance of Y is zero.
+
+#### Correlation Heatmap
+
+<img src="res/corr-heatmap.png" width="400"></img>
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+### Association between two categorical variables: Chi-Square
+
+**Categorical variables**
+- use the Chi-square Test for Association (denoted as 𝜒2)
+- The test is intended to test how likely it is that an observed distribution is due to chance
+
+**Chi-Square Test of association**
+- The Chi-square tests a null hypothesis that the variables are independent.
+- The Chi-square does not tell you the type of relationship that exists between both variables; but only that a relationship exists.
+
+See also: [Chi-Square Test of Independence](https://libguides.library.kent.edu/spss/chisquare)
+
+<img src="res/chi-square.png" width="400"></img>
+
+<img src="res/chi-square2.png" width="400"></img>
+
+<img src="res/chi-square3.png" width="400"></img>
+
+<img src="res/chi-square4.png" width="400"></img>
+
+### [Jupyter Notebook: Exploratory Data Analysis (EDA)](res/DA0101EN-3-Review-Exploratory-Data-Analysis.ipynb)
 
 
 <br/>
