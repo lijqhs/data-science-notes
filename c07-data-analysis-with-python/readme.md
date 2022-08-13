@@ -203,7 +203,7 @@ Learning Objectives:
   - group data into categories
   - single or multiple variables
 
-<img src="res/groupby.png" width="400"></img>
+<img src="res/groupby.png" width="500"></img>
 
 A table of this form isn't the easiest to read and also not very easy to visualize.
 
@@ -211,35 +211,35 @@ To make it easier to understand, we can transform this table to a pivot table by
 
 #### `pivot`
 
-<img src="res/pivot.png" width="400"></img>
+<img src="res/pivot.png" width="500"></img>
 
 The price data now becomes a rectangular grid, which is easier to visualize. This is similar to what is usually done in Excel **spreadsheets**. Another way to represent the pivot table is using a **heat map** plot.
 
 #### Heatmap
 
-<img src="res/heatmap.png" width="400"></img>
+<img src="res/heatmap.png" width="500"></img>
 
 ### Correlation
 
-<img src="res/corr-positive.png" width="400"></img>
+<img src="res/corr-positive.png" width="500"></img>
 
-<img src="res/corr-negative.png" width="400"></img>
+<img src="res/corr-negative.png" width="500"></img>
 
-<img src="res/corr-weak.png" width="400"></img>
+<img src="res/corr-weak.png" width="500"></img>
 
 ### Correlation - Statistics
 #### Pearson Correlation
 
-<img src="res/pearson.png" width="400"></img>
+<img src="res/pearson.png" width="500"></img>
 
-<img src="res/corr-dependence.png" width="400"></img>
+<img src="res/corr-dependence.png" width="500"></img>
 
 
 The correlation reflects the noisiness and direction of a linear relationship (top row), but not the slope of that relationship (middle), nor many aspects of nonlinear relationships (bottom). N.B.: the figure in the center has a slope of 0 but in that case the correlation coefficient is undefined because the variance of Y is zero.
 
 #### Correlation Heatmap
 
-<img src="res/corr-heatmap.png" width="400"></img>
+<img src="res/corr-heatmap.png" width="500"></img>
 
 
 <br/>
@@ -260,13 +260,13 @@ The correlation reflects the noisiness and direction of a linear relationship (t
 
 See also: [Chi-Square Test of Independence](https://libguides.library.kent.edu/spss/chisquare)
 
-<img src="res/chi-square.png" width="400"></img>
+<img src="res/chi-square.png" width="500"></img>
 
-<img src="res/chi-square2.png" width="400"></img>
+<img src="res/chi-square2.png" width="500"></img>
 
-<img src="res/chi-square3.png" width="400"></img>
+<img src="res/chi-square3.png" width="500"></img>
 
-<img src="res/chi-square4.png" width="400"></img>
+<img src="res/chi-square4.png" width="500"></img>
 
 ### [Jupyter Notebook: Exploratory Data Analysis (EDA)](res/DA0101EN-3-Review-Exploratory-Data-Analysis.ipynb)
 
@@ -285,13 +285,13 @@ See also: [Chi-Square Test of Independence](https://libguides.library.kent.edu/s
 
 ### Linear Regression and Multiple Linear Regression
 
-<img src="res/slr.png" width="400"></img>
+<img src="res/slr.png" width="500"></img>
 
-<img src="res/slr1.png" width="400"></img>
+<img src="res/slr1.png" width="500"></img>
 
-<img src="res/mlr.png" width="400"></img>
+<img src="res/mlr.png" width="500"></img>
 
-<img src="res/mlr1.png" width="400"></img>
+<img src="res/mlr1.png" width="500"></img>
 
 
 ### Model Evaluation using Visualization
@@ -316,7 +316,7 @@ plt.ylim(0,)
 
 #### Residual Plot
 
-<img src="res/residual-plot.png" width="400"></img>
+<img src="res/residual-plot.png" width="500"></img>
 
 We expect to see the results to have **zero mean**, distributed **evenly** around the `x` axis with similar variance.
 
@@ -330,7 +330,7 @@ sns.residplot(df["highway-mpg"], df["price"])
 
 A distribution plot counts the predicted value versus the actual value. These plots are extremely useful for visualizing models with more than one independent variable or feature.
 
-<img src="res/distribution-plot.png" width="400"></img>
+<img src="res/distribution-plot.png" width="500"></img>
 
 
 ```python
@@ -350,13 +350,13 @@ sns.distplot(Yhat, hist=False, color="b", label="Fitted Value", ax=ax1)
 
 ### Polynomial Regression and Pipelines
 
-<img src="res/poly-reg.png" width="400"></img>
+<img src="res/poly-reg.png" width="500"></img>
 
-<img src="res/poly-reg1.png" width="400"></img>
+<img src="res/poly-reg1.png" width="500"></img>
 
-<img src="res/poly-reg2.png" width="400"></img>
+<img src="res/poly-reg2.png" width="500"></img>
 
-<img src="res/poly-reg3.png" width="400"></img>
+<img src="res/poly-reg3.png" width="500"></img>
 
 Numpy's polyfit function cannot perform this type of regression. We use the preprocessing library in scikit-learn to create a polynomial feature object.
 
@@ -368,7 +368,7 @@ pr = PolynomialFeatures(degree=2, include_bias=False)
 x_poly = pr.fit_transform(x[['horsepower', 'curb-weight']])
 ```
 
-<img src="res/poly-reg4.png" width="400"></img>
+<img src="res/poly-reg4.png" width="500"></img>
 
 As the dimension of the data gets larger, we may want to normalize multiple features in scikit-learn. Instead we can use the preprocessing module to simplify many tasks. For example, we can standardize each feature simultaneously. We import `StandardScaler`.
 
@@ -382,7 +382,7 @@ x_scale = SCALE.transform(x_data[['horsepower', 'highway-mpg']])
 
 We can simplify our code by using a pipeline library.
 
-<img src="res/pipeline.png" width="400"></img>
+<img src="res/pipeline.png" width="500"></img>
 
 
 ```python
@@ -429,7 +429,7 @@ mean_square_error(df['price'], Y_predict_simple_fit)
 
 R<sup>2</sup>=(1-(MSE of regression line)/(MSE of the average of the data))
 
-<img src="res/r-square.png" width="400"></img>
+<img src="res/r-square.png" width="500"></img>
 
 - Generally the values of the MSE are between 0 and 1
 - We can calculate the R<sup>2</sup> as follows
@@ -442,7 +442,7 @@ lm.score(X, Y)  # 0.496591188
 ```
 We can say that approximately **49.695%** of the variation of price is explained by this simple linear model.
 
-<img src="res/mlr-slr.png" width="400"></img>
+<img src="res/mlr-slr.png" width="500"></img>
 
 ### [Jupyter Notebook: Model Development](res/DA0101EN-4-Review-Model-Development.ipynb)
 
