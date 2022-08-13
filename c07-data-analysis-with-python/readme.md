@@ -22,6 +22,17 @@
     - [Correlation Heatmap](#correlation-heatmap)
   - [Association between two categorical variables: Chi-Square](#association-between-two-categorical-variables-chi-square)
   - [Jupyter Notebook: Exploratory Data Analysis (EDA)](#jupyter-notebook-exploratory-data-analysis-eda)
+- [Model Development](#model-development)
+  - [Linear Regression and Multiple Linear Regression](#linear-regression-and-multiple-linear-regression)
+  - [Model Evaluation using Visualization](#model-evaluation-using-visualization)
+    - [Regression Plot](#regression-plot)
+    - [Residual Plot](#residual-plot)
+    - [Distribution Plots](#distribution-plots)
+  - [Polynomial Regression and Pipelines](#polynomial-regression-and-pipelines)
+  - [Measures for In-Sample Evaluation](#measures-for-in-sample-evaluation)
+    - [Mean Squared Error (MSE)](#mean-squared-error-mse)
+    - [R-squared (R<sup>2</sup>)](#r-squared-rsup2sup)
+  - [Jupyter Notebook: Model Development](#jupyter-notebook-model-development)
 
 
 ## Datasets
@@ -266,6 +277,173 @@ See also: [Chi-Square Test of Independence](https://libguides.library.kent.edu/s
 </div>
 <br/>
 
+## Model Development
 
+- simple linear regression
+- multiple linear regression
+- polynomial regression
+
+### Linear Regression and Multiple Linear Regression
+
+<img src="res/slr.png" width="400"></img>
+
+<img src="res/slr1.png" width="400"></img>
+
+<img src="res/mlr.png" width="400"></img>
+
+<img src="res/mlr1.png" width="400"></img>
+
+
+### Model Evaluation using Visualization
+
+#### Regression Plot
+
+Regression plot gives us a good estimate of:
+- the relationship between two variables
+- the strength of the correlation
+- the direction of the relationship (positive or negative)
+
+Regression plot shows us a combination of:
+- the scatterplot: where each point represents a different `y`
+- the fitted linear regression line (y&#770;)
+
+```python
+import seaborn as sns
+
+sns.regplot(x="highway-mpg", y="price", data=df)
+plt.ylim(0,)
+```
+
+#### Residual Plot
+
+<img src="res/residual-plot.png" width="400"></img>
+
+We expect to see the results to have **zero mean**, distributed **evenly** around the `x` axis with similar variance.
+
+```python
+import seaborn as sns
+
+sns.residplot(df["highway-mpg"], df["price"])
+```
+
+#### Distribution Plots
+
+A distribution plot counts the predicted value versus the actual value. These plots are extremely useful for visualizing models with more than one independent variable or feature.
+
+<img src="res/distribution-plot.png" width="400"></img>
+
+
+```python
+import seaborn as sns
+
+ax1 = sns.distplot(df["price"], hist=False, color="r", label="Actual Value")
+
+sns.distplot(Yhat, hist=False, color="b", label="Fitted Value", ax=ax1)
+```
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+### Polynomial Regression and Pipelines
+
+<img src="res/poly-reg.png" width="400"></img>
+
+<img src="res/poly-reg1.png" width="400"></img>
+
+<img src="res/poly-reg2.png" width="400"></img>
+
+<img src="res/poly-reg3.png" width="400"></img>
+
+Numpy's polyfit function cannot perform this type of regression. We use the preprocessing library in scikit-learn to create a polynomial feature object.
+
+
+```python
+from sklearn.preprocessing import PolynomialFeatures
+
+pr = PolynomialFeatures(degree=2, include_bias=False)
+x_poly = pr.fit_transform(x[['horsepower', 'curb-weight']])
+```
+
+<img src="res/poly-reg4.png" width="400"></img>
+
+As the dimension of the data gets larger, we may want to normalize multiple features in scikit-learn. Instead we can use the preprocessing module to simplify many tasks. For example, we can standardize each feature simultaneously. We import `StandardScaler`.
+
+
+```python
+from sklearn.preprocessing import StandardScaler
+SCALE = StandardScaler()
+SCALE.fit(x_data[['horsepower', 'highway-mpg']])
+x_scale = SCALE.transform(x_data[['horsepower', 'highway-mpg']])
+```
+
+We can simplify our code by using a pipeline library.
+
+<img src="res/pipeline.png" width="400"></img>
+
+
+```python
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LinearRegression
+from sklearn.pipeline import Pipeline
+
+Input = [('scale', StandardScaler()), ('polynomial', PolynomialFeatures(degree=2),...), ('model', LinearRegression())]
+pipe = Pipeline(Input)
+pipe.fit(df[['horsepower', 'curb-weight', 'engine-size', 'highway-mpg']], y)
+yhat = pipe.predict(X[['horsepower', 'curb-weight', 'engine-size', 'highway-mpg']])
+```
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+### Measures for In-Sample Evaluation
+
+Measures for In-Sample Evaluation
+- A way to numerically determine how good the model fits on dataset
+- Two important measures to determine the fit of a model:
+  - Mean Squared Error (MSE)
+  - R-squared (R<sup>2</sup>)
+
+#### Mean Squared Error (MSE)
+
+```python
+from sklearn.metrics import mean_square_error
+
+mean_square_error(df['price'], Y_predict_simple_fit)
+```
+
+#### R-squared (R<sup>2</sup>)
+
+- The [Coefficient of Determination](https://en.wikipedia.org/wiki/Coefficient_of_determination) or R-squared (R<sup>2</sup>)
+- Is a measure to determine how close the data is to the fitted regression line.
+- R<sup>2</sup>: the percentage of variation of the target variable (Y) that is explained by the linear model.
+- think about as comparing a regression model to a simple model i.e. the mean of the data points
+
+R<sup>2</sup>=(1-(MSE of regression line)/(MSE of the average of the data))
+
+<img src="res/r-square.png" width="400"></img>
+
+- Generally the values of the MSE are between 0 and 1
+- We can calculate the R<sup>2</sup> as follows
+
+```python
+X = df[['highway-mpg']]
+Y = df['price']
+lm.fit(X, Y)
+lm.score(X, Y)  # 0.496591188
+```
+We can say that approximately **49.695%** of the variation of price is explained by this simple linear model.
+
+<img src="res/mlr-slr.png" width="400"></img>
+
+### [Jupyter Notebook: Model Development](res/DA0101EN-4-Review-Model-Development.ipynb)
 
 
