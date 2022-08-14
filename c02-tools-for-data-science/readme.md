@@ -63,7 +63,7 @@ So if Python is open source and R is free software, what’s the difference?
 
 The SQL language is subdivided into several language elements, including clauses, expressions, predicates, queries, and statements.
 
-<img src="res/sql.png" width="500"></img>
+<img src="res/sql.png" width="500"> 
 
 
 - Knowing SQL will help you do many different jobs in data science, including business and data analyst, and it's a must in data engineering and data science. 
@@ -141,7 +141,7 @@ The SQL language is subdivided into several language elements, including clauses
 ### Categories of Data Science Tools
 
 
-<img src="res/tools.png" width="500"></img>
+<img src="res/tools.png" width="500"> 
 
 
 - **Data Management** is the process of persisting and retrieving data. 
@@ -397,7 +397,7 @@ Classification
 #### The Model Asset Exchange
 
 
-<img src="res/model-asset-exchange.png" width="600"></img>
+<img src="res/model-asset-exchange.png" width="600"> 
 
 
 - Free open-source deep learning microservices
@@ -429,7 +429,7 @@ Popular R Libraries for Data Science
 - caret. Machine Learning
 
 
-<img src="res/r_vis.png" width="600"></img>
+<img src="res/r_vis.png" width="600"> 
 
 ```R
 library(ggplot2)
@@ -444,7 +444,7 @@ library(GGally)
 ggpairs(iris, mapping=ggplot2::aes(colour = Species))
 ```
 
-<img src="res/iris_ggally.png" width="600"></img>
+<img src="res/iris_ggally.png" width="600"> 
 
 ## Git/GitHub
 
@@ -518,7 +518,7 @@ AutoAI provides automatic finding of optimal data preparation steps, model selec
 
 
 
-<img src="res/openscale.png" width="600"></img>
+<img src="res/openscale.png" width="600"> 
 
 
 Insurance underwriters can use machine learning and Openscale to more consistently and accurately assess claims risk, ensure fair outcomes for customers, and explain AI recommendations for regulatory and business intelligence purposes. 

@@ -79,7 +79,7 @@ Mapping Entity Diagrams to Tables
 - Attributes get translated into columns
 
 
-<img src="res/cloud-db.png" width="500"></img>
+<img src="res/cloud-db.png" width="500"> 
 
 Examples of Cloud databases
 - IBM Db2
@@ -92,7 +92,7 @@ Available as:
 - VMs or Managed Service
 - Single or Multi-tenant
 
-<img src="res/db-service.png" width="500"></img>
+<img src="res/db-service.png" width="500"> 
 
 
 SQL Statement types
@@ -345,10 +345,10 @@ select E.EMP_ID,E.F_NAME,E.L_NAME, J.JOB_TITLE from employees E, jobs J where E.
 
 
 
-<img src="res/sql-api.png" width="500"></img>
+<img src="res/sql-api.png" width="500"> 
 
 
-<img src="res/db-APIs.png" width="500"></img>
+<img src="res/db-APIs.png" width="500"> 
 
 Concepts of the Python DB API
 
@@ -379,11 +379,11 @@ cursor methods:
 
 
 
-<img src="res/cursor.png" width="400"></img>
+<img src="res/cursor.png" width="400"> 
 
 
 
-<img src="res/db-api-py.png" width="400"></img>
+<img src="res/db-api-py.png" width="400"> 
 
 
 ### [Jupyter Notebook: Creating tables, inserting and querying Data](res/DB0201EN-Week3-1-2-Querying-v4-py.ipynb)
@@ -527,15 +527,15 @@ CALL RETRIEVE_ALL;
 ## ACID
 
 
-<img src="res/transaction.png" width="400"></img>
+<img src="res/transaction.png" width="400"> 
 
-<img src="res/transaction-acid.png" width="400"></img>
+<img src="res/transaction-acid.png" width="400"> 
 
-<img src="res/acid-commands.png" width="400"></img>
+<img src="res/acid-commands.png" width="400"> 
 
-<img src="res/acid-commands-calling.png" width="400"></img>
+<img src="res/acid-commands-calling.png" width="400"> 
 
-<img src="res/acid-summary.png" width="400"></img>
+<img src="res/acid-summary.png" width="400"> 
 
 ```sql
 --#SET TERMINATOR @
@@ -603,8 +603,8 @@ SELECT * FROM ShoeShop;
       JOIN table2
       ON relation;
   ```
-  <img src="res/inner-join.png" width="400"></img>
-  <img src="res/inner-result.png" width="400"></img>
+  <img src="res/inner-join.png" width="400"> 
+  <img src="res/inner-result.png" width="400"> 
 - **outer joins**, which return matching rows, and even the rows from one or the other table that don’t match. 
   - left join
     ```sql
@@ -613,7 +613,7 @@ SELECT * FROM ShoeShop;
     LEFT JOIN table2
     ON relation;
     ```
-    <img src="res/left-join.png" width="400"></img>
+    <img src="res/left-join.png" width="400"> 
   - right join
     ```sql
     SELECT columns
@@ -621,7 +621,7 @@ SELECT * FROM ShoeShop;
     RIGHT JOIN table2
     ON relation;
     ```
-    <img src="res/right-join.png" width="400"></img>
+    <img src="res/right-join.png" width="400"> 
   - full join
     ```sql
     SELECT columns
@@ -629,7 +629,7 @@ SELECT * FROM ShoeShop;
     FULL JOIN table2
     ON relation;
     ```
-    <img src="res/full-join.png" width="400"></img>
+    <img src="res/full-join.png" width="400"> 
 
 The biggest difference between an INNER JOIN and an OUTER JOIN is that the inner join will keep only the information from both tables that's related to each other (in the resulting table). An Outer Join, on the other hand, will also keep information that is not related to the other table in the resulting table.
 

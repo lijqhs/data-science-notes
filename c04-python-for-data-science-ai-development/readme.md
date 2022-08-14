@@ -22,7 +22,7 @@ Pandas
 - Summarize how APIs receive and send information.
 
 
-<img src="res/rest.png" width="400"></img>
+<img src="res/rest.png" width="400"> 
 
 
 - HTTP methods are a way of transmitting data over the internet We tell the Rest API’s what to do by sending a request. The request is usually communicated via an HTTP message. 
