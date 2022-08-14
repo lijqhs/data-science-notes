@@ -5,3 +5,8 @@
 [Jupyter Notebook: Extracting Stock Data Using Web Scraping](res/extracting-stock-using-webscraping.ipynb)
 
 [Jupyter Notebook: Analyzing Historical Stock/Revenue Data and Building a Dashboard (Extracting and Visualizing Stock Data)](res/Extracting-and-Visualizing-Stock-Data.ipynb)
+
+
+
+---
+Notes by Aaron © 2022

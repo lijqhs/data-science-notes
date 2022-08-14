@@ -295,3 +295,7 @@ Here is a quick summary for creating graphs and plots:
 </div>
 <br/>
 
+
+
+---
+Notes by Aaron © 2022

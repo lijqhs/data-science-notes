@@ -456,3 +456,14 @@ We can say that approximately **49.695%** of the variation of price is explained
 
 
 
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+
+
+---
+Notes by Aaron © 2022
+

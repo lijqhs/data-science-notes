@@ -535,3 +535,7 @@ The transactions causing drift can be sent for manual labeling and use to retrai
     <b><a href="#top">↥ back to top</a></b>
 </div>
 <br/>
+
+
+---
+Notes by Aaron © 2022

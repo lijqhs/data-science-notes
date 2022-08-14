@@ -31,3 +31,8 @@ Pandas
 
 
 [Python Cheat Sheet - Basics](res/Python%20Cheat%20Sheet%20-%20The%20Basics%20Coursera.pdf)
+
+
+
+---
+Notes by Aaron © 2022
