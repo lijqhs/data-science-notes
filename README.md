@@ -1,37 +1,21 @@
-## Welcome to GitHub Pages
+## Data Science Course Notes
 
-You can use the [editor on GitHub](https://github.com/lijqhs/data-science-ibm/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+This repository is for notes taken from the [IBM Data Science Course](https://www.coursera.org/professional-certificates/ibm-data-science) on Coursera.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Table of Contents:
 
-### Markdown
+- [What is Data Science](c01-what-is-data-science/readme.md)
+- [Tools for Data Science](c02-tools-for-data-science/readme.md)
+- [Data Science Methodology](c03-data-science-methodology/readme.md)
+- [Python for Data Science and AI Development](c04-python-for-data-science-ai-development/readme.md)
+- [Python Project for Data Science](c05-python-project-for-data-science/readme.md)
+- [Databases and SQL for Data Science with Python](c06-databases-and-sql-for-data-science-with-python/readme.md)
+- [Statistics for Data Science with Python](c06-Statistics-for-Data-Science-with-Python/readme.md)
+- [Data Analysis with Python](c07-data-analysis-with-python/readme.md)
+- Data Visualization with Python
+- Machine Learning with Python
+- Applied Data Science Capstone
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/lijqhs/data-science-ibm/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+---
+Notes by Aaron © 2022
