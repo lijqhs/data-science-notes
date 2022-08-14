@@ -31,8 +31,16 @@
   - [Polynomial Regression and Pipelines](#polynomial-regression-and-pipelines)
   - [Measures for In-Sample Evaluation](#measures-for-in-sample-evaluation)
     - [Mean Squared Error (MSE)](#mean-squared-error-mse)
-    - [R-squared (R<sup>2</sup>)](#r-squared-rsup2sup)
+    - [R-squared](#r-squared)
   - [Jupyter Notebook: Model Development](#jupyter-notebook-model-development)
+- [Model Evaluation and Refinement](#model-evaluation-and-refinement)
+  - [Function `cross_val_score()`](#function-cross_val_score)
+  - [Function `cross_val_predict()`](#function-cross_val_predict)
+  - [Overfitting, Underfitting and Model Selection](#overfitting-underfitting-and-model-selection)
+  - [Ridge Regression](#ridge-regression)
+  - [Grid Search](#grid-search)
+  - [Jupyter Notebook: Model Evaluation and Refinement](#jupyter-notebook-model-evaluation-and-refinement)
+  - [Jupyter Notebook: House Sales in King Count USA](#jupyter-notebook-house-sales-in-king-count-usa)
 
 
 ## Datasets
@@ -75,7 +83,7 @@ Basic insights from the data
 <img src="res/db-api.png" width="500"> 
 
 
-### [Jupyter Notebook: Import data](res/DA0101EN-Review-Introduction.jupyterlite.ipynb)
+### [Jupyter Notebook: Import data](res/1-Review-Introduction.ipynb)
 
 <br/>
 <div align="right">
@@ -156,7 +164,7 @@ df["price-binned"] = pd.cut(df["price"], bins, labels=group_names, include_lowes
 
 <img src="res/onehot2.png" width="450"> 
 
-### [Jupyter Notebook: Preprocessing data](res/DA0101EN-2-Review-Data-Wrangling.ipynb)
+### [Jupyter Notebook: Preprocessing data](res/2-Review-Data-Wrangling.ipynb)
 
 
 <br/>
@@ -268,7 +276,7 @@ See also: [Chi-Square Test of Independence](https://libguides.library.kent.edu/s
 
 <img src="res/chi-square4.png" width="500"> 
 
-### [Jupyter Notebook: Exploratory Data Analysis (EDA)](res/DA0101EN-3-Review-Exploratory-Data-Analysis.ipynb)
+### [Jupyter Notebook: Exploratory Data Analysis (EDA)](res/3-Review-Exploratory-Data-Analysis.ipynb)
 
 
 <br/>
@@ -420,7 +428,7 @@ from sklearn.metrics import mean_square_error
 mean_square_error(df['price'], Y_predict_simple_fit)
 ```
 
-#### R-squared (R<sup>2</sup>)
+#### R-squared
 
 - The [Coefficient of Determination](https://en.wikipedia.org/wiki/Coefficient_of_determination) or R-squared (R<sup>2</sup>)
 - Is a measure to determine how close the data is to the fitted regression line.
@@ -444,7 +452,7 @@ We can say that approximately **49.695%** of the variation of price is explained
 
 <img src="res/mlr-slr.png" width="500"> 
 
-### [Jupyter Notebook: Model Development](res/DA0101EN-4-Review-Model-Development.ipynb)
+### [Jupyter Notebook: Model Development](res/4-Review-Model-Development.ipynb)
 
 
 <br/>
@@ -453,6 +461,144 @@ We can say that approximately **49.695%** of the variation of price is explained
 </div>
 <br/>
 
+## Model Evaluation and Refinement
+
+Training/Testing Sets
+- Split dataset into:
+  - Training set (70%)
+  - Testing set (30%)
+- Build and train the model with a training set
+- Use testing set to assess the performance of a predictive model
+- When we have completed testing our model we should use all the data to train the model to get the best performance
+
+<img src="res/train-test-split.png" width="500"> 
+
+### Function `cross_val_score()`
+
+One of the most common out of sample evaluation metrics is [cross-validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)). 
+- In this method, the dataset is split into K equal groups. 
+- Each group is referred to as a fold. For example, four folds. Some of the folds can be used as a training set which we use to train the model and the remaining parts are used as a test set, which we use to test the model. 
+- For example, we can use three folds for training, then use one fold for testing. This is repeated until each partition is used for both training and testing. 
+- At the end, we use the average results as the estimate of out-of-sample error. 
+- The evaluation metric depends on the model, for example, the r squared. 
+
+The simplest way to apply cross-validation is to call the `cross_val_score` function, which performs multiple out-of-sample evaluations.
+
+```python
+from sklearn.model_selection import cross_val_score
+
+score = cross_val_score(lr, x_data, y_data, cv=3)
+np.mean(scores)
+```
+
+### Function `cross_val_predict()`
+
+- It returns the prediction that was obtained for each element when it was in the test set
+- Has a similar interface to `cross_val_score()`
+
+```python
+from sklearn.model_selection import cross_val_predict
+
+yhat = cross_val_predict(lr2e, x_data, y_data, cv=3)
+```
+
+### Overfitting, Underfitting and Model Selection
+
+<img src="res/model-selection.png" width="500"> 
+
+<img src="res/model-selection-r-square.png" width="500"> 
+
+Calculate different R-squared values as follows:
+
+```python
+Rsqu_test = []
+order = [1,2,3,4]
+
+for n in order:
+  pr = PolynomialFeatures(degree=n)
+  x_train_pr = pr.fit_transform(x_train[['horsepower']])
+  x_test_pr = pr.fit_transform(x_test[['horsepower']])
+  lr.fit(x_train_pr, y_train)
+  Rsqu_test.append(lr.score(x_test_pr, y_test))
+```
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+
+### Ridge Regression
+
+Ridge regression is a regression that is employed in a Multiple regression model when Multicollinearity occurs. Multicollinearity is when there is a strong relationship among the independent variables. Ridge regression is very common with polynomial regression. 
+
+<img src="res/ridge-regression.png" width="500"> 
+
+
+The column corresponds to the different polynomial coefficients, and the rows correspond to the different values of alpha. 
+- As alpha increases, the parameters get smaller. This is most evident for the higher order polynomial features. 
+- But Alpha must be selected carefully. 
+  - If alpha is too large, the coefficients will approach zero and underfit the data. 
+  - If alpha is zero, the overfitting is evident.
+
+<img src="res/ridge-choose-alpha.png" width="500"> 
+
+### Grid Search
+
+- The term alpha in Ridge regression is called a **hyperparameter**.
+- Scikit-learn has a means of automatically iterating over these hyperparameters using cross-validation called **Grid Search**. 
+
+[Grid Search](https://scikit-learn.org/stable/modules/grid_search.html) takes the model or objects you would like to train and different values of the hyperparameters. It then calculates the mean square error or R-squared for various hyperparameter values, allowing you to choose the best values. 
+
+<img src="res/grid-search.png" width="500"> 
+
+Use the validation dataset to pick the best hyperparameters.
+
+```python
+from sklearn.linear_model import Ridge
+from sklearn.model_selection import GridSearchCV
+
+parameters1 = [{'alpha': [0.001, 0.1, 1, 10, 100, 1000, 10000, 100000]}]
+
+RR = Ridge()
+Grid1 = GridSearchCV(RR, parameters1, cv=4)
+Grid1.fit(x_data[['horsepower', 'curb-weight', 'engine-size', 'highway-mpg']], y_data)
+Grid1.best_estimator_
+
+scores = Grid1.cv_results_
+scores['mean_test_score']
+```
+
+What are the advantages of Grid Search is how quickly we can test **multiple parameters**. 
+
+<img src="res/grid-search-2-parameters.png" width="500"> 
+
+```python
+from sklearn.linear_model import Ridge
+from sklearn.model_selection import GridSearchCV
+
+parameters2 = [{'alpha': [0.001, 0.1, 1, 10, 100], 'normalize': [True, False]}]
+
+RR = Ridge()
+Grid1 = GridSearchCV(RR, parameters2, cv=4)
+Grid1.fit(x_data[['horsepower', 'curb-weight', 'engine-size', 'highway-mpg']], y_data)
+Grid1.best_estimator_
+
+scores = Grid1.cv_results_
+
+for param, mean_val, mean_test in zip(scores['params'], scores['mean_test_score'], scores['mean_train_score']):
+  print(param, "R^2 on test data:", mean_val, "R^2 on train data:", mean_test)
+```
+
+<img src="res/grid-search-scores.png" width="500"> 
+
+
+### [Jupyter Notebook: Model Evaluation and Refinement](res/5-Review-Model-Evaluation-and-Refinement.ipynb)
+
+
+### [Jupyter Notebook: House Sales in King Count USA](res/House_Sales_in_King_Count_USA.ipynb)
 
 
 
