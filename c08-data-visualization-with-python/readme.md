@@ -93,6 +93,7 @@ Another thing that is great about Matplotlib is that pandas also has a built-in 
 
 ### [Jupyter Notebook: Introduction to Matplotlib and Line Plot](res/NB1-Introduction-to-Matplotlib-and-Line-Plots.ipynb)
 
+[view on GitHub](https://github.com/lijqhs/data-science-ibm/blob/main/c08-data-visualization-with-python/res/NB1-Introduction-to-Matplotlib-and-Line-Plots.ipynb)
 
 
 <br/>
@@ -188,6 +189,7 @@ plt.show()
 
 ### [Jupyter Notebook: Area Plots, Histograms, Bar Charts](res/NB2-Area-Plots-Histograms-and-Bar-Charts.ipynb)
 
+[view on GitHub](https://github.com/lijqhs/data-science-ibm/blob/main/c08-data-visualization-with-python/res/NB2-Area-Plots-Histograms-and-Bar-Charts.ipynb)
 
 <br/>
 <div align="right">
