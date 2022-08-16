@@ -1,5 +1,10 @@
 # Data Visualization with Python  <!-- omit in toc -->
 
+- [Introduction to Data Visualization](#introduction-to-data-visualization)
+  - [Introduction to Matplotlib](#introduction-to-matplotlib)
+  - [Ploting with Matplotlib](#ploting-with-matplotlib)
+  - [Jupyter Notebook: Introduction to Matplotlib and Line Plot](#jupyter-notebook-introduction-to-matplotlib-and-line-plot)
+
 ## Introduction to Data Visualization
 
 Benefits of visualization:
@@ -62,3 +67,47 @@ plt.title(r'Normal distribution with $\mu=0, \sigma=1$')
 plt.savefig('matplotlib_histogram.png')
 plt.show()
 ```
+
+### Ploting with Matplotlib
+
+```python
+%matplotlib notebook
+import matplotlib.pyplot as plt
+
+plt.plot(5, 5, 'o')
+```
+
+- A magic function starts with `%matplotlib`, and to enforce plots to be rendered within the browser, you pass in inline as the backend. 
+- Matplotlib has a number of different backends available. One limitation of this backend is that you cannot modify a figure once it's rendered. 
+- So after rendering the above figure, there is no way for us to add, for example, a figure title or label its axes. You will need to generate a new plot and add a title and the axes labels before calling the show function. 
+- A backend that overcomes this limitation is the notebook backend. With the `notebook` backend in place, if a plt function is called, it checks if an active figure exists, and any functions you call will be applied to this active figure. If a figure does not exist, it renders a new figure. So when we call the `plt.plot` function to plot a circular mark at position (5, 5), the backend checks if an active figure exists.
+
+**Matplotlib - Pandas**
+
+Another thing that is great about Matplotlib is that pandas also has a built-in implementation of it.
+
+### [Jupyter Notebook: Introduction to Matplotlib and Line Plot](res/NB-Introduction-to-Matplotlib-and-Line-Plots.ipynb)
+
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+
+
+
+---
+Notes by Aaron © 2022
+
