@@ -12,7 +12,7 @@ Table of Contents:
 - [Databases and SQL for Data Science with Python](c06-databases-and-sql-for-data-science-with-python/readme.md)
 - [Statistics for Data Science with Python *](c06-Statistics-for-Data-Science-with-Python/readme.md)
 - [Data Analysis with Python](c07-data-analysis-with-python/readme.md)
-- Data Visualization with Python
+- [Data Visualization with Python](c08-data-visualization-with-python/readme.md)
 - Machine Learning with Python
 - Applied Data Science Capstone
 
