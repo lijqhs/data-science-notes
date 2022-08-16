@@ -4,6 +4,11 @@
   - [Introduction to Matplotlib](#introduction-to-matplotlib)
   - [Ploting with Matplotlib](#ploting-with-matplotlib)
   - [Jupyter Notebook: Introduction to Matplotlib and Line Plot](#jupyter-notebook-introduction-to-matplotlib-and-line-plot)
+- [Basic Visualization Tools](#basic-visualization-tools)
+  - [Area Plots](#area-plots)
+  - [Histogram](#histogram)
+  - [Bar Charts](#bar-charts)
+  - [Jupyter Notebook: Area Plots, Histograms, Bar Charts](#jupyter-notebook-area-plots-histograms-bar-charts)
 
 ## Introduction to Data Visualization
 
@@ -86,7 +91,7 @@ plt.plot(5, 5, 'o')
 
 Another thing that is great about Matplotlib is that pandas also has a built-in implementation of it.
 
-### [Jupyter Notebook: Introduction to Matplotlib and Line Plot](res/NB-Introduction-to-Matplotlib-and-Line-Plots.ipynb)
+### [Jupyter Notebook: Introduction to Matplotlib and Line Plot](res/NB1-Introduction-to-Matplotlib-and-Line-Plots.ipynb)
 
 
 
@@ -96,7 +101,92 @@ Another thing that is great about Matplotlib is that pandas also has a built-in 
 </div>
 <br/>
 
+## Basic Visualization Tools
 
+### Area Plots
+
+```python
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+mpl.style.use(['ggplot'])  # for ggplot-like style
+
+df_can.sort_values(by='Total', ascending=False, axis=0, inplace=True)
+df_top7 = df_can.head(7)
+df_top7 = df_top7[years].transpose()
+df_top7.index = df_top7.index.map(int)
+
+df_top7.plot(kind='area', alpha=0.45, figsize=(14, 8)) # pass a tuple (x, y) size
+
+plt.title('Immigration Trend of Top 7 Countries')
+plt.ylabel('Number of Immigrants')
+plt.xlabel('Years')
+plt.show()
+```
+
+<img src="res/area-top7.png" width="500">
+
+
+### Histogram
+
+A **histogram** is a graph that shows the **frequency** of numerical data using rectangles. The height of a rectangle (the vertical axis) represents the distribution frequency of a variable (the amount, or how often that variable appears). The width of the rectangle (horizontal axis) represents the value of the variable (for instance, minutes, years, or ages).
+
+```python
+import matplotlib.pyplot as plt
+
+df_can['2013'].plot(kind='hist', figsize=(14, 8))
+plt.title('Histogram of Immigration from 195 countries in 2013')
+plt.ylabel('Number of Countries')
+plt.xlabel('Number of Immigrants')
+plt.show()
+```
+
+<img src="res/hist1.png" width="500">
+
+
+A histogram that depicts the distribution of immigration to Canada in 2013, but notice how the bins are **not aligned with the tick marks** on the horizontal axis. This can make the histogram hard to read.
+
+One way to solve this issue is to borrow the `histogram` function from the `Numpy` library. What `histogram` does:
+- partitions the spread of the data in column 2013 into 10 bins of equal width,
+- computes the number of datapoints that fall in each bin,
+- returns this frequency (`count`) and the bin edges (`bin_edges`).
+
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+count, bin_edges = np.histogram(df_can['2013'])
+
+df_can['2013'].plot(kind='hist', xticks = bin_edges, figsize=(14, 8))
+plt.title('Histogram of Immigration from 195 countries in 2013')
+plt.ylabel('Number of Countries')
+plt.xlabel('Number of Immigrants')
+plt.show()
+```
+
+<img src="res/hist2.png" width="500">
+
+### Bar Charts
+
+A bar chart is a very popular visualization tool. Unlike a histogram, a bar chart also known as a bar graph is a type of plot where the length of each bar is proportional to the value of the item that it represents. It is commonly used to compare the values of a variable at a given point in time.
+
+```python
+import matplotlib.pyplot as plt
+years = list(map(str, range(1980, 2014)))
+
+df_china = df_can.loc['China', years]
+
+df_china.plot(kind='bar', figsize=(14, 8))
+plt.title('Chinese Immigrants to Canada from 1980 to 2013')
+plt.ylabel('Number of Immigrants')
+plt.xlabel('Years')
+plt.show()
+```
+
+<img src="res/bar1.png" width="500">
+
+
+### [Jupyter Notebook: Area Plots, Histograms, Bar Charts](res/NB2-Area-Plots-Histograms-and-Bar-Charts.ipynb)
 
 
 <br/>
