@@ -32,23 +32,23 @@ This course is one of courses in the [Data Science Fundamentals with Python and 
 ## Introduction and Descriptive Statistics
 
 
-<img src="res/stat.png" width="500"> 
+<img src="res/stat.png" width="600"> 
 
 ### Types of Data
 
-<img src="res/data-types1.png" width="500"> 
+<img src="res/data-types1.png" width="600"> 
 
-<img src="res/data-types2.png" width="500"> 
+<img src="res/data-types2.png" width="600"> 
 
-<img src="res/variable-types1.png" width="500"> 
+<img src="res/variable-types1.png" width="600"> 
 
-<img src="res/variable-types2.png" width="500"> 
-
-
-<img src="res/variable-types3.png" width="500"> 
+<img src="res/variable-types2.png" width="600"> 
 
 
-<img src="res/variable-types4.png" width="500"> 
+<img src="res/variable-types3.png" width="600"> 
+
+
+<img src="res/variable-types4.png" width="600"> 
 
 ### Measure of Central Tendency
 
@@ -57,14 +57,14 @@ This course is one of courses in the [Data Science Fundamentals with Python and 
 df.info()
 ```
 
-<img src="res/population-sample.png" width="400"> 
+<img src="res/population-sample.png" width="500"> 
 
 
-<img src="res/mean.png" width="400"> 
+<img src="res/mean.png" width="500"> 
 
-<img src="res/median.png" width="450"> 
+<img src="res/median.png" width="550"> 
 
-<img src="res/mode.png" width="450"> 
+<img src="res/mode.png" width="550"> 
 
 ```python
 df.describe()
@@ -72,11 +72,11 @@ df.describe()
 
 ### Measure of Dispersion
 
-<img src="res/standard-deviation.png" width="500"> 
+<img src="res/standard-deviation.png" width="600"> 
 
 **Dispersion**, which is also called variability, scatter or spread, is the extent to which the data distribution is stretched or squeezed. The common measures of dispersion are **standard deviation** and **variance**.
 
-<img src="res/standard-deviation.png" width="500"> 
+<img src="res/standard-deviation.png" width="600"> 
 
 #### Reliability
 
@@ -109,21 +109,21 @@ df.describe()
 ## Introduction to Probability Distribution
 
 
-<img src="res/diceprob.png" width="400"> 
+<img src="res/diceprob.png" width="450"> 
 
 ### Hypothesis Test
 
-<img src="res/jordan-chamberlain.png" width="400"> 
+<img src="res/jordan-chamberlain.png" width="500"> 
 
-<img src="res/hypothesis1.png" width="400"> 
+<img src="res/hypothesis1.png" width="500"> 
 
-<img src="res/hypothesis2.png" width="400"> 
+<img src="res/hypothesis2.png" width="500"> 
 
-<img src="res/hypothesis3.png" width="400"> 
+<img src="res/hypothesis3.png" width="500"> 
 
-<img src="res/hypothesis4.png" width="400"> 
+<img src="res/hypothesis4.png" width="500"> 
 
-<img src="res/hypothesis-test.jpeg" width="400"> 
+<img src="res/hypothesis-test.jpeg" width="500"> 
 
 To use both the **p-value** and significance level together,  you have to decide on a value for **alpha** after you state your hypothesis.  Suppose that is alpha = 0.10 (or 10%).  You then collect the data and calculate the p-value.  
 - If the p-value is greater than alpha, you assume that the null hypothesis is true and you fail to reject.  
@@ -142,7 +142,7 @@ plt.plot(x_axis, norm.pdf(x_axis,0,1))
 plt.show()
 ```
 
-<img src="res/hypothesis-t-test.png" width="500"> 
+<img src="res/hypothesis-t-test.png" width="600"> 
 
 
 ### [Jupyter Notebook: T Test](res/Introduction_to_probability_distribution.ipynb)
@@ -165,21 +165,21 @@ Comparing means - 4 cases:
 
 \* in large samples this rule of thumb holds true for the `t-test` because in large sample sizes, the t-distribution is approximate to a normal distribution
 
-<img src="res/mean-diff.png" width="400"> 
+<img src="res/mean-diff.png" width="500"> 
 
-<img src="res/region-reject.png" width="400"> 
+<img src="res/region-reject.png" width="500"> 
 
-<img src="res/region-reject-twotail.png" width="400"> 
+<img src="res/region-reject-twotail.png" width="500"> 
 
-<img src="res/region-reject-onetail.png" width="400"> 
+<img src="res/region-reject-onetail.png" width="500"> 
 
 ### Levene's Test
 
 [Levene's test](https://www.statisticshowto.com/levene-test/) is used to check that variances are equal for all samples when your data comes from a non normal distribution. You can use Levene's test to check the assumption of equal variances before running a test like One-Way ANOVA.
 
-<img src="res/levene-test.png" width="400"> 
+<img src="res/levene-test.png" width="500"> 
 
-<img src="res/equal-unequal-variances.png" width="400"> 
+<img src="res/equal-unequal-variances.png" width="500"> 
 
 ### ANOVA
 
@@ -187,13 +187,13 @@ ANOVA - Comparing means of more than two groups
 
 [Analysis of variance (ANOVA)](https://en.wikipedia.org/wiki/Analysis_of_variance) is a collection of statistical models and their associated estimation procedures (such as the "variation" among and between groups) used to analyze the differences among means.
 
-<img src="res/anova.png" width="400"> 
+<img src="res/anova.png" width="500"> 
 
 ### Correlation Test
 
 Correlation test is used to evaluate the association between two or more variables. For instance, if we are interested to know whether there is a relationship between the heights of fathers and sons, a correlation coefficient can be calculated to answer this question.
 
-<img src="res/correlation-test.png" width="400"> 
+<img src="res/correlation-test.png" width="500"> 
 
 See also: 
 - [How To Do Cross Tabulation Analysis](https://www.youtube.com/watch?v=BAcG2TE5tmU)
@@ -218,19 +218,19 @@ Linear regression is a linear relationship between the response variable and pre
 
 ### Regression in place of t - test
 
-<img src="res/regression-t-test.png" width="400"> 
+<img src="res/regression-t-test.png" width="500"> 
 
-<img src="res/regression-t-test1.png" width="400"> 
+<img src="res/regression-t-test1.png" width="500"> 
 
 ### Regression in place of ANOVA
 
-<img src="res/regression-anova1.png" width="400"> 
+<img src="res/regression-anova1.png" width="500"> 
 
-<img src="res/regression-anova2.png" width="400"> 
+<img src="res/regression-anova2.png" width="500"> 
 
 ### Regression in place of Correlation
 
-<img src="res/regression-corr.png" width="400"> 
+<img src="res/regression-corr.png" width="500"> 
 
 
 ### [Jupyter Notebook: Regression Analysis](res/Regression_Analysis.ipynb)
@@ -263,15 +263,15 @@ Here is a quick summary for creating graphs and plots:
 
 - Barplots: A barplot shows the relationship between a numeric and a categorical variable by plotting the categorical variables as bars in correspondence to the numerical variable. In the seaborn library, barplots are created by using the `barplot()` function. The following code `ax = seaborn.barplot(x="division", y="eval", data=division_eval)` will return a barplot that shows the average evaluation scores for the lower-division and upper-division.
   
-  <img src="res/barplot-ex.png" width="300"> 
+  <img src="res/barplot-ex.png" width="400"> 
 
 - Scatterplots: This is a two-dimensional plot that displays the relationship between two continuous data. Scatter plots are created by using the `scatterplot()` function in the seaborn library. The following code: `ax = seaborn.scatterplot(x='age', y='eval', hue='gender', data=ratings_df)` will return a plot that shows the relationship between age and evaluation scores:
   
-  <img src="res/scatterplot-ex.png" width="300"> 
+  <img src="res/scatterplot-ex.png" width="400"> 
 
 - Boxplots: A boxplot is a way of displaying the distribution of the data. It returns the minimum, first quartile, median, third quartile, and maximum values of the data. We use the `boxplot()` function in the seaborn library. This code `ax = seaborn.boxplot(y='beauty', data=ratings_df)` will return a boxplot with the data distribution for beauty. We can make the boxplots horizontal by specifying `x='beauty'` in the argument.
   
-  <img src="res/boxplot-ex.png" width="300"> 
+  <img src="res/boxplot-ex.png" width="400"> 
 
 - Other useful functions include `catplot()` to represent the relationship between a numerical value and one or more categorical variables, `distplot()`, and `histplot()` for plotting histograms.
 
