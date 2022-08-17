@@ -10,7 +10,7 @@ Table of Contents:
 - [Python for Data Science and AI Development](c04-python-for-data-science-ai-development/readme.md)
 - [Python Project for Data Science](c05-python-project-for-data-science/readme.md)
 - [Databases and SQL for Data Science with Python](c06-databases-and-sql-for-data-science-with-python/readme.md)
-- [Statistics for Data Science with Python *](c06-Statistics-for-Data-Science-with-Python/readme.md)
+- [Statistics for Data Science with Python &#9650;*](c06-Statistics-for-Data-Science-with-Python/readme.md)
 - [Data Analysis with Python &#9650;](c07-data-analysis-with-python/readme.md)
 - [Data Visualization with Python &#9650;](c08-data-visualization-with-python/readme.md)
 - Machine Learning with Python
