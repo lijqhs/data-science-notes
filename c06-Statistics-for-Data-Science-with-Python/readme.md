@@ -32,23 +32,23 @@ This course is one of courses in the [Data Science Fundamentals with Python and 
 ## Introduction and Descriptive Statistics
 
 
-<img src="res/stat.png" width="600"> 
+<img src="res/stat.png" width="500"> 
 
 ### Types of Data
 
-<img src="res/data-types1.png" width="600"> 
+<img src="res/data-types1.png" width="500"> 
 
-<img src="res/data-types2.png" width="600"> 
+<img src="res/data-types2.png" width="500"> 
 
-<img src="res/variable-types1.png" width="600"> 
+<img src="res/variable-types1.png" width="500"> 
 
-<img src="res/variable-types2.png" width="600"> 
-
-
-<img src="res/variable-types3.png" width="600"> 
+<img src="res/variable-types2.png" width="500"> 
 
 
-<img src="res/variable-types4.png" width="600"> 
+<img src="res/variable-types3.png" width="500"> 
+
+
+<img src="res/variable-types4.png" width="500"> 
 
 ### Measure of Central Tendency
 
@@ -57,14 +57,14 @@ This course is one of courses in the [Data Science Fundamentals with Python and 
 df.info()
 ```
 
-<img src="res/population-sample.png" width="500"> 
+<img src="res/population-sample.png" width="450"> 
 
 
-<img src="res/mean.png" width="500"> 
+<img src="res/mean.png" width="450"> 
 
-<img src="res/median.png" width="550"> 
+<img src="res/median.png" width="500"> 
 
-<img src="res/mode.png" width="550"> 
+<img src="res/mode.png" width="500"> 
 
 ```python
 df.describe()
