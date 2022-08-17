@@ -257,7 +257,7 @@ Another popular choice for the boundaries of the whiskers is based on the 1.5 **
 
 Similarly, a distance of 1.5 times the IQR is measured out below the lower quartile (Q1) and a whisker is drawn down to the lowest observed data point from the dataset that falls within this distance. **Because the whiskers must end at an observed data point, the whisker lengths can look unequal, even though 1.5 IQR is the same for both sides.** All other observed data points outside the boundary of the whiskers are plotted as outliers. The outliers can be plotted on the box-plot as a dot, a small circle, a star, etc..
 
-<img src="res/boxplot.png" width="400">
+<img src="res/boxplot.png" width="350">
 
 ```python
 years = list(map(str, range(1980, 2014)))
@@ -522,7 +522,7 @@ colormap = plt.cm.coolwarm # color map class
 create_waffle_chart(categories, values, height, width, colormap)
 ```
 
-<img src="res/waffle1.png" width="700">
+<img src="res/waffle1.png" width="800">
 
 
 
@@ -634,6 +634,7 @@ plt.show()
 
 ### [Jupyter Notebook: Waffle Charts, Word Clouds and Regression Plots](res/NB4_Waffle_Charts_Word_Clouds_and_Regression_Plots.ipynb)
 
+[view on GitHub](https://github.com/lijqhs/data-science-notes/blob/main/c08-data-visualization-with-python/res/NB4_Waffle_Charts_Word_Clouds_and_Regression_Plots.ipynb)
 
 <br/>
 <div align="right">
