@@ -20,6 +20,8 @@
   - [Word Clouds](#word-clouds)
   - [Seaborn and Regression Plots](#seaborn-and-regression-plots)
   - [Jupyter Notebook: Waffle Charts, Word Clouds and Regression Plots](#jupyter-notebook-waffle-charts-word-clouds-and-regression-plots)
+- [Creating Maps and Visualizing Geospatial Data](#creating-maps-and-visualizing-geospatial-data)
+  - [Jupyter Notebook: Generating Maps in Python (Folium)](#jupyter-notebook-generating-maps-in-python-folium)
 
 ## Introduction to Data Visualization
 
@@ -641,6 +643,70 @@ plt.show()
     <b><a href="#top">↥ back to top</a></b>
 </div>
 <br/>
+
+
+
+
+## Creating Maps and Visualizing Geospatial Data
+
+[folium](https://python-visualization.github.io/folium/) builds on the data wrangling strengths of the Python ecosystem and the mapping strengths of the leaflet.js library. Manipulate your data in Python, then visualize it in on a Leaflet map via folium.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+import pandas as pd
+import folium
+
+df_can = pd.read_excel(
+    'Canada.xlsx',
+    sheet_name='Canada by Citizenship',
+    skiprows=range(20),
+    skipfooter=2)
+
+# clean up the dataset to remove unnecessary columns (eg. REG) 
+df_can.drop(['AREA','REG','DEV','Type','Coverage'], axis=1, inplace=True)
+
+# let's rename the columns so that they make sense
+df_can.rename(columns={'OdName':'Country', 'AreaName':'Continent','RegName':'Region'}, inplace=True)
+
+# for sake of consistency, let's also make all column labels of type string
+df_can.columns = list(map(str, df_can.columns))
+
+# add total column
+df_can['Total'] = df_can.sum(axis=1)
+
+# years that we will be using in this lesson - useful for plotting later on
+years = list(map(str, range(1980, 2014)))
+print ('data dimensions:', df_can.shape)
+
+# create a plain world map
+world_map = folium.Map(location=[0, 0], zoom_start=2)
+```
+
+```python
+import json
+world_geo = json.load(open('world_countries.json'))
+
+# generate choropleth map using the total immigration of each country to Canada from 1980 to 2013
+world_map.choropleth(
+    geo_data=world_geo,
+    data=df_can,
+    columns=['Country', 'Total'],
+    key_on='feature.properties.name',
+    fill_color='YlOrRd', 
+    fill_opacity=0.7, 
+    line_opacity=0.2,
+    legend_name='Immigration to Canada'
+)
+
+# display map
+world_map
+```
+
+<img src="res/folium1.png" width="800">
+
+### [Jupyter Notebook: Generating Maps in Python (Folium)](res/NB5-Generating-Maps-in-Python.ipynb)
 
 
 
