@@ -708,6 +708,7 @@ world_map
 
 ### [Jupyter Notebook: Generating Maps in Python (Folium)](res/NB5-Generating-Maps-in-Python.ipynb)
 
+[view on GitHub](https://github.com/lijqhs/data-science-notes/blob/main/c08-data-visualization-with-python/res/NB5-Generating-Maps-in-Python.ipynb)
 
 
 <br/>
