@@ -15,7 +15,7 @@
   - [Scatter Plots](#scatter-plots)
   - [Bubble Plots](#bubble-plots)
   - [Jupyter Notebook: Pie, Box, Scatter and Bubble Plots](#jupyter-notebook-pie-box-scatter-and-bubble-plots)
-- [](#)
+- [Advanced Visualization Tools](#advanced-visualization-tools)
 
 ## Introduction to Data Visualization
 
@@ -407,7 +407,7 @@ ax0.legend(['China', 'India'], loc='upper left', fontsize='x-large')
 <br/>
 
 
-## 
+## Advanced Visualization Tools
 
 
 <br/>
