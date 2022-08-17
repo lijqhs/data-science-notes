@@ -69,7 +69,7 @@ ax.set_title('Normal distribution with $\mu=0, \sigma=1$')
 fig.savefig('matplotlib_histogram.png')
 ```
 
-<img src="res/matplotlib_histogram.png" width="300">
+<img src="res/matplotlib_histogram.png" width="400">
 
 **Using Scripting Layer to do the same:**
 
@@ -135,7 +135,7 @@ plt.xlabel('Years')
 plt.show()
 ```
 
-<img src="res/area-top7.png" width="500">
+<img src="res/area-top7.png" width="600">
 
 
 ### Histogram
@@ -152,7 +152,7 @@ plt.xlabel('Number of Immigrants')
 plt.show()
 ```
 
-<img src="res/hist1.png" width="500">
+<img src="res/hist1.png" width="600">
 
 
 A histogram that depicts the distribution of immigration to Canada in 2013, but notice how the bins are **not aligned with the tick marks** on the horizontal axis. This can make the histogram hard to read.
@@ -176,7 +176,7 @@ plt.xlabel('Number of Immigrants')
 plt.show()
 ```
 
-<img src="res/hist2.png" width="500">
+<img src="res/hist2.png" width="600">
 
 ### Bar Charts
 
@@ -195,7 +195,7 @@ plt.xlabel('Years')
 plt.show()
 ```
 
-<img src="res/bar1.png" width="500">
+<img src="res/bar1.png" width="600">
 
 
 ### [Jupyter Notebook: Area Plots, Histograms, Bar Charts](res/NB2-Area-Plots-Histograms-and-Bar-Charts.ipynb)
@@ -242,7 +242,7 @@ plt.legend(labels=df_continents.index, loc='upper left')
 plt.show()
 ```
 
-<img src="res/pie1.png" width="500">
+<img src="res/pie1.png" width="600">
 
 
 ### Box Plots
@@ -257,7 +257,7 @@ Another popular choice for the boundaries of the whiskers is based on the 1.5 **
 
 Similarly, a distance of 1.5 times the IQR is measured out below the lower quartile (Q1) and a whisker is drawn down to the lowest observed data point from the dataset that falls within this distance. **Because the whiskers must end at an observed data point, the whisker lengths can look unequal, even though 1.5 IQR is the same for both sides.** All other observed data points outside the boundary of the whiskers are plotted as outliers. The outliers can be plotted on the box-plot as a dot, a small circle, a star, etc..
 
-<img src="res/boxplot.png" width="300">
+<img src="res/boxplot.png" width="400">
 
 ```python
 years = list(map(str, range(1980, 2014)))
@@ -270,7 +270,7 @@ plt.ylabel('Number of Immigrants')
 plt.show()
 ```
 
-<img src="res/box1.png" width="500">
+<img src="res/box1.png" width="600">
 
 
 ```python
@@ -336,7 +336,7 @@ plt.show()
 'No. Immigrants = {0:.0f} * Year + {1:.0f}'.format(fit[0], fit[1]) 
 ```
 
-<img src="res/scatter1.png" width="500">
+<img src="res/scatter1.png" width="600">
 
     No. Immigrants = 5567 * Year + -10926195
 
@@ -397,7 +397,7 @@ ax0.set_title('Immigration from China and India from 1980 to 2013')
 ax0.legend(['China', 'India'], loc='upper left', fontsize='x-large')
 ```
 
-<img src="res/bubble1.png" width="500">
+<img src="res/bubble1.png" width="600">
 
 
 ### [Jupyter Notebook: Pie, Box, Scatter and Bubble Plots](res/NB3-Pie-Charts-Box-Plots-Scatter-Plots-and-Bubble-Plots.ipynb)
@@ -522,7 +522,7 @@ colormap = plt.cm.coolwarm # color map class
 create_waffle_chart(categories, values, height, width, colormap)
 ```
 
-<img src="res/waffle1.png" width="500">
+<img src="res/waffle1.png" width="700">
 
 
 
@@ -598,7 +598,7 @@ plt.axis('off')
 plt.show()
 ```
 
-<img src="res/wordcloud1.png" width="500">
+<img src="res/wordcloud1.png" width="400">
 
 
 ### Seaborn and Regression Plots
@@ -630,7 +630,7 @@ ax.set_title('Total Immigration from Denmark, Sweden, and Norway to Canada from 
 plt.show()
 ```
 
-<img src="res/regplot1.png" width="500">
+<img src="res/regplot1.png" width="600">
 
 ### [Jupyter Notebook: Waffle Charts, Word Clouds and Regression Plots](res/NB4_Waffle_Charts_Word_Clouds_and_Regression_Plots.ipynb)
 
