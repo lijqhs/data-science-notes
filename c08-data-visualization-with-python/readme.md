@@ -15,6 +15,7 @@
   - [Scatter Plots](#scatter-plots)
   - [Bubble Plots](#bubble-plots)
   - [Jupyter Notebook: Pie, Box, Scatter and Bubble Plots](#jupyter-notebook-pie-box-scatter-and-bubble-plots)
+- [](#)
 
 ## Introduction to Data Visualization
 
@@ -397,7 +398,7 @@ ax0.legend(['China', 'India'], loc='upper left', fontsize='x-large')
 
 ### [Jupyter Notebook: Pie, Box, Scatter and Bubble Plots](res/NB3-Pie-Charts-Box-Plots-Scatter-Plots-and-Bubble-Plots.ipynb)
 
-
+[view on GitHub](https://github.com/lijqhs/data-science-ibm/blob/main/c08-data-visualization-with-python/res/NB3-Pie-Charts-Box-Plots-Scatter-Plots-and-Bubble-Plots.ipynb)
 
 <br/>
 <div align="right">
@@ -405,6 +406,8 @@ ax0.legend(['China', 'India'], loc='upper left', fontsize='x-large')
 </div>
 <br/>
 
+
+## 
 
 
 <br/>
