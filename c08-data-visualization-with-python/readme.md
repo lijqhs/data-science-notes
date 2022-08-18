@@ -31,8 +31,11 @@
     - [Pie Chart](#pie-chart)
     - [Sunburst Charts](#sunburst-charts)
   - [Jupyter Notebook: Plotly Basics](#jupyter-notebook-plotly-basics)
+- [Dash](#dash)
+  - [Make dashboards interactive (Dash Callbacks)](#make-dashboards-interactive-dash-callbacks)
+    - [More Outputs](#more-outputs)
+  - [Dashboard Summary](#dashboard-summary)
 - [](#)
-- [](#-1)
 
 ## Introduction to Data Visualization
 
@@ -814,6 +817,13 @@ fig.show()
 <img src="res/go-scatter2.png" width="600">
 
 
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+
 ### [plotly.express](https://plotly.com/python/plotly-express/)
 
 #### [Bar Charts](https://plotly.com/python/bar-charts/)
@@ -906,7 +916,303 @@ fig.show()
 </div>
 <br/>
 
-## 
+## [Dash](https://dash.plotly.com/)
+
+- Dash is a Open-Source User Interface Python library for creating reactive, web-based applications. It is enterprise-ready and a first-class member of Plotly’s open-source tools. 
+- Dash applications are web servers running Flask and communicating JSON packets over HTTP requests. 
+- Dash’s frontend renders components using React.js. It is **easy to build a Graphical User Interface** using dash as it abstracts all technologies required to build the applications. 
+- Dash is Declarative and Reactive. Dash output can be rendered in web browser and can be deployed to servers. 
+- Dash uses a simple reactive decorator for binding code to the UI. This is inherently **mobile and cross-platform ready**. 
+
+```python
+# Import required packages
+import pandas as pd
+import plotly.express as px
+import dash
+import dash_html_components as html
+import dash_core_components as dcc
+
+# Read the airline data into pandas dataframe
+airline_data =  pd.read_csv('airline_data.csv', 
+                            encoding = "ISO-8859-1",
+                            dtype={'Div1Airport': str, 'Div1TailNum': str, 
+                                   'Div2Airport': str, 'Div2TailNum': str})
+
+# Randomly sample 500 data points. Setting the random state to be 42 so that we get same result.
+data = airline_data.sample(n=500, random_state=42)
+
+# Pie Chart Creation
+fig_pie = px.pie(data, values='Flights', names='DistanceGroup', title='Distance group proportion by flights')
+fig_sunburst = px.sunburst(data, path=['Month', 'DestStateName'], values='Flights', 
+                  title="State Holding Value of Number of Flights by Month and Destination")
+
+# Create a dash application
+app = dash.Dash(__name__)
+
+# Get the layout of the application and adjust it.
+# Create an outer division using html.Div and add title to the dashboard using html.H1 component
+# Add description about the graph using HTML P (paragraph) component
+# Finally, add graph component.
+app.layout = html.Div([
+       html.H1('Airline Dashboard',
+               style={'textAlign': 'center', 
+                      'color': '#503D36', 
+                      'font-size': 40}),
+       html.P('Proportion of distance group (250 mile distance interval group) by flights.', 
+              style={'textAlign':'center', 'color': '#F57241'}),
+       dcc.Graph(figure=fig_pie),
+       html.P('Hierarchical view in the order of month and destination state holding value of number of flights.', 
+              style={'textAlign':'center', 'color': '#F57241'}),
+       dcc.Graph(figure=fig_sunburst),
+
+                    ])
+
+# Run the application                   
+if __name__ == '__main__':
+    app.run_server()
+```
+
+<img src="res/dash-pie-sunburst.png" width="600">
+
+
+### Make dashboards interactive (Dash Callbacks)
+
+A callback function is a python function that is automatically called by Dash whenever an input component's property changes. Callback function is decorated with `@app.callback` decorator. *([decorators](https://realpython.com/primer-on-python-decorators/) wrap a function, modifying its behavior.)*
+
+- [Python decorators reference 1](https://realpython.com/primer-on-python-decorators/)
+- [Python decorators reference 2](https://peps.python.org/pep-0318/#current-syntax)
+- [Callbacks with example](https://dash.plotly.com/basic-callbacks)
+- [Dash app gallery](https://dash.gallery/Portal/)
+- [Dash community components](https://community.plotly.com/t/community-components-index/60098)
+
+
+```python
+# Import required libraries
+import pandas as pd
+import plotly.graph_objects as go
+import dash
+import dash_html_components as html
+import dash_core_components as dcc
+from dash.dependencies import Input, Output
+
+# Read the airline data into pandas dataframe
+airline_data =  pd.read_csv('airline_data.csv', 
+                            encoding = "ISO-8859-1",
+                            dtype={'Div1Airport': str, 'Div1TailNum': str, 
+                                   'Div2Airport': str, 'Div2TailNum': str})
+
+
+# Create a dash application
+app = dash.Dash(__name__)
+
+# Get the layout of the application and adjust it.
+# Create an outer division using html.Div and add title to the dashboard using html.H1 component
+# Add a html.Div and core input text component
+# Finally, add graph component.
+app.layout = html.Div(children=[
+        html.H1("Airline Performance Dashboard",
+                style={'textAlign': 'center', 
+                        'color': '#503D36', 
+                        'font-size': 40}),
+        html.Div(["Input Year", 
+                  dcc.Input(id='input-year', 
+                            type='number', 
+                            value='2010', 
+                            style={'height': '50px', 
+                                'font-size': 35}),], 
+        style={'font-size': 40}),
+        html.Br(),
+        html.Br(),
+        html.Div(dcc.Graph(id='line-plot')),
+    ])
+
+
+# add callback decorator
+@app.callback(Output(component_id='line-plot', component_property='figure'),
+               Input(component_id='input-year', component_property='value'))
+
+# Add computation to callback function and return graph
+def get_graph(entered_year):
+    # Select data based on the entered year
+    df =  airline_data[airline_data['Year']==int(entered_year)]
+
+    # Group the data by Month and compute average over arrival delay time.
+    line_data = df.groupby('Month')['ArrDelay'].mean().reset_index()
+
+    # 
+    fig = go.Figure(data=go.Scatter(x=line_data['Month'],
+                                    y=line_data['ArrDelay'],
+                                    mode='lines',
+                                    marker=dict(color='green')))
+    fig.update_layout(title='Month vs Average Flight Delay Time',
+                      xaxis_title="Month",
+                      yaxis_title='ArrDelay')
+    return fig
+
+# Run the app
+if __name__ == '__main__':
+    app.run_server()
+```
+
+<img src="res/dash-interact.png" width="600">
+
+#### More Outputs
+
+Analyze flight delays in a dashboard.
+
+**Dashboard Components**
+- Monthly average carrier delay by reporting airline for the given year.
+- Monthly average weather delay by reporting airline for the given year.
+- Monthly average national air system delay by reporting airline for the given year.
+- Monthly average security delay by reporting airline for the given year.
+- Monthly average late aircraft delay by reporting airline for the given year.
+
+```python
+# Import required libraries
+import pandas as pd
+import plotly.graph_objects as go
+import dash
+# import dash_html_components as html
+# import dash_core_components as dcc
+from dash import dcc
+from dash import html
+from dash.dependencies import Input, Output
+import plotly.express as px
+
+# Read the airline data into pandas dataframe
+airline_data =  pd.read_csv('airline_data.csv', 
+                            encoding = "ISO-8859-1",
+                            dtype={'Div1Airport': str, 'Div1TailNum': str, 
+                                   'Div2Airport': str, 'Div2TailNum': str})
+
+
+# Create a dash application
+app = dash.Dash(__name__)
+
+# Build dash app layout
+app.layout = html.Div(children=[
+        html.H1('Flight Delay Time Statistics',
+                style={'textAlign': 'left', 
+                        'color': '#503D36', 
+                        'font-size': 30}),
+        html.Div(["Input Year: ", 
+                  dcc.Input(id='input-year', 
+                            type='number', 
+                            value='2010', 
+                            style={'height': '35px', 
+                                'font-size': 30}),], 
+        style={'font-size': 30}),
+        html.Br(),
+        html.Br(), 
+        html.Div([
+                html.Div(dcc.Graph(id='carrier-plot')),
+                html.Div(dcc.Graph(id='weather-plot'))
+        ], style={'display': 'flex'}),
+
+        html.Div([
+                html.Div(dcc.Graph(id='nas-plot')),
+                html.Div(dcc.Graph(id='security-plot'))
+        ], style={'display': 'flex'}),
+
+        html.Div(dcc.Graph(id='late-plot'), style={'width':'50%'})
+    ])
+
+
+
+""" Compute_info function description
+
+This function takes in airline data and selected year as an input and performs computation for creating charts and plots.
+
+Arguments:
+    airline_data: Input airline data.
+    entered_year: Input year for which computation needs to be performed.
+
+Returns:
+    Computed average dataframes for carrier delay, weather delay, NAS delay, security delay, and late aircraft delay.
+
+"""
+def compute_info(airline_data, entered_year):
+    # Select data
+    df =  airline_data[airline_data['Year']==int(entered_year)]
+    # Compute delay averages
+    avg_car = df.groupby(['Month','Reporting_Airline'])['CarrierDelay'].mean().reset_index()
+    avg_weather = df.groupby(['Month','Reporting_Airline'])['WeatherDelay'].mean().reset_index()
+    avg_NAS = df.groupby(['Month','Reporting_Airline'])['NASDelay'].mean().reset_index()
+    avg_sec = df.groupby(['Month','Reporting_Airline'])['SecurityDelay'].mean().reset_index()
+    avg_late = df.groupby(['Month','Reporting_Airline'])['LateAircraftDelay'].mean().reset_index()
+    return avg_car, avg_weather, avg_NAS, avg_sec, avg_late
+
+
+
+# Callback decorator
+@app.callback( [
+               Output(component_id='carrier-plot', component_property='figure'),
+               Output(component_id='weather-plot', component_property='figure'),
+               Output(component_id='nas-plot', component_property='figure'),
+               Output(component_id='security-plot', component_property='figure'),
+               Output(component_id='late-plot', component_property='figure'),
+               ],
+               Input(component_id='input-year', component_property='value'))
+# Computation to callback function and return graph
+def get_graph(entered_year):
+
+    # Compute required information for creating graph from the data
+    avg_car, avg_weather, avg_NAS, avg_sec, avg_late = compute_info(airline_data, entered_year)
+
+    # Line plot for carrier delay
+    carrier_fig = px.line(avg_car, 
+                          x='Month', 
+                          y='CarrierDelay', 
+                          color='Reporting_Airline', 
+                          title='Average carrier delay time (minutes) by airline')
+    # Line plot for weather delay
+    weather_fig = px.line(avg_weather, 
+                          x='Month', 
+                          y='WeatherDelay', 
+                          color='Reporting_Airline', 
+                          title='Average weather delay time (minutes) by airline')
+    # Line plot for nas delay
+    nas_fig = px.line(avg_NAS, 
+                        x='Month', 
+                        y='NASDelay', 
+                        color='Reporting_Airline', 
+                        title='Average NAS delay time (minutes) by airline')
+    # Line plot for security delay
+    sec_fig = px.line(avg_sec, 
+                        x='Month', 
+                        y='SecurityDelay', 
+                        color='Reporting_Airline', 
+                        title='Average security delay time (minutes) by airline')
+    # Line plot for late aircraft delay
+    late_fig = px.line(avg_late, 
+                          x='Month', 
+                          y='LateAircraftDelay', 
+                          color='Reporting_Airline', 
+                          title='Average late aircraft delay time (minutes) by airline')
+
+    return[carrier_fig, weather_fig, nas_fig, sec_fig, late_fig]
+
+# Run the app
+if __name__ == '__main__':
+    app.run_server()
+```
+
+<img src="res/dash-flights.png" width="600">
+
+
+### Dashboard Summary
+
+- Best dashboards answer critical business questions. It will help business make informed decisions, thereby improving performance. 
+- Dashboards can produce real-time visuals. 
+- Plotly is an interactive, open-source plotting library that supports over 40 chart types. 
+- The web based visualizations created using Plotly python can be displayed in Jupyter notebook, saved to standalone HTML files, or served as part of pure Python-built web applications using Dash. 
+- Plotly Graph Objects is the low-level interface to figures, traces, and layout whereas plotly express is a high-level wrapper for Plotly. 
+- Dash is an Open-Source User Interface Python library for creating reactive, web-based applications. It is both enterprise-ready and a first-class member of Plotly’s open-source tools. 
+- Core and HTML are the two components of dash. 
+- The dash_html_components library has a component for every HTML tag. 
+- The dash_core_components describe higher-level components that are interactive and are generated with JavaScript, HTML, and CSS through the React.js library. 
+- A callback function is a python function that is automatically called by Dash whenever an input component's property changes. Callback function is decorated with `@app.callback` decorator. 
+- Callback decorator function takes two parameters: Input and Output. Input and Output to the callback function will have component id and component property. Multiple inputs or outputs should be enclosed inside either a list or tuple. 
 
 
 <br/>
