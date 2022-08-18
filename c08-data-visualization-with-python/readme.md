@@ -22,6 +22,17 @@
   - [Jupyter Notebook: Waffle Charts, Word Clouds and Regression Plots](#jupyter-notebook-waffle-charts-word-clouds-and-regression-plots)
 - [Creating Maps and Visualizing Geospatial Data](#creating-maps-and-visualizing-geospatial-data)
   - [Jupyter Notebook: Generating Maps in Python (Folium)](#jupyter-notebook-generating-maps-in-python-folium)
+- [Creating Dashboards with Plotly and Dash](#creating-dashboards-with-plotly-and-dash)
+  - [plotly.graph_objects](#plotlygraph_objects)
+  - [plotly.express](#plotlyexpress)
+    - [Bar Charts](#bar-charts-1)
+    - [Bubble Charts](#bubble-charts)
+  - [Histograms](#histograms)
+  - [Pie Chart](#pie-chart)
+  - [Sunburst Charts](#sunburst-charts)
+  - [Jupyter Notebook: Plotly Basics](#jupyter-notebook-plotly-basics)
+- [](#)
+- [](#-1)
 
 ## Introduction to Data Visualization
 
@@ -717,6 +728,188 @@ world_map
 </div>
 <br/>
 
+## Creating Dashboards with Plotly and Dash
+
+**Web-based dashboarding tools**:
+- [Dash](https://plotly.com/dash/) is a python framework for building web analytic applications. It is written on top of Flask, Plotly.js, and React.js. Dash is well-suited for building data visualization apps with highly custom user interfaces.
+- [Panel](https://panel.holoviz.org/) works with visualizations from Bokeh, Matplotlib, HoloViews, and many other Python plotting libraries, making them instantly viewable either individually or when combined with interactive widgets that control them.
+- [Voilà](https://voila.readthedocs.io/en/stable/using.html) turns Jupyter notebooks into standalone web applications. It can be used with separate layout tools like jupyter-flex or templates like voila-vuetify.
+- [Streamlit](https://github.com/streamlit/streamlit) can easily turn data scripts into shareable web apps with 3 main principles: 
+  - embrace python scripting, 
+  - treat widgets as variables, and 
+  - reuse data and computation.
+
+See also: [Dashboarding tools](https://pyviz.org/dashboarding/)
+
+Additional useful resources:
+- [Plotly python](https://plotly.com/python/getting-started/)
+- [Plotly cheatsheet](https://images.plot.ly/plotly-documentation/images/plotly_js_cheat_sheet.pdf)
+- [Open-source datasets](https://developer.ibm.com/exchanges/data/)
+
+
+### [plotly.graph_objects](https://plotly.com/python/graph-objects/)
+
+If Plotly Express does not provide a good starting point, it is possible to use the more generic `go.Scatter` class from [plotly.graph_objects](https://plotly.com/python/graph-objects/). Whereas `plotly.express` has two functions scatter and line, `go.Scatter` can be used both for plotting points (`makers`) or lines, depending on the value of mode. The different options of `go.Scatter` are documented in its [reference page](https://plotly.com/python/reference/scatter/).
+
+Read: [Scatter and line plots with go.Scatter](https://plotly.com/python/line-and-scatter/#scatter-and-line-plots-with-goscatter)
+
+```python
+# using plotly
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+
+airline_data =  pd.read_csv('airline_data.csv',
+                            encoding = "ISO-8859-1",
+                            dtype={'Div1Airport': str, 'Div1TailNum': str, 
+                                   'Div2Airport': str, 'Div2TailNum': str})
+print("Data Shape:", airline_data.shape)
+df_sample500 = airline_data.sample(n=500, random_state=42)
+# df_sample500.head()
+print("Sample Shape:", df_sample500.shape)
+```
+
+    Data Shape: (27000, 110)
+    Sample Shape: (500, 110)
+
+**How departure time changes with respect to airport distance**
+
+```python
+# First we create a figure using go.Figure and adding trace to it through go.scatter
+fig = go.Figure(data=go.Scatter(x=df_sample500['Distance'], y=df_sample500['DepTime'], mode='markers', marker=dict(color='green')))
+# Updating layout through `update_layout`. Here we are adding title to the plot and providing title to x and y axis.
+fig.update_layout(title='Distance vs Departure Time', xaxis_title='Distance', yaxis_title='DepTime')
+# Display the figure
+fig.show()
+```
+
+<img src="res/go-scatter1.png" width="600">
+
+**Extract average monthly arrival delay time and see how it changes over the year**
+
+```python
+# Group the data by Month and compute average over arrival delay time.
+line_data = df_sample500.groupby('Month')['ArrDelay'].mean().reset_index()
+# Display the data
+line_data
+```
+
+```python
+# Scatter and line plot vary by updating mode parameter.
+fig = go.Figure(data=go.Scatter(x=line_data['Month'], y=line_data['ArrDelay'], mode='lines', marker=dict(color='blue')))
+fig.update_layout(title='Monthly Averaged Delay Time', xaxis_title='Month', yaxis_title='ArrDelay')
+fig.show()
+```
+
+<img src="res/go-scatter2.png" width="600">
+
+
+### [plotly.express](https://plotly.com/python/plotly-express/)
+
+#### [Bar Charts](https://plotly.com/python/bar-charts/)
+
+**Extract number of flights from a specific airline that goes to a destination**
+
+```python
+# Group the data by destination state and reporting airline. Compute total number of flights in each combination
+bar_data = df_sample500.groupby(['DestState'])['Flights'].sum().reset_index()
+
+# Use plotly express bar chart function px.bar. Provide input data, x and y axis variable, and title of the chart.
+# This will give total number of flights to the destination state.
+fig = px.bar(bar_data, x="DestState", y="Flights", title='Total number of flights to the destination state split by reporting airline') 
+fig.show()
+```
+
+<img src="res/px-bar1.png" width="600">
+
+
+**Get number of flights as per reporting airline**
+
+#### [Bubble Charts](https://plotly.com/python/bubble-charts/)
+
+A bubble chart is a scatter plot in which a third dimension of the data is shown through the size of markers. For other types of scatter plot, see the scatter plot documentation.
+
+**Get number of flights as per reporting airline**
+
+```python
+# Group the data by reporting airline and get number of flights
+bub_data = df_sample500.groupby('Reporting_Airline')['Flights'].sum().reset_index()
+
+fig = px.scatter(bub_data, x="Reporting_Airline", y="Flights", 
+                 size="Flights", 
+                 hover_name="Reporting_Airline", 
+                 title='Number of flights as per reporting airline')
+fig.show()
+```
+
+<img src="res/px-bubble1.png" width="600">
+
+### [Histograms](https://plotly.com/python/histograms/)
+
+**Get distribution of arrival delay**
+
+```python
+# Set missing values to 0
+df_sample500['ArrDelay'] = df_sample500['ArrDelay'].fillna(0)
+fig = px.histogram(df_sample500, x="ArrDelay", title="Distribution of Arrival Delay")
+fig.show()
+```
+
+<img src="res/px-histogram1.png" width="600">
+
+### [Pie Chart](https://plotly.com/python/pie-charts/)
+
+**Proportion of distance group by month (month indicated by numbers)**
+
+```python
+# Use px.pie function to create the chart. Input dataset. 
+# Values parameter will set values associated to the sector. 'Month' feature is passed to it.
+# labels for the sector are passed to the `names` parameter.
+fig = px.pie(df_sample500, values='Month', names='DistanceGroup', title='Distance group proportion by month')
+fig.show()
+```
+
+<img src="res/px-pie1.png" width="600">
+
+
+### [Sunburst Charts](https://plotly.com/python/sunburst-charts)
+
+**Hierarchical view in the order of month and destination state holding value of number of flights**
+
+```python
+fig = px.sunburst(df_sample500, path=['Month', 'DestStateName'], values='Flights', 
+                  title="State Holding Value of Number of Flights by Month and Destination")
+fig.show()
+```
+
+<img src="res/px-sunburst1.png" width="600">
+
+### [Jupyter Notebook: Plotly Basics](res/NB6-Plotly_Basics.ipynb)
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+## 
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+## 
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
 
 ---
 Notes by Aaron © 2022
