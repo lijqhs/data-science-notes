@@ -27,9 +27,9 @@
   - [plotly.express](#plotlyexpress)
     - [Bar Charts](#bar-charts-1)
     - [Bubble Charts](#bubble-charts)
-  - [Histograms](#histograms)
-  - [Pie Chart](#pie-chart)
-  - [Sunburst Charts](#sunburst-charts)
+    - [Histograms](#histograms)
+    - [Pie Chart](#pie-chart)
+    - [Sunburst Charts](#sunburst-charts)
   - [Jupyter Notebook: Plotly Basics](#jupyter-notebook-plotly-basics)
 - [](#)
 - [](#-1)
@@ -844,7 +844,7 @@ fig.show()
 
 <img src="res/px-bubble1.png" width="600">
 
-### [Histograms](https://plotly.com/python/histograms/)
+#### [Histograms](https://plotly.com/python/histograms/)
 
 **Get distribution of arrival delay**
 
@@ -857,7 +857,7 @@ fig.show()
 
 <img src="res/px-histogram1.png" width="600">
 
-### [Pie Chart](https://plotly.com/python/pie-charts/)
+#### [Pie Chart](https://plotly.com/python/pie-charts/)
 
 **Proportion of distance group by month (month indicated by numbers)**
 
@@ -872,7 +872,7 @@ fig.show()
 <img src="res/px-pie1.png" width="600">
 
 
-### [Sunburst Charts](https://plotly.com/python/sunburst-charts)
+#### [Sunburst Charts](https://plotly.com/python/sunburst-charts)
 
 **Hierarchical view in the order of month and destination state holding value of number of flights**
 
