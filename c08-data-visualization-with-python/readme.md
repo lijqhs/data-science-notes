@@ -32,6 +32,7 @@
     - [Sunburst Charts](#sunburst-charts)
   - [Jupyter Notebook: Plotly Basics](#jupyter-notebook-plotly-basics)
 - [Dash](#dash)
+  - [Dash Basics](#dash-basics)
   - [Make dashboards interactive (Dash Callbacks)](#make-dashboards-interactive-dash-callbacks)
     - [More Outputs](#more-outputs)
   - [Dashboard Summary](#dashboard-summary)
@@ -918,6 +919,8 @@ fig.show()
 
 ## [Dash](https://dash.plotly.com/)
 
+### Dash Basics
+
 - Dash is a Open-Source User Interface Python library for creating reactive, web-based applications. It is enterprise-ready and a first-class member of Plotly’s open-source tools. 
 - Dash applications are web servers running Flask and communicating JSON packets over HTTP requests. 
 - Dash’s frontend renders components using React.js. It is **easy to build a Graphical User Interface** using dash as it abstracts all technologies required to build the applications. 
@@ -972,7 +975,7 @@ if __name__ == '__main__':
     app.run_server()
 ```
 
-<img src="res/dash-pie-sunburst.png" width="600">
+<img src="res/dash-pie-sunburst.png" width="800">
 
 
 ### Make dashboards interactive (Dash Callbacks)
@@ -1054,7 +1057,7 @@ if __name__ == '__main__':
     app.run_server()
 ```
 
-<img src="res/dash-interact.png" width="600">
+<img src="res/dash-interact.png" width="800">
 
 #### More Outputs
 
@@ -1197,7 +1200,7 @@ if __name__ == '__main__':
     app.run_server()
 ```
 
-<img src="res/dash-flights.png" width="600">
+<img src="res/dash-flights.png" width="800">
 
 
 ### Dashboard Summary
