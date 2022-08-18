@@ -776,9 +776,14 @@ print("Sample Shape:", df_sample500.shape)
 
 ```python
 # First we create a figure using go.Figure and adding trace to it through go.scatter
-fig = go.Figure(data=go.Scatter(x=df_sample500['Distance'], y=df_sample500['DepTime'], mode='markers', marker=dict(color='green')))
+fig = go.Figure(data=go.Scatter(x=df_sample500['Distance'], 
+                                y=df_sample500['DepTime'], 
+                                mode='markers', 
+                                marker=dict(color='green')))
 # Updating layout through `update_layout`. Here we are adding title to the plot and providing title to x and y axis.
-fig.update_layout(title='Distance vs Departure Time', xaxis_title='Distance', yaxis_title='DepTime')
+fig.update_layout(title='Distance vs Departure Time', 
+                  xaxis_title='Distance', 
+                  yaxis_title='DepTime')
 # Display the figure
 fig.show()
 ```
@@ -796,8 +801,13 @@ line_data
 
 ```python
 # Scatter and line plot vary by updating mode parameter.
-fig = go.Figure(data=go.Scatter(x=line_data['Month'], y=line_data['ArrDelay'], mode='lines', marker=dict(color='blue')))
-fig.update_layout(title='Monthly Averaged Delay Time', xaxis_title='Month', yaxis_title='ArrDelay')
+fig = go.Figure(data=go.Scatter(x=line_data['Month'], 
+                                y=line_data['ArrDelay'], 
+                                mode='lines', 
+                                marker=dict(color='blue')))
+fig.update_layout(title='Monthly Averaged Delay Time', 
+                  xaxis_title='Month', 
+                  yaxis_title='ArrDelay')
 fig.show()
 ```
 
@@ -816,7 +826,8 @@ bar_data = df_sample500.groupby(['DestState'])['Flights'].sum().reset_index()
 
 # Use plotly express bar chart function px.bar. Provide input data, x and y axis variable, and title of the chart.
 # This will give total number of flights to the destination state.
-fig = px.bar(bar_data, x="DestState", y="Flights", title='Total number of flights to the destination state split by reporting airline') 
+fig = px.bar(bar_data, x="DestState", y="Flights", 
+             title='Total number of flights to the destination state split by reporting airline') 
 fig.show()
 ```
 
@@ -851,7 +862,8 @@ fig.show()
 ```python
 # Set missing values to 0
 df_sample500['ArrDelay'] = df_sample500['ArrDelay'].fillna(0)
-fig = px.histogram(df_sample500, x="ArrDelay", title="Distribution of Arrival Delay")
+fig = px.histogram(df_sample500, x="ArrDelay", 
+                   title="Distribution of Arrival Delay")
 fig.show()
 ```
 
@@ -865,7 +877,8 @@ fig.show()
 # Use px.pie function to create the chart. Input dataset. 
 # Values parameter will set values associated to the sector. 'Month' feature is passed to it.
 # labels for the sector are passed to the `names` parameter.
-fig = px.pie(df_sample500, values='Month', names='DistanceGroup', title='Distance group proportion by month')
+fig = px.pie(df_sample500, values='Month', names='DistanceGroup', 
+             title='Distance group proportion by month')
 fig.show()
 ```
 
