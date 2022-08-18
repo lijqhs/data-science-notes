@@ -36,7 +36,7 @@
   - [Make dashboards interactive (Dash Callbacks)](#make-dashboards-interactive-dash-callbacks)
     - [More Outputs](#more-outputs)
   - [Dashboard Summary](#dashboard-summary)
-- [Dash Auto Practice](#dash-auto-practice)
+  - [Dash Auto Practice](#dash-auto-practice)
   - [Dash Airline](#dash-airline)
 
 ## Introduction to Data Visualization
@@ -1225,7 +1225,7 @@ if __name__ == '__main__':
 </div>
 <br/>
 
-## Dash Auto Practice
+### Dash Auto Practice
 
 ```python
 import pandas as pd
