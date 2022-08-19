@@ -31,7 +31,7 @@
     - [Pie Chart](#pie-chart)
     - [Sunburst Charts](#sunburst-charts)
   - [Jupyter Notebook: Plotly Basics](#jupyter-notebook-plotly-basics)
-- [Dash](#dash)
+- [Dashboard](#dashboard)
   - [Dash Basics](#dash-basics)
   - [Make dashboards interactive (Dash Callbacks)](#make-dashboards-interactive-dash-callbacks)
     - [More Outputs](#more-outputs)
@@ -918,11 +918,11 @@ fig.show()
 </div>
 <br/>
 
-## [Dash](https://dash.plotly.com/)
+## Dashboard
 
 ### Dash Basics
 
-- Dash is a Open-Source User Interface Python library for creating reactive, web-based applications. It is enterprise-ready and a first-class member of Plotly’s open-source tools. 
+- [Dash](https://dash.plotly.com/) is a Open-Source User Interface Python library for creating reactive, web-based applications. It is enterprise-ready and a first-class member of Plotly’s open-source tools. 
 - Dash applications are web servers running Flask and communicating JSON packets over HTTP requests. 
 - Dash’s frontend renders components using React.js. It is **easy to build a Graphical User Interface** using dash as it abstracts all technologies required to build the applications. 
 - Dash is Declarative and Reactive. Dash output can be rendered in web browser and can be deployed to servers. 
