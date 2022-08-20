@@ -9,6 +9,7 @@
   - [Multiple Linear Regression](#multiple-linear-regression)
     - [Jupyter Notebook: Multiple Linear Regression](#jupyter-notebook-multiple-linear-regression)
   - [Non-Linear Regression](#non-linear-regression)
+    - [Jupyter Notebook: Non-Linear Regression](#jupyter-notebook-non-linear-regression)
 
 ## Introduction to Machine Learning
 
@@ -63,6 +64,12 @@ In essence, machine learning follows the same process that a 4-year-old child us
 - There are two types of supervised learning techniques. They are classification, and regression. **Classification** is the process of predicting a discrete class label, or category. **Regression** is the process of predicting a continuous value as opposed to predicting a categorical value in classification.
 - The unsupervised algorithm trains on the dataset, and draws conclusions on unlabeled data. Generally speaking, unsupervised learning has more difficult algorithms than supervised learning since we know little to no information about the data, or the outcomes that are to be expected. Dimension reduction, density estimation, market basket analysis, and clustering are the most widely used unsupervised machine learning techniques.
 
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
 ## Regression
 
 Regression algorithms:
@@ -115,6 +122,13 @@ Evaluation metrics are used to explain the performance of a model.
 #### [Jupyter Notebook: Simple Linear Regression](res/NB1-Simple-Linear-Regression-Co2.ipynb)
 
 
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+
 ### Multiple Linear Regression
 
 Estimating multiple linear regression parameters:
@@ -136,6 +150,13 @@ See also: [How to Choose a Feature Selection Method For Machine Learning](https:
 
 
 #### [Jupyter Notebook: Multiple Linear Regression](res/NB2-Mulitple-Linear-Regression-Co2.ipynb)
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
 
 
 ### Non-Linear Regression
@@ -225,4 +246,29 @@ print("R2-score: %.2f" % r2_score(test_y,test_y_ ) )
 
 
 <img src="res/polynomial-regression1.png" width="400">
+
+#### [Jupyter Notebook: Non-Linear Regression](res/NB3-Polynomial-Regression-Co2.ipynb)
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+
+
+
+
+---
+Notes by Aaron © 2022
 
