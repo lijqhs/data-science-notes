@@ -11,6 +11,21 @@
   - [Non-Linear Regression](#non-linear-regression)
     - [Jupyter Notebook: Polynomial Regression](#jupyter-notebook-polynomial-regression)
     - [Jupyter Notebook: Non-Linear Regression](#jupyter-notebook-non-linear-regression)
+- [Classification](#classification)
+  - [k-Nearest Neighbors algorithm](#k-nearest-neighbors-algorithm)
+    - [Jupyter Notebook: k-Nearest Neighbors](#jupyter-notebook-k-nearest-neighbors)
+  - [Evaluation Metrics in Classification](#evaluation-metrics-in-classification)
+    - [Jaccard Index](#jaccard-index)
+    - [F1 Score](#f1-score)
+    - [Log Loss](#log-loss)
+  - [Decision Trees](#decision-trees)
+    - [Entropy](#entropy)
+    - [Information Gain)](#information-gain)
+    - [Jupyter Notebook: Decision Trees](#jupyter-notebook-decision-trees)
+  - [Logistic Regression](#logistic-regression)
+    - [Gradient Descent](#gradient-descent)
+    - [Jupyter Notebook: Logistic Regression](#jupyter-notebook-logistic-regression)
+- [Support Vector Machine](#support-vector-machine)
 
 ## Introduction to Machine Learning
 
@@ -72,6 +87,16 @@ In essence, machine learning follows the same process that a 4-year-old child us
 <br/>
 
 ## Regression
+
+Learning Objectives:
+
+- Demonstrate understanding of the basics of regression.
+- Demonstrate understanding of simple linear regression.
+- Describe approaches for evaluating regression models.
+- Describe evaluation metrics for determining accuracy of regression models.
+- Demonstrate understanding of multiple linear regression.
+- Demonstrate understanding of non-linear regression.
+- Apply Simple and Multiple, Linear Regression on a dataset for estimation.
 
 Regression algorithms:
 
@@ -299,7 +324,47 @@ plt.show()
 </div>
 <br/>
 
+## Classification
 
+Learning Objectives:
+
+- Compare and contrast the characteristics of different Classification methods.
+- Explain how to apply the K Nearest Neighbors algorithm.
+- Describe model evaluation metrics.
+- Describe how a decision tree works.
+- Outline how to build a decision tree.
+- Explain the capabilities of logistic regression.
+- Compare and contrast linear regression with logistic regression.
+- Explain how to change the parameters of a logistic regression model.
+- Describe the cost function and gradient descent in logistic regression.
+- Provide an overview of the Support Vector Machine method.
+- Apply Classification algorithms on various datasets to solve real world problems.
+
+Classification algorithms:
+
+- Decision Trees (ID3, C4.5, C5.0)
+- Naive Bayes
+- Linear Discriminant Analysis
+- k-Nearest Neighbors
+- Logistic Regression
+- Neural Networks
+- Support Vector Machines (SVM)
+
+### k-Nearest Neighbors algorithm
+
+1. Pick a value for `k`
+2. Calculate the distance of unknown case from all cases
+3. Select the k-observations in the training data that are "nearest" to the unknown data point
+4. Predict the response of the unknown data point using the most popular response value from the k-nearest neighbors
+
+How can we find the best value for `k`?
+
+- A low value of `k` causes a highly complex model as well, which might result in overfitting of the model.
+- If we choose a very high value of `k` such as `k` equals 20, then the model becomes overly generalized.
+- The general solution is to reserve a part of your data for testing the accuracy of the model and iterate `k` starting from one to find the best accuracy.
+
+
+#### [Jupyter Notebook: k-Nearest Neighbors](res/NB5-K-Nearest-neighbors.ipynb)
 
 
 <br/>
@@ -309,4 +374,306 @@ plt.show()
 <br/>
 
 
+
+### Evaluation Metrics in Classification
+
+#### Jaccard Index
+
+<img src="res/jaccard-index.png" width="600">
+
+#### F1 Score
+
+<img src="res/f1-score.png" width="600">
+
+#### Log Loss
+
+<img src="res/log-loss.png" width="600">
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+
+
+### Decision Trees
+
+- Decision trees are built by splitting the training set into distinct nodes, where one node contains all of or most of one category of the data. 
+- Decision trees are about testing an attribute and branching the cases based on the result of the test. 
+- Each internal node corresponds to a test, and each branch corresponds to a result of the test, and each leaf node assigns classification.
+
+
+<img src="res/decision-trees.png" width="600">
+
+- Decision trees are built using recursive partitioning to classify the data. The algorithm chooses the **most predictive feature** to split the data on. What is important in making a decision tree, is to determine which attribute is the best or more predictive to split data based on the feature. Indeed, **predictiveness** is based on decrease in **impurity of nodes**.
+- The choice of attribute to split data is very important and it is all about purity of the leaves after the split. A node in the tree is considered **pure** if in 100% of the cases, the nodes fall into a specific category of the target field. 
+- In fact, the method uses **recursive partitioning** to split the training records into segments by minimizing the impurity at each step. Impurity of nodes is calculated by **entropy** of data in the node. 
+
+#### Entropy
+
+- **Entropy** is the amount of information **disorder** or the amount of **randomness** in the data. The entropy in the node depends on how much random data is in that node and is calculated for each node. 
+- In decision trees, we're looking for trees that have the **smallest entropy** in their nodes. The entropy is used to calculate the **homogeneity** of the samples in that node. If the samples are completely homogeneous, the entropy is zero and if the samples are equally divided it has an entropy of one.
+
+
+<img src="res/entropy.png" width="600">
+
+In which tree do we have less entropy after splitting rather than before splitting? The answer is the tree with the higher information gain after splitting.
+
+<img src="res/information-gain.png" width="600">
+
+
+ #### [Information Gain](https://en.wikipedia.org/wiki/Information_gain_(decision_tree))
+ 
+>[Information gain](https://machinelearningmastery.com/information-gain-and-mutual-information/) is the information that can increase the level of certainty after splitting. It is the entropy of a tree before the split minus the weighted entropy after the split by an attribute. We can think of information gain and entropy as opposites. As entropy or the amount of randomness decreases, the information gain or amount of certainty increases and vice versa. So, constructing a decision tree is all about finding attributes that return the highest information gain.
+
+<img src="res/information-gain2.png" width="600">
+
+```python
+import numpy as np 
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+import sklearn.tree as tree
+from sklearn import preprocessing
+
+# load data
+my_data = pd.read_csv("drug200.csv", delimiter=",")
+X = my_data[['Age', 'Sex', 'BP', 'Cholesterol', 'Na_to_K']].values
+y = my_data["Drug"]
+
+# preprocess data
+le_sex = preprocessing.LabelEncoder()
+le_sex.fit(['F','M'])
+X[:,1] = le_sex.transform(X[:,1]) 
+
+le_BP = preprocessing.LabelEncoder()
+le_BP.fit([ 'LOW', 'NORMAL', 'HIGH'])
+X[:,2] = le_BP.transform(X[:,2])
+
+le_Chol = preprocessing.LabelEncoder()
+le_Chol.fit([ 'NORMAL', 'HIGH'])
+X[:,3] = le_Chol.transform(X[:,3]) 
+
+# split dataset
+from sklearn.model_selection import train_test_split
+X_trainset, X_testset, y_trainset, y_testset = train_test_split(X, y, test_size=0.3, random_state=3)
+
+# build model
+drugTree = DecisionTreeClassifier(criterion="entropy", max_depth = 4)
+drugTree.fit(X_trainset,y_trainset)
+
+# predict
+predTree = drugTree.predict(X_testset)
+
+# evaluate
+from sklearn import metrics
+import matplotlib.pyplot as plt
+print("DecisionTrees's Accuracy: ", metrics.accuracy_score(y_testset, predTree))
+
+# plot
+tree.plot_tree(drugTree)
+plt.show()
+```
+
+    DecisionTrees's Accuracy:  0.9833333333333333
+
+<img src="res/decision-tree1.png" width="600">
+
+#### [Jupyter Notebook: Decision Trees](res/NB6-Decision-Trees-drug.ipynb)
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+
+### [Logistic Regression](https://en.wikipedia.org/wiki/Logistic_regression)
+
+Logistic regression is a statistical and machine learning technique for classifying records of a dataset based on the values of the input fields. Logistic regression can be used for both **binary classification** and **multi-class classification**.
+
+- What is logistic regression? 
+- What kind of problems can be solved by logistic regression? 
+- In which situations do we use logistic regression?
+
+>[Logistic regression](https://www.ibm.com/topics/logistic-regression) estimates the probability of an event occurring, such as voted or didn’t vote, based on a given dataset of independent variables. Since the outcome is a probability, the dependent variable is bounded between 0 and 1. 
+>
+>In logistic regression, a logit transformation is applied on the odds—that is, the probability of success divided by the probability of failure. This is also commonly known as the log odds, or the natural logarithm of odds, and this logistic function is represented by the following formulas:
+>
+>Logit(pi) = 1/(1+ exp(-pi))  
+>ln(pi/(1-pi)) = Beta_0 + Beta_1*X_1 + … + B_k*K_k
+
+Logistic regression applications:
+
+- Predicting the probability of a person having a heart attack
+- Predicting the mortality in injured patients
+- Predicting a customer's propensity to purchase a product or halt a subscription
+- Predicting the probability of failure of a given process or product
+- Predicting the likelihood of a homeowner defaulting on a mortgage
+
+<img src="res/logistic-regression.png" width="600">
+
+The training process:
+
+1. Initialize *θ*
+2. Calculate *y&#770;=σ(θ<sup>T</sup>X)* for a sample
+3. Compare the output of y&#770; with actual output of sample, `y`, and record it as error
+4. Calculate the error for all samples
+5. Change the *θ* to reduce the cost
+6. Go back to step 2
+
+Minimizing the cost function of the model
+- How to find the best parameters for our model?
+  - Minimize the cost function
+- How to minimize the cost function?
+  - Using Gradient Descent
+- What is gradient descent?
+  - A technique to use the derivative of a cost function to change the parameter values, in order to minimize the cost
+
+#### [Gradient Descent](https://en.wikipedia.org/wiki/Gradient_descent)
+
+>The gradient is the slope of the surface at every point and the direction of the gradient is the direction of the greatest uphill.
+>
+>The gradient value also indicates how big of a step to take. If the slope is large we should take a large step because we are far from the minimum. If the slope is small we should take a smaller step. Gradient descent takes increasingly smaller steps towards the minimum with each iteration.
+>
+>Also we multiply the gradient value by a constant value µ, which is called the learning rate. Learning rate, gives us additional control on how fast we move on the surface. In sum, we can simply say, gradient descent is like taking steps in the current direction of the slope, and the learning rate is like the length of the step you take.
+
+
+<img src="res/gradient.png" width="600">
+
+<img src="res/lr-training.png" width="600">
+
+```python
+import pandas as pd
+import pylab as pl
+import numpy as np
+import scipy.optimize as opt
+from sklearn import preprocessing
+%matplotlib inline 
+import matplotlib.pyplot as plt
+
+# load data
+churn_df = pd.read_csv("ChurnData.csv")
+churn_df = churn_df[['tenure', 'age', 'address', 'income', 'ed', 'employ', 'equip',   'callcard', 'wireless','churn']]
+churn_df['churn'] = churn_df['churn'].astype('int')
+X = np.asarray(churn_df[['tenure', 'age', 'address', 'income', 'ed', 'employ', 'equip']])
+y = np.asarray(churn_df['churn'])
+
+# preprocess data
+from sklearn import preprocessing
+X = preprocessing.StandardScaler().fit(X).transform(X)
+
+# split dataset
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split( X, y, test_size=0.2, random_state=4)
+print ('Train set:', X_train.shape,  y_train.shape)
+print ('Test set:', X_test.shape,  y_test.shape)
+
+# build model
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix
+LR = LogisticRegression(C=0.01, solver='liblinear').fit(X_train,y_train)
+
+# predict
+yhat = LR.predict(X_test)
+yhat_prob = LR.predict_proba(X_test)
+
+# evaluate
+# jaccard index
+from sklearn.metrics import jaccard_score
+jaccard_score(y_test, yhat,pos_label=0)
+
+# confusion matrix
+from sklearn.metrics import classification_report, confusion_matrix
+import itertools
+def plot_confusion_matrix(cm, classes,
+                          normalize=False,
+                          title='Confusion matrix',
+                          cmap=plt.cm.Blues):
+    """
+    This function prints and plots the confusion matrix.
+    Normalization can be applied by setting `normalize=True`.
+    """
+    if normalize:
+        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+        print("Normalized confusion matrix")
+    else:
+        print('Confusion matrix, without normalization')
+
+    print(cm)
+
+    plt.imshow(cm, interpolation='nearest', cmap=cmap)
+    plt.title(title)
+    plt.colorbar()
+    tick_marks = np.arange(len(classes))
+    plt.xticks(tick_marks, classes, rotation=45)
+    plt.yticks(tick_marks, classes)
+
+    fmt = '.2f' if normalize else 'd'
+    thresh = cm.max() / 2.
+    for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+        plt.text(j, i, format(cm[i, j], fmt),
+                 horizontalalignment="center",
+                 color="white" if cm[i, j] > thresh else "black")
+
+    plt.tight_layout()
+    plt.ylabel('True label')
+    plt.xlabel('Predicted label')
+print(confusion_matrix(y_test, yhat, labels=[1,0]))
+
+# Compute confusion matrix
+cnf_matrix = confusion_matrix(y_test, yhat, labels=[1,0])
+np.set_printoptions(precision=2)
+
+
+# Plot non-normalized confusion matrix
+plt.figure()
+plot_confusion_matrix(cnf_matrix, classes=['churn=1','churn=0'],normalize= False,  title='Confusion matrix')
+
+print (classification_report(y_test, yhat))
+
+# log loss
+from sklearn.metrics import log_loss
+log_loss(y_test, yhat_prob)
+```
+
+    Train set: (160, 7) (160,)
+    Test set: (40, 7) (40,)
+    [[ 6  9]
+    [ 1 24]]
+    Confusion matrix, without normalization
+    [[ 6  9]
+    [ 1 24]]
+                  precision    recall  f1-score   support
+
+              0       0.73      0.96      0.83        25
+              1       0.86      0.40      0.55        15
+
+        accuracy                           0.75        40
+      macro avg       0.79      0.68      0.69        40
+    weighted avg       0.78      0.75      0.72        40
+
+    0.6017092478101185
+
+
+<img src="res/confusion-matrix.png" width="300">
+
+#### [Jupyter Notebook: Logistic Regression](res/NB7-Logistic-Reg-churn.ipynb)
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+
+## Support Vector Machine
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
 
