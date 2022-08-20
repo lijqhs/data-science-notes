@@ -9,6 +9,7 @@
   - [Multiple Linear Regression](#multiple-linear-regression)
     - [Jupyter Notebook: Multiple Linear Regression](#jupyter-notebook-multiple-linear-regression)
   - [Non-Linear Regression](#non-linear-regression)
+    - [Jupyter Notebook: Polynomial Regression](#jupyter-notebook-polynomial-regression)
     - [Jupyter Notebook: Non-Linear Regression](#jupyter-notebook-non-linear-regression)
 
 ## Introduction to Machine Learning
@@ -179,6 +180,9 @@ See also: [How to Choose a Feature Selection Method For Machine Learning](https:
 See also: [Data Analysis with Python](../c07-data-analysis-with-python/readme.md#polynomial-regression-and-pipelines)
 
 
+#### [Jupyter Notebook: Polynomial Regression](res/NB3-Polynomial-Regression-Co2.ipynb)
+
+
 ```python
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -245,7 +249,48 @@ print("R2-score: %.2f" % r2_score(test_y,test_y_ ) )
 
 <img src="res/polynomial-regression1.png" width="400">
 
-#### [Jupyter Notebook: Non-Linear Regression](res/NB3-Polynomial-Regression-Co2.ipynb)
+#### [Jupyter Notebook: Non-Linear Regression](res/NB4-NoneLinearRegression.ipynb)
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+import pandas as pd
+from scipy.optimize import curve_fit
+from sklearn.metrics import r2_score
+
+df = pd.read_csv("china_gdp.csv")
+# df.head(10)
+
+# choose model
+def sigmoid(x, Beta_1, Beta_2):
+     y = 1 / (1 + np.exp(-Beta_1*(x-Beta_2)))
+     return y
+
+# normalize data
+x_data, y_data = (df["Year"].values, df["Value"].values)
+xdata =x_data/max(x_data)
+ydata =y_data/max(y_data)
+
+
+# build the model using train set
+popt, pcov = curve_fit(sigmoid, xdata, ydata)
+
+# plot
+x = np.linspace(1960, 2015, 55)
+x = x/max(x)
+plt.figure(figsize=(8,5))
+y = sigmoid(x, *popt)
+plt.plot(xdata, ydata, 'ro', label='data')
+plt.plot(x,y, linewidth=3.0, label='fit')
+plt.legend(loc='best')
+plt.ylabel('GDP')
+plt.xlabel('Year')
+plt.show()
+```
+
+<img src="res/non-linear4.png" width="400">
 
 
 <br/>
