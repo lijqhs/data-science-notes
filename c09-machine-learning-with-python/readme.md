@@ -38,6 +38,9 @@
     - [Advantages vs. disadvantages of Hierarchical clustering](#advantages-vs-disadvantages-of-hierarchical-clustering)
     - [Hierarchical clustering vs. K-means](#hierarchical-clustering-vs-k-means)
     - [Jupyter Notebook: Hierarchical clustering](#jupyter-notebook-hierarchical-clustering)
+  - [DBSCAN](#dbscan)
+    - [DBSCAN algorithm](#dbscan-algorithm)
+    - [Jupyter Notebook: DBSCAN](#jupyter-notebook-dbscan)
 - [Recommender Systems](#recommender-systems)
 
 ## Introduction to Machine Learning
@@ -975,6 +978,68 @@ How can we calculate the distance between clusters when there are multiple point
 #### [Jupyter Notebook: Hierarchical clustering](res/NB10-Hierarchical-Cars.ipynb)
 
 
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+
+### [DBSCAN](https://en.wikipedia.org/wiki/DBSCAN)
+
+Density-based spatial clustering of applications with noise (DBSCAN)
+
+<img src="res/density-based1.png" width="400">
+
+<img src="res/density-based2.png" width="400">
+
+
+>When applied to tasks with arbitrary shaped clusters or clusters within clusters, traditional techniques might not be able to achieve good results, that is elements in the same cluster might not share enough similarity or the performance may be poor. 
+>
+>Additionally, while partitioning based algorithms such as K-Means may be easy to understand and implement in practice, the algorithm has no notion of **outliers** that is, all points are assigned to a cluster even if they do not belong in any. 
+>
+>In the domain of **anomaly detection**, this causes problems as anomalous points will be assigned to the same cluster as normal data points. The **anomalous points** *pull* the cluster centroid towards them making it harder to classify them as anomalous points. 
+>
+>In contrast, **density-based clustering** locates regions of high density that are separated from one another by regions of low density.
+
+Density in this context is defined as the number of points within a specified radius. A specific and very popular type of density-based clustering is DBSCAN.
+
+<img src="res/dbscan.png" width="500">
+
+DBSCAN can be used here to find the group of stations which show the same weather condition. As you can see, it not only finds different **arbitrary shaped clusters** it can **find the denser part of data-centered samples** by **ignoring less dense areas or noises**.
+
+
+#### DBSCAN algorithm
+
+To see how DBSCAN works, we have to determine the type of points. Each point in our dataset can be either a **core**, **border**, or **outlier point**.
+
+The whole idea behind the DBSCAN algorithm is to visit each point and find its type first, then we group points as clusters based on their types.
+
+
+<img src="res/dbscan-core-point.png" width="400">
+
+**What is a core point?** A data point is a core point if within our neighborhood of the point there are at least `M` points.
+
+<img src="res/dbscan-border-point.png" width="400">
+
+**What is a border point?** A data point is a border point if 
+- (A) its neighbourhood contains less than `M` data points and 
+- (B) it is reachable from some core point. Here, reachability means it is within our distance from a core point.
+
+It means that even though the yellow point is within the two centimeter neighborhood of the red point, it is not by itself a core point because it does not have at least six points in its neighborhood.
+
+**What is an outlier?** An outlier is a point that is not a core point and also is not close enough to be reachable from a core point.
+
+The next step is to connect core points that are neighbors and put them in the same cluster. 
+
+So, a cluster is formed as at least one core point plus all reachable core points plus all their borders. It's simply shapes all the clusters and finds outliers as well.
+
+**Advantages of DBSCAN**
+- Arbitrarily shaped clusters
+- Robust to outliers
+- Does not require specification of the number of clusters
+
+#### [Jupyter Notebook: DBSCAN](res/NB11-DBSCAN-weather.ipynb)
 
 
 <br/>
@@ -982,6 +1047,7 @@ How can we calculate the distance between clusters when there are multiple point
     <b><a href="#top">↥ back to top</a></b>
 </div>
 <br/>
+
 
 ## Recommender Systems
 
