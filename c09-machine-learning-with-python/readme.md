@@ -168,8 +168,6 @@ See also: [How to Choose a Feature Selection Method For Machine Learning](https:
 
 <img src="res/non-linear3.png" width="600">
 
-<img src="res/non-linear4.png" width="600">
-
 
 **How can I know if a problem is linear or non-linear in an easy way?**
 - Firstly **visually** figure out if the relation is linear or non-linear. It's best to plot bivariate plots of output variables with each input variable. Also, you can calculate the **correlation coefficient** between independent and dependent variables, and if, for all variables, it is 0.7 or higher, there is a linear tendency and thus, it's not appropriate to fit a non-linear regression. 
