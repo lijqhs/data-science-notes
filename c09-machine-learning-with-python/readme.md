@@ -29,6 +29,15 @@
     - [Kernel methods](#kernel-methods)
     - [Jupyter Notebook: SVM](#jupyter-notebook-svm)
 - [Clustering](#clustering)
+  - [K-Means](#k-means)
+    - [K-Means clutering algorithm](#k-means-clutering-algorithm)
+    - [K-Means accuracy](#k-means-accuracy)
+    - [Elbow point](#elbow-point)
+    - [Jupyter Notebook: K-Means](#jupyter-notebook-k-means)
+  - [Hierarchical clustering](#hierarchical-clustering)
+    - [Advantages vs. disadvantages of Hierarchical clustering](#advantages-vs-disadvantages-of-hierarchical-clustering)
+    - [Hierarchical clustering vs. K-means](#hierarchical-clustering-vs-k-means)
+    - [Jupyter Notebook: Hierarchical clustering](#jupyter-notebook-hierarchical-clustering)
 - [Recommender Systems](#recommender-systems)
 
 ## Introduction to Machine Learning
@@ -829,7 +838,7 @@ Confusion matrix, without normalization
 <br/>
 
 
-## Clustering
+## [Clustering](https://en.wikipedia.org/wiki/Cluster_analysis)
 
 Learning Objectives:
 
@@ -841,6 +850,131 @@ Learning Objectives:
 - List the advantages and disadvantages of using Hierarchical Clustering.
 - Describe the capabilities of the density-based clustering called DBSCAN.
 - Apply clustering on different types of datasets.
+
+<img src="res/clustering-intro.png" width="600">
+
+<img src="res/clustering-app1.png" width="600">
+
+<img src="res/clustering-app2.png" width="600">
+
+Why clustering?
+- Exploratory data analysis
+- Summary generation
+- Outlier detection
+- Finding duplicates
+- Pre-processing step
+
+<img src="res/clustering-algo.png" width="600">
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+
+### [K-Means](https://en.wikipedia.org/wiki/K-means_clustering)
+
+>Though the objective of K-Means is to form clusters in such a way that similar samples go into a cluster, and dissimilar samples fall into different clusters, it can be shown that instead of a similarity metric, we can use **dissimilarity** metrics. In other words, conventionally the distance of samples from each other is used to shape the clusters. 
+>
+>So we can say K-Means tries to **minimize the intra-cluster distances** and **maximize the inter-cluster distances**.
+
+How can we calculate the dissimilarity or distance of two cases such as two customers?
+
+<img src="res/k-means1.png" width="600">
+
+<img src="res/k-means2.png" width="600">
+
+<img src="res/k-means3.png" width="600">
+
+<img src="res/k-means4.png" width="600">
+
+<img src="res/k-means5.png" width="600">
+
+#### K-Means clutering algorithm
+
+1. Randomly placing `k` centroids, one for each cluster
+2. Calculate the distance of each point from each centroid
+   - Euclidean distance is used to measure the distance from the object to the centroid. Please note, however, that you can also use different types of distance measurements, not just Euclidean distance. Euclidean distance is used because it's the most popular.
+3. Assign each data point (object) to its closest centroid, creating a cluster
+4. Recalculate the position of the `k` centroids
+5. Repeat the steps 2-4, until the centroids no longer move
+
+
+#### K-Means accuracy
+
+- External approach
+  - Compare the clusters with the ground truth, if it is available
+- Internal approach
+  - Average the distance between data points within a cluster
+
+#### Elbow point
+
+<img src="res/k-means-elbow-point.png" width="600">
+
+K-Means recap
+- Med and large sized databases (relatively efficient)
+- Produces sphere-like clusters
+- Needs number of clusters (k)
+
+
+#### [Jupyter Notebook: K-Means](res/NB9-K-Means-Customer-Seg.ipynb)
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+
+
+### [Hierarchical clustering](https://en.wikipedia.org/wiki/Hierarchical_clustering)
+
+Hierarchical clustering algorithms build a hierarchy of clusters where **each node is a cluster** consists of the clusters of its daughter nodes.
+
+Strategies for hierarchical clustering generally fall into two types, divisive and agglomerative. 
+- Divisive is top down, so you start with all observations in a large cluster and break it down into smaller pieces. Think about divisive as dividing the cluster. 
+- Agglomerative is the opposite of divisive. So it is bottom up, where each observation starts in its own cluster and pairs of clusters are merged together as they move up the hierarchy. Agglomeration means to amass or collect things, which is exactly what this does with the cluster. The **agglomerative** approach is **more popular** among data scientists.
+
+Hierarchical clustering is typically visualized as a **dendrogram**. Essentially, hierarchical clustering does not require a prespecified number of clusters.
+
+
+<img src="res/Iris_dendrogram.png" width="600">
+
+Dendrogram source: [Wikipedia](https://en.wikipedia.org/wiki/Hierarchical_clustering)
+
+
+<img src="res/agglomerative-clustering-algo.png" width="600">
+
+<img src="res/agglomerative-clustering-dist.png" width="600">
+
+How can we calculate the distance between clusters when there are multiple points in each cluster?
+
+<img src="res/clustering-dist.png" width="600">
+
+#### Advantages vs. disadvantages of Hierarchical clustering
+
+| Advantages | Disadvantages |
+| --- | --- |
+| Doesn't require number of clusters to be specified | Can never undo any previous steps throughout the algorithm |
+| Easy to implement | Generally has long runtimes |
+| Produces a dendrogram, which helps with understanding the data | Sometimes difficult to identify the number of clusters by the dendrogram |
+
+#### Hierarchical clustering vs. K-means
+
+| K-means | Hierarchical clustering |
+| --- | --- |
+| Much more efficient | Can be slow for large datasets |
+| Requires the number of clusters to be specified | Doesn't require number of clusters to run |
+| Gives only one partitioning of the data based on the predefined number of clusters | Gives more than one partitioning depending on the resolution |
+| Potentially returns different clusters each time it is run due to random initialization of centroids | Always generates the same clusters |
+
+
+#### [Jupyter Notebook: Hierarchical clustering](res/NB10-Hierarchical-Cars.ipynb)
+
+
 
 
 <br/>
