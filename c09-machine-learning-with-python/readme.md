@@ -25,7 +25,11 @@
   - [Logistic Regression](#logistic-regression)
     - [Gradient Descent](#gradient-descent)
     - [Jupyter Notebook: Logistic Regression](#jupyter-notebook-logistic-regression)
-- [Support Vector Machine](#support-vector-machine)
+  - [Support Vector Machine](#support-vector-machine)
+    - [Kernel methods](#kernel-methods)
+    - [Jupyter Notebook: SVM](#jupyter-notebook-svm)
+- [Clustering](#clustering)
+- [Recommender Systems](#recommender-systems)
 
 ## Introduction to Machine Learning
 
@@ -543,6 +547,9 @@ Minimizing the cost function of the model
 
 <img src="res/lr-training.png" width="600">
 
+#### [Jupyter Notebook: Logistic Regression](res/NB7-Logistic-Reg-churn.ipynb)
+
+
 ```python
 import pandas as pd
 import pylab as pl
@@ -658,7 +665,161 @@ log_loss(y_test, yhat_prob)
 
 <img src="res/confusion-matrix.png" width="300">
 
-#### [Jupyter Notebook: Logistic Regression](res/NB7-Logistic-Reg-churn.ipynb)
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+
+### Support Vector Machine
+
+<img src="res/svm1.png" width="600">
+
+<img src="res/svm2.png" width="600">
+
+<img src="res/svm3.png" width="600">
+
+#### [Kernel methods](https://en.wikipedia.org/wiki/Kernel_method)
+
+The SVM algorithm offers a choice of kernel functions for performing its processing. Basically, mapping data into a higher dimensional space is called kernelling. The mathematical function used for the transformation is known as the kernel function, and can be of different types, such as:
+
+1. Linear
+2. Polynomial
+3. Radial basis function (RBF)
+4. Sigmoid
+
+
+**Pros and cons of SVM**
+- Advantages:
+  - Accurate in high-dimensional spaces
+  - Memory efficient
+- Disadvantages:
+  - Prone to over-fitting
+  - No probability estimation
+  - Small datasets (SVMs are not very efficient computationally if your dataset is very big, such as when you have more than 1,000 rows)
+
+**SVM applications**
+- Image recognition
+- Text category assignment
+- Detecting spam
+- Sentiment analysis
+- Gene Expression Classification
+- Regression, outlier detection and clustering
+
+
+#### [Jupyter Notebook: SVM](res/NB8-SVM.ipynb)
+
+```python
+import pandas as pd
+import pylab as pl
+import numpy as np
+import scipy.optimize as opt
+from sklearn import preprocessing
+from sklearn.model_selection import train_test_split
+%matplotlib inline 
+import matplotlib.pyplot as plt
+
+# load data
+cell_df = pd.read_csv("cell_samples.csv")
+# BareNuc column includes some values that are not numerical. drop those rows
+cell_df = cell_df[pd.to_numeric(cell_df['BareNuc'], errors='coerce').notnull()] 
+cell_df['BareNuc'] = cell_df['BareNuc'].astype('int')
+
+feature_df = cell_df[['Clump', 'UnifSize', 'UnifShape', 'MargAdh', 'SingEpiSize', 'BareNuc', 'BlandChrom', 'NormNucl', 'Mit']]
+X = np.asarray(feature_df)
+
+cell_df['Class'] = cell_df['Class'].astype('int')
+y = np.asarray(cell_df['Class'])
+
+# split dataset
+X_train, X_test, y_train, y_test = train_test_split( X, y, test_size=0.2, random_state=4)
+print ('Train set:', X_train.shape,  y_train.shape)
+print ('Test set:', X_test.shape,  y_test.shape)
+
+# build model
+from sklearn import svm
+clf = svm.SVC(kernel='rbf')
+clf.fit(X_train, y_train) 
+
+# predict
+yhat = clf.predict(X_test)
+
+# evaluate
+from sklearn.metrics import classification_report, confusion_matrix
+import itertools
+
+def plot_confusion_matrix(cm, classes,
+                          normalize=False,
+                          title='Confusion matrix',
+                          cmap=plt.cm.Blues):
+    """
+    This function prints and plots the confusion matrix.
+    Normalization can be applied by setting `normalize=True`.
+    """
+    if normalize:
+        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+        print("Normalized confusion matrix")
+    else:
+        print('Confusion matrix, without normalization')
+
+    print(cm)
+
+    plt.imshow(cm, interpolation='nearest', cmap=cmap)
+    plt.title(title)
+    plt.colorbar()
+    tick_marks = np.arange(len(classes))
+    plt.xticks(tick_marks, classes, rotation=45)
+    plt.yticks(tick_marks, classes)
+
+    fmt = '.2f' if normalize else 'd'
+    thresh = cm.max() / 2.
+    for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+        plt.text(j, i, format(cm[i, j], fmt),
+                 horizontalalignment="center",
+                 color="white" if cm[i, j] > thresh else "black")
+
+    plt.tight_layout()
+    plt.ylabel('True label')
+    plt.xlabel('Predicted label')
+
+# Compute confusion matrix
+cnf_matrix = confusion_matrix(y_test, yhat, labels=[2,4])
+np.set_printoptions(precision=2)
+
+print(classification_report(y_test, yhat))
+
+# Plot non-normalized confusion matrix
+plt.figure()
+plot_confusion_matrix(cnf_matrix, classes=['Benign(2)','Malignant(4)'],normalize= False,  title='Confusion matrix')
+
+# f1_score
+from sklearn.metrics import f1_score
+print(f1_score(y_test, yhat, average='weighted'))
+
+from sklearn.metrics import jaccard_score
+print(jaccard_score(y_test, yhat,pos_label=2))
+```
+```
+Train set: (546, 9) (546,)
+Test set: (137, 9) (137,)
+              precision    recall  f1-score   support
+
+           2       1.00      0.94      0.97        90
+           4       0.90      1.00      0.95        47
+
+    accuracy                           0.96       137
+   macro avg       0.95      0.97      0.96       137
+weighted avg       0.97      0.96      0.96       137
+
+Confusion matrix, without normalization
+[[85  5]
+ [ 0 47]]
+0.9639038982104676
+0.9444444444444444
+```
+
+<img src="res/svm-confusion-matrix.png" width="300">
 
 
 <br/>
@@ -668,7 +829,18 @@ log_loss(y_test, yhat_prob)
 <br/>
 
 
-## Support Vector Machine
+## Clustering
+
+Learning Objectives:
+
+- Explain the different types of clustering algorithms and their use cases.
+- Describe the K-Means Clustering technique.
+- Describe accuracy concerns for the K-Means Clustering technique.
+- Explain the Hierarchical Clustering technique.
+- Provide an overview of the agglomerative algorithm for hierarchical clustering.
+- List the advantages and disadvantages of using Hierarchical Clustering.
+- Describe the capabilities of the density-based clustering called DBSCAN.
+- Apply clustering on different types of datasets.
 
 
 <br/>
@@ -677,3 +849,19 @@ log_loss(y_test, yhat_prob)
 </div>
 <br/>
 
+## Recommender Systems
+
+Learning Objectives:
+- Explain how the different recommender systems work.
+- Describe the advantages of using recommendation systems.
+- Explain the difference between memory-based and model-based implementations of recommender systems.
+- Explain how content-based recommender systems work.
+- Explain how collaborative filtering systems work.
+- Implement a recommender system on a real dataset.
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
