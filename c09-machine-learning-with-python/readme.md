@@ -265,8 +265,3 @@ print("R2-score: %.2f" % r2_score(test_y,test_y_ ) )
 
 
 
-
-
----
-Notes by Aaron © 2022
-

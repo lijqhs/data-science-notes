@@ -608,8 +608,3 @@ for param, mean_val, mean_test in zip(scores['params'], scores['mean_test_score'
 </div>
 <br/>
 
-
-
----
-Notes by Aaron © 2022
-

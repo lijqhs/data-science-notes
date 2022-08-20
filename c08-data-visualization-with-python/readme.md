@@ -1584,6 +1584,3 @@ if __name__ == '__main__':
 </div>
 <br/>
 
----
-Notes by Aaron © 2022
-

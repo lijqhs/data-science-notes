@@ -120,6 +120,3 @@ The ROC curve is a useful diagnostic tool in determining the optimal classificat
 </div>
 <br/>
 
-
----
-Notes by Aaron © 2022

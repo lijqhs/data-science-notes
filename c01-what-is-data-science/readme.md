@@ -122,6 +122,3 @@ To be a data scientist writer:
 </div>
 <br/>
 
-
----
-Notes by Aaron © 2022

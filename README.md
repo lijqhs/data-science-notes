@@ -16,6 +16,3 @@ Table of Contents:
 - [Machine Learning with Python &#9650;](c09-machine-learning-with-python/readme.md)
 - Applied Data Science Capstone
 
-
----
-Notes by Aaron © 2022
