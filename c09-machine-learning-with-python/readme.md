@@ -43,6 +43,8 @@
     - [Jupyter Notebook: DBSCAN](#jupyter-notebook-dbscan)
 - [Recommender Systems](#recommender-systems)
   - [Content-based recommender systems](#content-based-recommender-systems)
+    - [Advantages and Disadvantages of Content-Based Filtering](#advantages-and-disadvantages-of-content-based-filtering)
+    - [Jupyter Notebook: Content-based recommender systems](#jupyter-notebook-content-based-recommender-systems)
   - [Collaborative Filtering](#collaborative-filtering)
     - [User-based vs. Item-based](#user-based-vs-item-based)
     - [Challenges of collaborative filtering](#challenges-of-collaborative-filtering)
@@ -1096,6 +1098,23 @@ The recommendation process is based on the **similarity** between those items. S
 
 <img src="res/rs-content3.png" width="600">
 
+#### Advantages and Disadvantages of Content-Based Filtering
+
+- Advantages
+  - Learns user's preferences
+  - Highly personalized for the user
+- Disadvantages
+  - Doesn't take into account what others think of the item, so low quality item recommendations might happen
+  - Extracting data is not always intuitive
+  - Determining what characteristics of the item the user dislikes or likes is not always obvious
+
+
+#### [Jupyter Notebook: Content-based recommender systems](res/NB12-Content-Based-movies.ipynb)
+
+
+- DataSets Resource: [GroupLens](https://grouplens.org/datasets/movielens/)
+- view on GitHub
+
 
 ### Collaborative Filtering
 
@@ -1134,8 +1153,6 @@ Collaborative filtering is a very effective recommendation system. However, ther
 
 There are some solutions for each of these challenges such as using [hybrid based recommender systems](https://en.wikipedia.org/wiki/Recommender_system#Hybrid_recommender_systems).
 
-
-DataSets Resource: [GroupLens](https://grouplens.org/datasets/movielens/)
 
 
 <br/>
