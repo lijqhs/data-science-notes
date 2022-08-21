@@ -6,6 +6,7 @@
   - [Data Collection API](#data-collection-api)
     - [Jupyter Notebook: Data Collection API](#jupyter-notebook-data-collection-api)
   - [Web Scraping](#web-scraping)
+    - [Jupyter Notebook: Web Scraping](#jupyter-notebook-web-scraping)
 
 ## Data Collection
 
@@ -31,3 +32,6 @@ data = pd.json_normalize(response.json())
 ### Web Scraping
 
 Wikipedia: [List of Falcon 9 and Falcon Heavy launches](https://en.wikipedia.org/wiki/List_of_Falcon_9_and_Falcon_Heavy_launches)
+
+#### [Jupyter Notebook: Web Scraping](res/jupyter-labs-webscraping.ipynb)
+
