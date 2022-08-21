@@ -14,5 +14,5 @@ Table of Contents:
 - [Data Analysis with Python &#9650;](c07-data-analysis-with-python/readme.md)
 - [Data Visualization with Python &#9650;](c08-data-visualization-with-python/readme.md)
 - [Machine Learning with Python &#9650;](c09-machine-learning-with-python/readme.md)
-- Applied Data Science Capstone
+- [Applied Data Science Capstone](c10-applied-data-science-capstone/readme.md)
 
