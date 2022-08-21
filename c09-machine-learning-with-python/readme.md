@@ -47,7 +47,9 @@
     - [Jupyter Notebook: Content-based recommender systems](#jupyter-notebook-content-based-recommender-systems)
   - [Collaborative Filtering](#collaborative-filtering)
     - [User-based vs. Item-based](#user-based-vs-item-based)
+    - [Advantages and Disadvantages of Collaborative Filtering](#advantages-and-disadvantages-of-collaborative-filtering)
     - [Challenges of collaborative filtering](#challenges-of-collaborative-filtering)
+    - [Jupyter Notebook: Collaborative Filtering](#jupyter-notebook-collaborative-filtering)
 
 ## Introduction to Machine Learning
 
@@ -1111,9 +1113,15 @@ The recommendation process is based on the **similarity** between those items. S
 
 #### [Jupyter Notebook: Content-based recommender systems](res/NB12-Content-Based-movies.ipynb)
 
-
+- [view on GitHub](https://github.com/lijqhs/data-science-notes/blob/main/c09-machine-learning-with-python/res/NB12-Content-Based-movies.ipynb)
 - DataSets Resource: [GroupLens](https://grouplens.org/datasets/movielens/)
-- view on GitHub
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
 
 
 ### Collaborative Filtering
@@ -1144,6 +1152,19 @@ The recommendation process is based on the **similarity** between those items. S
   - For example, Item 1 and Item 3 are considered neighbors as they were positively rated by both User 1 and User 2. So, Item 1 can be recommended to User 3 as he has already shown interest in Item 3. 
   - Therefore, the recommendations here are based on the items in the neighborhood that a user might prefer.
 
+
+#### Advantages and Disadvantages of Collaborative Filtering
+
+- Advantages
+  - Takes other user's ratings into consideration
+  - Doesn't need to study or extract information from the recommended item
+  - Adapts to the user's interests which might change over time
+- Disadvantages
+  - Approximation function can be slow
+  - There might be a low amount of users to approximate
+  - Privacy issues when trying to learn the user's preferences
+
+
 #### Challenges of collaborative filtering
 
 Collaborative filtering is a very effective recommendation system. However, there are some challenges with it as well. 
@@ -1153,6 +1174,9 @@ Collaborative filtering is a very effective recommendation system. However, ther
 
 There are some solutions for each of these challenges such as using [hybrid based recommender systems](https://en.wikipedia.org/wiki/Recommender_system#Hybrid_recommender_systems).
 
+#### [Jupyter Notebook: Collaborative Filtering](res/NB13-Collaborative-Filtering-movies.ipynb)
+
+- [view on GitHub](https://github.com/lijqhs/data-science-notes/blob/main/c09-machine-learning-with-python/res/NB13-Collaborative-Filtering-movies.ipynb)
 
 
 <br/>
