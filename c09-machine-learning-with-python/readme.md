@@ -42,6 +42,10 @@
     - [DBSCAN algorithm](#dbscan-algorithm)
     - [Jupyter Notebook: DBSCAN](#jupyter-notebook-dbscan)
 - [Recommender Systems](#recommender-systems)
+  - [Content-based recommender systems](#content-based-recommender-systems)
+  - [Collaborative Filtering](#collaborative-filtering)
+    - [User-based vs. Item-based](#user-based-vs-item-based)
+    - [Challenges of collaborative filtering](#challenges-of-collaborative-filtering)
 
 ## Introduction to Machine Learning
 
@@ -119,7 +123,7 @@ Regression algorithms:
 - Ordinal regression
 - Poisson regression
 - Fast forest quantile regression
-- Linear, Polynomial, Lasso, Stepwise, Ridge regression
+- Linear, Polynomial, [Lasso](https://en.wikipedia.org/wiki/Lasso_(statistics)), Stepwise, [Ridge regression](https://en.wikipedia.org/wiki/Ridge_regression)
 - Bayesian linear regression
 - Neural network regression
 - Decision forest regression
@@ -1009,6 +1013,8 @@ Density in this context is defined as the number of points within a specified ra
 DBSCAN can be used here to find the group of stations which show the same weather condition. As you can see, it not only finds different **arbitrary shaped clusters** it can **find the denser part of data-centered samples** by **ignoring less dense areas or noises**.
 
 
+<img src="res/dbscan1.png" width="500">
+
 #### DBSCAN algorithm
 
 To see how DBSCAN works, we have to determine the type of points. Each point in our dataset can be either a **core**, **border**, or **outlier point**.
@@ -1049,7 +1055,7 @@ So, a cluster is formed as at least one core point plus all reachable core point
 <br/>
 
 
-## Recommender Systems
+## [Recommender Systems](https://en.wikipedia.org/wiki/Recommender_system)
 
 Learning Objectives:
 - Explain how the different recommender systems work.
@@ -1058,6 +1064,78 @@ Learning Objectives:
 - Explain how content-based recommender systems work.
 - Explain how collaborative filtering systems work.
 - Implement a recommender system on a real dataset.
+
+Advantages of recommender systems
+- Broader exposure
+- Possibility of continual usage or purchase of products
+- Provides better experience
+
+
+<img src="res/recommender-system-types.png" width="600">
+
+**Implementing recommender systems**
+- Memory-based
+  - Uses the entire user-item dataset to generate a recommendation
+  - Uses statistical techniques to approximate users or items
+    - e.g., Pearson Correlation, Cosine Similarity, Euclidean Distance, etc
+- Model-based
+  - Develops a model of users in an attempt to learn their preferences
+  - Models can be created using Machine Learning techniques like regression, clustering, classification, etc
+
+See also: [Recommendation Systems on Google Machine Learning Course](https://developers.google.com/machine-learning/recommendation)
+
+### Content-based recommender systems
+
+A Content-based recommendation system tries to recommend items to users based on their profile. The **user's profile** revolves around that user's preferences and tastes. It is shaped based on user ratings, including the number of times that user has clicked on different items or perhaps even liked those items. 
+
+The recommendation process is based on the **similarity** between those items. Similarity or closeness of items is measured based on the similarity in the content of those items. When we say content, we're talking about things like the items category, tag, genre, and so on.
+
+<img src="res/rs-content1.png" width="600">
+
+<img src="res/rs-content2.png" width="600">
+
+<img src="res/rs-content3.png" width="600">
+
+
+### Collaborative Filtering
+
+- User-based collaborative filtering
+  - Based on users' neighborhood
+- Item-based collaborative filtering
+  - Based on items' similarity
+
+
+<img src="res/rs-collaborative.png" width="600">
+
+<img src="res/rs-collaborative1.png" width="600">
+
+<img src="res/rs-collaborative2.png" width="600">
+
+<img src="res/rs-collaborative3.png" width="600">
+
+#### User-based vs. Item-based
+
+
+<img src="res/rs-user-item.png" width="600">
+
+
+- In the **user-based** approach, the recommendation is based on users of the same neighborhood with whom he or she shares common preferences. 
+  - For example, as User 1 and User 3 both liked Item 3 and Item 4, we consider them as similar or neighbor users, and recommend Item 1 which is positively rated by User 1 to User 3. 
+- In the **item-based** approach, similar items build neighborhoods on the behavior of users. Please note however, that it is **not based on their contents**. 
+  - For example, Item 1 and Item 3 are considered neighbors as they were positively rated by both User 1 and User 2. So, Item 1 can be recommended to User 3 as he has already shown interest in Item 3. 
+  - Therefore, the recommendations here are based on the items in the neighborhood that a user might prefer.
+
+#### Challenges of collaborative filtering
+
+Collaborative filtering is a very effective recommendation system. However, there are some challenges with it as well. 
+- **Data sparsity**. Data sparsity happens when you have a large data set of users who generally rate only a limited number of items. As mentioned, collaborative based recommenders can only predict scoring of an item if there are other users who have rated it. Due to sparsity, we might not have enough ratings in the user item dataset which makes it impossible to provide proper recommendations. 
+- **Cold start**. Cold start refers to the difficulty the recommendation system has when there is a new user, and as such a profile doesn't exist for them yet. Cold start can also happen when we have a new item which has not received a rating. 
+- **Scalability** can become an issue as well. As the **number of users or items increases** and the **amount of data expands**, collaborative filtering algorithms will begin to suffer **drops in performance**, simply due to growth and the similarity computation. 
+
+There are some solutions for each of these challenges such as using [hybrid based recommender systems](https://en.wikipedia.org/wiki/Recommender_system#Hybrid_recommender_systems).
+
+
+DataSets Resource: [GroupLens](https://grouplens.org/datasets/movielens/)
 
 
 <br/>
