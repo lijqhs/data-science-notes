@@ -42,17 +42,17 @@ response = requests.get(spacex_url)
 data = pd.json_normalize(response.json())
 ```
 
-#### [Jupyter Notebook: Data Collection API](res/jupyter-labs-spacex-data-collection-api.ipynb)
+#### [Jupyter Notebook: Data Collection API](res/1-jupyter-labs-spacex-data-collection-api.ipynb)
 
 ### Web Scraping
 
 Data Source: [Wikipedia: List of Falcon 9 and Falcon Heavy launches](https://en.wikipedia.org/wiki/List_of_Falcon_9_and_Falcon_Heavy_launches)
 
-#### [Jupyter Notebook: Web Scraping](res/jupyter-labs-webscraping.ipynb)
+#### [Jupyter Notebook: Web Scraping](res/2-jupyter-labs-webscraping.ipynb)
 
 ### Data Wrangling
 
-#### [Jupyter Notebook: Data Wrangling](res/jupyter-spacex-data-wrangling.ipynb)
+#### [Jupyter Notebook: Data Wrangling](res/3-jupyter-spacex-data-wrangling.ipynb)
 
 
 <br/>
@@ -67,7 +67,7 @@ Data Source: [Wikipedia: List of Falcon 9 and Falcon Heavy launches](https://en.
 
 ### Exploratory Analysis Using SQL
 
-#### [Jupyter Notebook: Using SQL](res/jupyter-labs-eda-sql-coursera_sqllite.ipynb)
+#### [Jupyter Notebook: Using SQL](res/4-jupyter-labs-eda-sql-coursera_sqllite.ipynb)
 
 
 - [Accessing SQLite Databases Using Python and Pandas](https://datacarpentry.org/python-ecology-lesson/09-working-with-sql/index.html)
@@ -83,12 +83,12 @@ Data Source: [Wikipedia: List of Falcon 9 and Falcon Heavy launches](https://en.
 
 ### Exploratory Analysis Using Pandas and Matplotlib
 
-#### [Jupyter Notebook: Data Visualization](res/jupyter-labs-eda-dataviz.ipynb)
+#### [Jupyter Notebook: Data Visualization](res/5-jupyter-labs-eda-dataviz.ipynb)
 
 
 ### Interactive Visual Analytics and Dashboards
 
-#### [Jupyter Notebook: Folium](res/jupyter_launch_site_location_folium.ipynb)
+#### [Jupyter Notebook: Folium](res/6-jupyter_launch_site_location_folium.ipynb)
 
 ```python
 # Function to assign color to launch outcome
@@ -308,7 +308,7 @@ yhat = knn_cv.predict(X_test)
 plot_confusion_matrix(Y_test,yhat)
 ```
 
-### [Jupyter Notebook: Machine Learning Prediction](res/SpaceX_Machine_Learning_Prediction_Part_5.ipynb)
+### [Jupyter Notebook: Machine Learning Prediction](res/7-SpaceX_Machine_Learning_Prediction_Part_5.ipynb)
 
 
 ## How to Present Your Findings
