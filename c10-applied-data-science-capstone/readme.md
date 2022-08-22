@@ -315,10 +315,15 @@ plot_confusion_matrix(Y_test,yhat)
 
 ### Structure of A Report
 
-<img src="res/report.png" width="500">
-
-Reading: [Structure of A Report](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0101EN-SkillsNetwork/labs/Module%203/ReadingReportStructure.md.html?origin=www.coursera.org)
-
+- Cover Page
+- Executive Summary
+- Table of Contents
+- Introduction
+- Methodology
+- Results
+- Discussion
+- Conclusion
+- Appendix
 
 
 <br/>

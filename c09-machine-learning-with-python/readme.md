@@ -50,7 +50,7 @@
     - [Advantages and Disadvantages of Collaborative Filtering](#advantages-and-disadvantages-of-collaborative-filtering)
     - [Challenges of collaborative filtering](#challenges-of-collaborative-filtering)
     - [Jupyter Notebook: Collaborative Filtering](#jupyter-notebook-collaborative-filtering)
-- [Jupyter Notebook: Final Project.ipynb)](#jupyter-notebook-final-project)
+- [Jupyter Notebook: Final Project](#jupyter-notebook-final-project)
 
 ## Introduction to Machine Learning
 
@@ -1180,7 +1180,7 @@ There are some solutions for each of these challenges such as using [hybrid base
 - [view on GitHub](https://github.com/lijqhs/data-science-notes/blob/main/c09-machine-learning-with-python/res/NB13-Collaborative-Filtering-movies.ipynb)
 
 
-## [Jupyter Notebook: Final Project](res/NB-MachineLearningwithPython_Project(loan-classification).ipynb)
+## [Jupyter Notebook: Final Project](res/NB-MachineLearningwithPython_Project-loan-classification.ipynb)
 
 
 <br/>
