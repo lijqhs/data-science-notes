@@ -20,7 +20,6 @@
   - [Jupyter Notebook: Machine Learning Prediction](#jupyter-notebook-machine-learning-prediction)
 - [How to Present Your Findings](#how-to-present-your-findings)
   - [Structure of A Report](#structure-of-a-report)
-  - [Best Practices For Presenting Your Findings](#best-practices-for-presenting-your-findings)
 
 ## Data Collection
 
@@ -320,9 +319,7 @@ plot_confusion_matrix(Y_test,yhat)
 
 Reading: [Structure of A Report](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0101EN-SkillsNetwork/labs/Module%203/ReadingReportStructure.md.html?origin=www.coursera.org)
 
-### Best Practices For Presenting Your Findings
 
-Create a data-driven presentation that will keep the audience engaged and how to deliver a clear and concise message.
 
 <br/>
 <div align="right">
