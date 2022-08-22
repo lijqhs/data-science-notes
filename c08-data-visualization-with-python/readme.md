@@ -968,8 +968,7 @@ app.layout = html.Div([
        html.P('Hierarchical view in the order of month and destination state holding value of number of flights.', 
               style={'textAlign':'center', 'color': '#F57241'}),
        dcc.Graph(figure=fig_sunburst),
-
-                    ])
+    ])
 
 # Run the application                   
 if __name__ == '__main__':
@@ -977,6 +976,14 @@ if __name__ == '__main__':
 ```
 
 <img src="res/dash-pie-sunburst.png" width="800">
+
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
 
 
 ### Make dashboards interactive (Dash Callbacks)
@@ -1024,7 +1031,7 @@ app.layout = html.Div(children=[
                             value='2010', 
                             style={'height': '50px', 
                                 'font-size': 35}),], 
-        style={'font-size': 40}),
+                style={'font-size': 40}),
         html.Br(),
         html.Br(),
         html.Div(dcc.Graph(id='line-plot')),
@@ -1059,6 +1066,14 @@ if __name__ == '__main__':
 ```
 
 <img src="res/dash-interact.png" width="800">
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
 
 #### More Outputs
 
@@ -1202,6 +1217,14 @@ if __name__ == '__main__':
 ```
 
 <img src="res/dash-flights.png" width="800">
+
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
 
 
 ### Dashboard Summary

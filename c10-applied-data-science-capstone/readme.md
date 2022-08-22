@@ -2,8 +2,6 @@
 
 <img src="res/Falcon9_rocket_family.svg" width="800">
 
-Image Source: [Wikipedia: List of Falcon 9 and Falcon Heavy launches](https://en.wikipedia.org/wiki/List_of_Falcon_9_and_Falcon_Heavy_launches)
-
 - [Data Collection](#data-collection)
   - [Data Collection API](#data-collection-api)
     - [Jupyter Notebook: Data Collection API](#jupyter-notebook-data-collection-api)
@@ -14,8 +12,12 @@ Image Source: [Wikipedia: List of Falcon 9 and Falcon Heavy launches](https://en
 - [Exploratory Data Analysis](#exploratory-data-analysis)
   - [Exploratory Analysis Using SQL](#exploratory-analysis-using-sql)
     - [Jupyter Notebook: Using SQL](#jupyter-notebook-using-sql)
-    - [Reference Links](#reference-links)
+    - [Lab Reference Links](#lab-reference-links)
   - [Exploratory Analysis Using Pandas and Matplotlib](#exploratory-analysis-using-pandas-and-matplotlib)
+    - [Jupyter Notebook: Data Visualization](#jupyter-notebook-data-visualization)
+  - [Interactive Visual Analytics and Dashboards](#interactive-visual-analytics-and-dashboards)
+    - [Jupyter Notebook: Folium](#jupyter-notebook-folium)
+    - [SpaceX Dash App](#spacex-dash-app)
 
 ## Data Collection
 
@@ -66,7 +68,7 @@ Data Source: [Wikipedia: List of Falcon 9 and Falcon Heavy launches](https://en.
 
 - [Accessing SQLite Databases Using Python and Pandas](https://datacarpentry.org/python-ecology-lesson/09-working-with-sql/index.html)
 
-#### Reference Links
+#### Lab Reference Links
 
 - [Hands-on Lab : String Patterns, Sorting and Grouping](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Labs_Coursera_V5/labs/Lab%20-%20String%20Patterns%20-%20Sorting%20-%20Grouping/instructional-labs.md.html?utm_medium=Exinfluencer&utm_source=Exinfluencer&utm_content=000026UJ&utm_term=10006555&utm_id=NA-SkillsNetwork-Channel-SkillsNetworkCoursesIBMDS0321ENSkillsNetwork26802033-2022-01-01&origin=www.coursera.org)
 - [Hands-on Lab: Built-in functions](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DB0201EN-SkillsNetwork/labs/Labs_Coursera_V5/labs/Lab%20-%20Built-in%20functions%20/Hands-on_Lab__Built-in_Functions.md.html?utm_medium=Exinfluencer&utm_source=Exinfluencer&utm_content=000026UJ&utm_term=10006555&utm_id=NA-SkillsNetwork-Channel-SkillsNetworkCoursesIBMDS0321ENSkillsNetwork26802033-2022-01-01&origin=www.coursera.org)
@@ -77,6 +79,55 @@ Data Source: [Wikipedia: List of Falcon 9 and Falcon Heavy launches](https://en.
 
 ### Exploratory Analysis Using Pandas and Matplotlib
 
+#### [Jupyter Notebook: Data Visualization](res/jupyter-labs-eda-dataviz.ipynb)
+
+
+### Interactive Visual Analytics and Dashboards
+
+#### [Jupyter Notebook: Folium](res/jupyter_launch_site_location_folium.ipynb)
+
+```python
+# Function to assign color to launch outcome
+def assign_marker_color(launch_outcome):
+    if launch_outcome == 1:
+        return 'green'
+    else:
+        return 'red'
+    
+spacex_df['marker_color'] = spacex_df['class'].apply(assign_marker_color)
+```
+
+```python
+marker_cluster = MarkerCluster()
+# Add marker_cluster to current site_map
+site_map.add_child(marker_cluster)
+
+# for each row in spacex_df data frame
+# create a Marker object with its coordinate
+# and customize the Marker's icon property to indicate if this launch was successed or failed, 
+# e.g., icon=folium.Icon(color='white', icon_color=row['marker_color']
+for index, record in spacex_df.iterrows():
+    # TODO: Create and add a Marker cluster to the site map
+    # marker = folium.Marker(...)
+    
+    marker = folium.map.Marker(
+        [record['Lat'],record['Long']],
+        # Create an icon as a text label
+        icon=folium.Icon(color='white', icon_color=record['marker_color'])
+    )
+    marker_cluster.add_child(marker)
+```
+
+#### SpaceX Dash App
+
+
+[SpaceX Dash App Assignment Guide](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DS0321EN-SkillsNetwork/labs/module_3/lab_theia_plotly_dash.md.html)
+
+Plotly Dash Reference links:
+- [dcc.Dropdown (input)](https://dash.plotly.com/dash-core-components/dropdown)
+- [dcc.RangeSlider (input)](https://dash.plotly.com/dash-core-components/rangeslider)
+- [Pie Charts (output)](https://plotly.com/python/pie-charts/)
+- [Scatter Plots (output)](https://plotly.com/python/line-and-scatter/)
 
 
 <br/>
