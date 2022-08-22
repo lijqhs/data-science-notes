@@ -1,7 +1,5 @@
 # Applied Data Science Capstone <!-- omit in toc -->
 
-<img src="res/falcon9.png" width="700">
-
 - [Data Collection](#data-collection)
   - [Data Collection API](#data-collection-api)
     - [Jupyter Notebook: Data Collection API](#jupyter-notebook-data-collection-api)
@@ -19,8 +17,14 @@
     - [Jupyter Notebook: Folium](#jupyter-notebook-folium)
     - [SpaceX Dash App](#spacex-dash-app)
 - [Predictive Analysis (Classification)](#predictive-analysis-classification)
+  - [Jupyter Notebook: Machine Learning Prediction](#jupyter-notebook-machine-learning-prediction)
+- [How to Present Your Findings](#how-to-present-your-findings)
+  - [Structure of A Report](#structure-of-a-report)
+  - [Best Practices For Presenting Your Findings](#best-practices-for-presenting-your-findings)
 
 ## Data Collection
+
+<img src="res/falcon9.png" width="700">
 
 ### Data Collection API
 
@@ -240,8 +244,6 @@ if __name__ == '__main__':
     app.run_server()
 ```
 
-code: [spacex_dash_app.py](res/spacex_dash_app.py)
-
 
 Plotly Dash Reference links:
 - [dcc.Dropdown (input)](https://dash.plotly.com/dash-core-components/dropdown)
@@ -258,6 +260,69 @@ Plotly Dash Reference links:
 
 ## Predictive Analysis (Classification)
 
+```python
+import pandas as pd
+from sklearn import preprocessing
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV
+from sklearn.neighbors import KNeighborsClassifier
+
+def plot_confusion_matrix(y,y_predict):
+    "this function plots the confusion matrix"
+    from sklearn.metrics import confusion_matrix
+
+    cm = confusion_matrix(y, y_predict)
+    ax= plt.subplot()
+    sns.heatmap(cm, annot=True, ax = ax); #annot=True to annotate cells
+    ax.set_xlabel('Predicted labels')
+    ax.set_ylabel('True labels')
+    ax.set_title('Confusion Matrix'); 
+    ax.xaxis.set_ticklabels(['did not land', 'land']); ax.yaxis.set_ticklabels(['did not land', 'landed'])
+  
+# load data
+data = pd.read_csv("dataset_part_2.csv")
+X = pd.read_csv('dataset_part_3.csv')
+Y = data['Class'].to_numpy()
+X = preprocessing.StandardScaler().fit(X).transform(X)
+
+# split data
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=2)
+print ('Train set:', X_train.shape,  Y_train.shape)
+print ('Test set:', X_test.shape,  Y_test.shape)
+
+# build model to search best parameter
+parameters = {'n_neighbors': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+              'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute'],
+              'p': [1,2]}
+KNN = KNeighborsClassifier()
+knn_cv = GridSearchCV(KNN, parameters, cv=10)
+knn_cv.fit(X,Y)
+
+print("tuned hpyerparameters :(best parameters) ",knn_cv.best_params_)
+print("accuracy :",knn_cv.best_score_)
+
+# accuracy on test data
+knn_cv.score(X_test, Y_test)
+
+# plot the confusion matrix
+yhat = knn_cv.predict(X_test)
+plot_confusion_matrix(Y_test,yhat)
+```
+
+### [Jupyter Notebook: Machine Learning Prediction](res/SpaceX_Machine_Learning_Prediction_Part_5.ipynb)
+
+
+## How to Present Your Findings
+
+### Structure of A Report
+
+<img src="res/report.png" width="500">
+
+Reading: [Structure of A Report](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0101EN-SkillsNetwork/labs/Module%203/ReadingReportStructure.md.html?origin=www.coursera.org)
+
+### Best Practices For Presenting Your Findings
+
+Create a data-driven presentation that will keep the audience engaged and how to deliver a clear and concise message.
 
 <br/>
 <div align="right">

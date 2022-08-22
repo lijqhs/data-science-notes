@@ -104,6 +104,10 @@ More on [US Economic Forecast](https://www2.deloitte.com/us/en/insights/economy/
 - The structure of the final report for a Data Science project should include a cover page, table of contents, executive summary, detailed contents, acknowledgements, references and appendices.
 - The report should present a thorough analysis of the data and communicate the project findings.
 
+<img src="res/report.png" width="500">
+
+Reading: [Structure of A Report](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0101EN-SkillsNetwork/labs/Module%203/ReadingReportStructure.md.html?origin=www.coursera.org)
+
 To be a data scientist writer:
 
 - Have you told readers, at the outset, what they might gain by reading your paper?

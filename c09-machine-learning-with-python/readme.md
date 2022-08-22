@@ -20,7 +20,7 @@
     - [Log Loss](#log-loss)
   - [Decision Trees](#decision-trees)
     - [Entropy](#entropy)
-    - [Information Gain)](#information-gain)
+    - [Information Gain](#information-gainhttpsenwikipediaorgwikiinformation_gain_decision_tree)
     - [Jupyter Notebook: Decision Trees](#jupyter-notebook-decision-trees)
   - [Logistic Regression](#logistic-regression)
     - [Gradient Descent](#gradient-descent)
@@ -50,6 +50,7 @@
     - [Advantages and Disadvantages of Collaborative Filtering](#advantages-and-disadvantages-of-collaborative-filtering)
     - [Challenges of collaborative filtering](#challenges-of-collaborative-filtering)
     - [Jupyter Notebook: Collaborative Filtering](#jupyter-notebook-collaborative-filtering)
+- [Jupyter Notebook: Final Project.ipynb)](#jupyter-notebook-final-project)
 
 ## Introduction to Machine Learning
 
@@ -447,7 +448,7 @@ In which tree do we have less entropy after splitting rather than before splitti
 <img src="res/information-gain.png" width="600">
 
 
- #### [Information Gain](https://en.wikipedia.org/wiki/Information_gain_(decision_tree))
+ #### [Information Gain](https://en.wikipedia.org/wiki/Information_gain_(decision_tree)
  
 >[Information gain](https://machinelearningmastery.com/information-gain-and-mutual-information/) is the information that can increase the level of certainty after splitting. It is the entropy of a tree before the split minus the weighted entropy after the split by an attribute. We can think of information gain and entropy as opposites. As entropy or the amount of randomness decreases, the information gain or amount of certainty increases and vice versa. So, constructing a decision tree is all about finding attributes that return the highest information gain.
 
@@ -1177,6 +1178,9 @@ There are some solutions for each of these challenges such as using [hybrid base
 #### [Jupyter Notebook: Collaborative Filtering](res/NB13-Collaborative-Filtering-movies.ipynb)
 
 - [view on GitHub](https://github.com/lijqhs/data-science-notes/blob/main/c09-machine-learning-with-python/res/NB13-Collaborative-Filtering-movies.ipynb)
+
+
+## [Jupyter Notebook: Final Project](res/NB-MachineLearningwithPython_Project(loan-classification).ipynb)
 
 
 <br/>
