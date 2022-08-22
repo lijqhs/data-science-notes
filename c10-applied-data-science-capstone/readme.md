@@ -1,6 +1,6 @@
 # Applied Data Science Capstone <!-- omit in toc -->
 
-<img src="res/Falcon9_rocket_family.svg" width="800">
+<img src="res/falcon9.png" width="700">
 
 - [Data Collection](#data-collection)
   - [Data Collection API](#data-collection-api)
@@ -248,6 +248,13 @@ Plotly Dash Reference links:
 - [dcc.RangeSlider (input)](https://dash.plotly.com/dash-core-components/rangeslider)
 - [Pie Charts (output)](https://plotly.com/python/pie-charts/)
 - [Scatter Plots (output)](https://plotly.com/python/line-and-scatter/)
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
 
 ## Predictive Analysis (Classification)
 
