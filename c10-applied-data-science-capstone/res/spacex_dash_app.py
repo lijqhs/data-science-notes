@@ -84,6 +84,8 @@ def get_pie_chart(entered_site):
 def get_scatter_plot(entered_site, payload):
     filtered_df = spacex_df
     if entered_site == 'ALL':
+        filtered_df = filtered_df[(filtered_df['Payload Mass (kg)'] >= payload[0]) \
+                & (filtered_df['Payload Mass (kg)'] <= payload[1])]
         fig = px.scatter(filtered_df, x='Payload Mass (kg)', y="class", 
                          color="Booster Version Category",
                          title='Correlation between Payload and Success for all Sites')
