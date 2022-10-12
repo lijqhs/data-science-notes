@@ -106,6 +106,14 @@ df.describe()
 
 ### [Jupyter Notebook: Visualizing Data](res/Visualizing_Data.ipynb)
 
+
+<br/>
+<div align="right">
+    <b><a href="#top">↥ back to top</a></b>
+</div>
+<br/>
+
+
 ## Introduction to Probability Distribution
 
 
@@ -115,15 +123,15 @@ df.describe()
 
 <img src="res/jordan-chamberlain.png" width="500"> 
 
-<img src="res/hypothesis1.png" width="500"> 
+<img src="res/hypothesis1.png" width="550"> 
 
-<img src="res/hypothesis2.png" width="500"> 
+<img src="res/hypothesis2.png" width="550"> 
 
-<img src="res/hypothesis3.png" width="500"> 
+<img src="res/hypothesis3.png" width="550"> 
 
-<img src="res/hypothesis4.png" width="500"> 
+<img src="res/hypothesis4.png" width="550"> 
 
-<img src="res/hypothesis-test.jpeg" width="500"> 
+<img src="res/hypothesis-test.jpeg" width="550"> 
 
 To use both the **p-value** and significance level together,  you have to decide on a value for **alpha** after you state your hypothesis.  Suppose that is alpha = 0.10 (or 10%).  You then collect the data and calculate the p-value.  
 - If the p-value is greater than alpha, you assume that the null hypothesis is true and you fail to reject.  
